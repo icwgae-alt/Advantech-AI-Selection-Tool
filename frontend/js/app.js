@@ -712,17 +712,19 @@ function renderProductCards(data_list) {
         const totalM12100 = resolveCardTotal(item.prod_m12_100 || 0, item.prod_poe_m12_100 || 0);
         const totalM12Multi = item.prod_m12_multi_giga || 0;
         const totalBypass = (item.prod_bypass_m12_100 || 0) + (item.prod_bypass_m12_giga || 0);
+        const totalCombo  = item.prod_rj_100_combo || 0;  // RJ-45/SFP Combo 實體埠
 
         const sub = [
-            totalRjGiga > 0 ? `${totalRjGiga}GE` : '',
-            totalRj100 > 0 ? `${totalRj100}FE` : '',
+            totalRjGiga  > 0 ? `${totalRjGiga}GE` : '',
+            totalRj100   > 0 ? `${totalRj100}FE` : '',
+            totalCombo   > 0 ? `${totalCombo}GE Combo` : '',
             totalM12Multi > 0 ? `${totalM12Multi}Multi-Giga(2.5/5/10G)` : '',
             totalM12Giga > 0 ? `${totalM12Giga}GE(M12)` : '',
-            totalM12100 > 0 ? `${totalM12100}FE(M12)` : '',
-            item.prod_fiber_10g > 0 ? `${item.prod_fiber_10g}SFP+(10G)` : '',
-            item.prod_fiber_giga > 0 ? `${item.prod_fiber_giga}SFP(GbE)` : '',
-            item.prod_fiber_100 > 0 ? `${item.prod_fiber_100}FX` : '',
-            totalBypass > 0 ? `${totalBypass}Bypass` : ''
+            totalM12100  > 0 ? `${totalM12100}FE(M12)` : '',
+            item.prod_fiber_10g   > 0 ? `${item.prod_fiber_10g}SFP+(10G)` : '',
+            item.prod_fiber_giga  > 0 ? `${item.prod_fiber_giga}SFP(GbE)` : '',
+            item.prod_fiber_100   > 0 ? `${item.prod_fiber_100}FX` : '',
+            totalBypass  > 0 ? `${totalBypass}Bypass` : ''
         ].filter(Boolean).join(' + ');
         const poeTotal = (item.prod_poe_rj_100 || 0) + (item.prod_poe_rj_giga || 0) + (item.prod_poe_m12_100 || 0) + (item.prod_poe_m12_giga || 0);
 
@@ -1046,6 +1048,7 @@ function resetAll() {
 // Chatbot — 狀態
 // ═══════════════════════════════════════════════
 let chatHistory = [];
+let knownConstraints = {};  // 跨輪次累積的結構化限制條件（function/has_poe/temp_grade/... ），由後端合併後回傳
 let chatOpen = false;
 const CTX_PREVIEW_COUNT = 5;
 
@@ -1063,6 +1066,7 @@ function toggleChat() {
 // ── 清除對話 ──────────────────────────────────
 function clearChat() {
     chatHistory = [];
+    knownConstraints = {};
     document.getElementById('chatMessages').innerHTML = `
         <div class="msg-bubble assistant">
             您好！我是 Advantech 工業交換機選型 AI 助手。<br>
@@ -1417,7 +1421,8 @@ async function sendMessage() {
                 filters: {
                     type: document.getElementById('mgmtType').value,
                     port: numInput.value,
-                }
+                },
+                known_constraints: knownConstraints,
             },
             history: chatHistory.slice(-12).slice(0, -1),
         };
@@ -1441,6 +1446,11 @@ async function sendMessage() {
         if (data.referenced_models && data.referenced_models.length > 0) {
             acquiredModels = [...data.referenced_models];
         }
+
+        // 🌟 延續結構化限制條件（function/has_poe/temp_grade/port_count_min/software_requirements）。
+        // 後端已把這輪明確提到的條件跟舊的累積條件合併好，整包替換即可，
+        // 讓使用者不必每輪重複講一次「要寬溫、要 PoE」。
+        knownConstraints = data.known_constraints || {};
     } catch (err) {
         loadingEl.remove();
         appendMessage('assistant', `⚠️ 發生錯誤：${err.message}`);
