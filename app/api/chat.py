@@ -39,7 +39,12 @@ CHAT_TEST_MODE=datasheet_api 底下供評估可靠度，不會出現在正式請
 import os
 from fastapi import APIRouter, HTTPException
 from app.models.chat import ChatRequest, ChatResponse, PipelineStep, SourceChunk
-from app.rag.intent_parser import parse_intent, IntentResult
+from app.rag.intent_parser import (
+    parse_intent,
+    IntentResult,
+    merge_known_constraints,
+    intent_to_known_constraints,
+)
 from app.rag.hard_filter import (
     run_hard_filter,
     diagnose_empty_result,
@@ -190,6 +195,7 @@ def chat(req: ChatRequest) -> ChatResponse:
                     answer=f"資料庫中查無型號「{models_str}」，請確認型號是否正確。",
                     referenced_models=[],
                     sources=[],
+                    known_constraints=req.context.known_constraints,
                 )
             selected_models = resolved_pns
         print(f"[Chatbot] 目標型號解析: {target_models} → {selected_models}（來源: {'前端選型' if from_context else '訊息文字'}）")
@@ -198,9 +204,13 @@ def chat(req: ChatRequest) -> ChatResponse:
     # 失敗時 parse_intent 回傳空 IntentResult，後續走全庫搜尋
     intent = parse_intent(req.message)
 
+    # 併入跨輪次累積的已知限制條件（見決策：Option B 結構化條件累積，取代單純截斷對話歷史）。
+    # 這一輪訊息明確提到的欄位優先，沒提到的欄位才 fallback 用累積條件。
+    intent = merge_known_constraints(intent, req.context.known_constraints)
+
     # 印出意圖解析結果供除錯與觀察
     print(f"\n[Chatbot] 使用者問題: {req.message}")
-    print(f"[Chatbot] 解析意圖: {intent}\n")
+    print(f"[Chatbot] 解析意圖（已併入累積條件）: {intent}\n")
 
     # ── Stage 2：MongoDB Hard Filter ──────────────────────────────────────
     # all_docs：全部符合型號（供 referenced_models 完整顯示）
@@ -213,11 +223,14 @@ def chat(req: ChatRequest) -> ChatResponse:
         diagnosis = diagnose_empty_result(intent, selected_models)
         print(f"[Chatbot] Stage 2 Hard Filter 0 筆，診斷資料: {diagnosis}")
         answer = generate_no_match_explanation(req.message, intent, diagnosis)
+        # 這輪合併後的條件查無結果 → 不鎖進累積狀態（避免使用者被卡在一個永遠查不到東西的
+        # 累積條件組合裡），原樣把舊的 known_constraints 送回，讓使用者能換個說法重試。
         return ChatResponse(
             answer=answer,
             referenced_models=[],
             sources=[],
             steps=[],
+            known_constraints=req.context.known_constraints,
         )
 
     all_pns = [doc.get("product_pn", "") for doc in all_docs if doc.get("product_pn")]
@@ -292,4 +305,5 @@ def chat(req: ChatRequest) -> ChatResponse:
         referenced_models=all_pns,  # 顯示全部符合型號的 PN（不只 top_docs）
         sources=sources,
         steps=steps,
+        known_constraints=intent_to_known_constraints(intent),
     )

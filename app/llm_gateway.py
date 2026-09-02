@@ -52,6 +52,7 @@ class LLMGateway:
     TASK_MODELS: dict[str, str] = {
         "intent": os.getenv("INTENT_MODEL", "gemini-2.5-flash"),
         "report": os.getenv("CHAT_MODEL",   "gemini-2.5-flash"),
+        "rfq_verdict": os.getenv("RFQ_VERDICT_MODEL", "gemini-2.5-flash"),
     }
 
     # 用量控管：RPM 上限（每分鐘最多幾次）

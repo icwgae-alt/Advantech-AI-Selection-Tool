@@ -19,11 +19,16 @@ from pydantic import BaseModel, Field
 class ChatContext(BaseModel):
     """
     前端帶入的篩選上下文。
-    selected_models: 硬體篩選後鎖定的型號 PN 清單
-    filters:         目前的篩選條件（type / port），供意圖解析參考
+    selected_models:   硬體篩選後鎖定的型號 PN 清單
+    filters:           目前的篩選條件（type / port），供意圖解析參考
+    known_constraints: 跨輪次累積的結構化限制條件（上一輪 ChatResponse.known_constraints 原樣帶回），
+                       讓使用者不必每輪重複講一次「要寬溫、要 PoE」
     """
     selected_models: List[str] = Field(default=[], description="已鎖定的型號 PN 清單")
     filters: Dict[str, Any] = Field(default={}, description="目前的篩選條件")
+    known_constraints: Dict[str, Any] = Field(
+        default={}, description="跨輪次累積的結構化限制條件（function/has_poe/temp_grade/port_count_min/software_requirements）"
+    )
 
 
 class HistoryItem(BaseModel):
@@ -83,4 +88,8 @@ class ChatResponse(BaseModel):
     )
     steps: List[PipelineStep] = Field(
         default=[], description="情境推薦路徑的階段執行軌跡（Hard Filter / Semantic Search）"
+    )
+    known_constraints: Dict[str, Any] = Field(
+        default={},
+        description="這一輪合併後的結構化限制條件，前端原樣存起來、下一輪透過 context.known_constraints 帶回",
     )

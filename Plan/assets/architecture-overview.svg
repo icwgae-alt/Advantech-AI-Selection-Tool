@@ -1,0 +1,210 @@
+<svg viewBox="0 0 1480 784" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8f98"/>
+    </marker>
+    <marker id="arrow-etl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7a6a9c"/>
+    </marker>
+  </defs>
+
+  <style>
+    .cap   { font-size: 13px; font-weight: 700; fill: #4b5563; letter-spacing: .02em; }
+    .cap2  { font-size: 12.5px; font-weight: 600; fill: #6b7280; }
+    .box   { stroke-width: 1.5; rx: 8; }
+    .det   { fill: #E4EFEC; stroke: #1F6E6C; }
+    .llm   { fill: #F6ECDD; stroke: #B4650F; }
+    .gap   { fill: #F5E7E4; stroke: #A8433B; stroke-dasharray: 5 4; }
+    .infra { fill: #EEF0EA; stroke: #6b7280; }
+    .etlbox{ fill: #ECE9F4; stroke: #7a6a9c; }
+    .title { font-size: 13.5px; font-weight: 700; fill: #181D24; }
+    .titlec{ font-size: 13.5px; font-weight: 700; fill: #181D24; font-family: ui-monospace, Consolas, monospace; }
+    .sub   { font-size: 11.5px; fill: #55606e; }
+    .subc  { font-size: 11.5px; fill: #55606e; font-family: ui-monospace, Consolas, monospace; }
+    .muted { font-size: 12.5px; fill: #9aa0a8; font-style: italic; }
+    .conn  { stroke: #8a8f98; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+    .connd { stroke: #A8433B; stroke-width: 1.4; stroke-dasharray: 4 3; fill: none; marker-end: url(#arrow); }
+    .conne { stroke: #7a6a9c; stroke-width: 1.6; fill: none; marker-end: url(#arrow-etl); }
+    .divider { stroke: #DADDD6; stroke-width: 1; }
+  </style>
+
+  <rect x="0" y="0" width="1480" height="784" fill="#FBFBF9"/>
+
+  <!-- ===================== Row captions ===================== -->
+  <text x="50" y="20" class="cap">前端 UI · Frontend</text>
+  <text x="50" y="112" class="cap">後端 API · Backend</text>
+  <text x="50" y="212" class="cap">核心邏輯層 · Core Logic (RAG)</text>
+  <text x="740" y="340" class="cap2" text-anchor="middle">↓ 共用基礎設施 Shared Infrastructure（依模組需求個別呼叫，非固定管線）↓</text>
+  <text x="560" y="452" class="cap2" text-anchor="middle">離線 ETL 管線（獨立於線上服務，人工觸發）</text>
+
+  <!-- ===================== Row F: Frontend (y=28,h=66) ===================== -->
+  <rect x="50"  y="28" width="310" height="66" class="box det"/>
+  <text x="205" y="48" text-anchor="middle" class="title">選型主 UI</text>
+  <text x="205" y="66" text-anchor="middle" class="subc">app.js ＋ scenes.js</text>
+  <text x="205" y="83" text-anchor="middle" class="subc">＋ feature-selector.js</text>
+
+  <rect x="400" y="28" width="310" height="66" class="box llm"/>
+  <text x="555" y="55" text-anchor="middle" class="title">AI 對話 FAB</text>
+  <text x="555" y="74" text-anchor="middle" class="subc">app.js</text>
+
+  <rect x="750" y="28" width="310" height="66" class="box gap"/>
+  <text x="905" y="66" text-anchor="middle" class="muted">（尚無 UI 入口）</text>
+
+  <rect x="1100" y="28" width="310" height="66" class="box llm"/>
+  <text x="1255" y="55" text-anchor="middle" class="title">比較面板</text>
+  <text x="1255" y="74" text-anchor="middle" class="subc">compare.js</text>
+
+  <!-- ===================== Arrows F -> A ===================== -->
+  <line x1="205" y1="94" x2="205" y2="126" class="conn"/>
+  <line x1="555" y1="94" x2="555" y2="126" class="conn"/>
+  <line x1="905" y1="94" x2="905" y2="126" class="connd"/>
+  <line x1="1170" y1="94" x2="1170" y2="126" class="conn"/>
+  <line x1="1340" y1="94" x2="1340" y2="126" class="conn"/>
+
+  <!-- ===================== Row A: Backend API (y=128,h=66) ===================== -->
+  <rect x="50"  y="128" width="310" height="66" class="box det"/>
+  <text x="205" y="150" text-anchor="middle" class="titlec">selection.py</text>
+  <text x="205" y="167" text-anchor="middle" class="subc">GET /api/searchProdType</text>
+  <text x="205" y="182" text-anchor="middle" class="subc">POST /api/submitProdType</text>
+
+  <rect x="400" y="128" width="310" height="66" class="box llm"/>
+  <text x="555" y="155" text-anchor="middle" class="titlec">chat.py</text>
+  <text x="555" y="174" text-anchor="middle" class="subc">POST /api/chat</text>
+
+  <rect x="750" y="128" width="310" height="66" class="box gap"/>
+  <text x="905" y="155" text-anchor="middle" class="titlec">（尚無）app/api/rfq.py</text>
+  <text x="905" y="174" text-anchor="middle" class="subc">POST /api/rfq</text>
+
+  <rect x="1100" y="128" width="140" height="66" class="box llm"/>
+  <text x="1170" y="155" text-anchor="middle" class="titlec">compare.py</text>
+  <text x="1170" y="174" text-anchor="middle" class="subc">/compare-summary</text>
+
+  <rect x="1270" y="128" width="140" height="66" class="box det"/>
+  <text x="1340" y="155" text-anchor="middle" class="titlec">report.py</text>
+  <text x="1340" y="174" text-anchor="middle" class="subc">/exportReport</text>
+
+  <!-- ===================== Arrows A -> C ===================== -->
+  <line x1="205" y1="194" x2="205" y2="226" class="conn"/>
+  <line x1="555" y1="194" x2="555" y2="226" class="conn"/>
+  <line x1="905" y1="194" x2="905" y2="226" class="connd"/>
+  <line x1="1170" y1="194" x2="1170" y2="226" class="conn"/>
+  <line x1="1340" y1="194" x2="1340" y2="226" class="conn"/>
+
+  <!-- ===================== Row C: Core Logic (y=228,h=90) ===================== -->
+  <rect x="50"  y="228" width="310" height="90" class="box det"/>
+  <text x="205" y="264" text-anchor="middle" class="title">純 MongoDB 查詢</text>
+  <text x="205" y="283" text-anchor="middle" class="sub">（無 RAG／LLM）</text>
+
+  <rect x="400" y="228" width="310" height="90" class="box llm"/>
+  <text x="555" y="258" text-anchor="middle" class="title">6-Stage RAG Pipeline</text>
+  <text x="555" y="277" text-anchor="middle" class="subc">Stage 0 → 1 → 2 → 3 → 5</text>
+  <text x="555" y="294" text-anchor="middle" class="sub">詳見下方「Chatbot Pipeline 展開圖」</text>
+
+  <rect x="750" y="228" width="310" height="90" class="box gap"/>
+  <text x="905" y="258" text-anchor="middle" class="titlec">rfq_matcher.py</text>
+  <text x="905" y="277" text-anchor="middle" class="sub">查找（規則）＋批次判級（LLM）</text>
+  <text x="905" y="294" text-anchor="middle" class="muted">原型已驗證，未接線</text>
+
+  <rect x="1100" y="228" width="140" height="90" class="box llm"/>
+  <text x="1170" y="258" text-anchor="middle" class="titlec" font-size="12">compare_summary.py</text>
+  <text x="1170" y="277" text-anchor="middle" class="sub">固定格式摘要</text>
+  <text x="1170" y="292" text-anchor="middle" class="sub">（LLM）</text>
+
+  <rect x="1270" y="228" width="140" height="90" class="box det"/>
+  <text x="1340" y="258" text-anchor="middle" class="titlec" font-size="12">report_generator.py</text>
+  <text x="1340" y="277" text-anchor="middle" class="sub">reportlab</text>
+  <text x="1340" y="292" text-anchor="middle" class="sub">PDF 排版</text>
+
+  <!-- ===================== Shared infrastructure divider ===================== -->
+  <line x1="35" y1="352" x2="1445" y2="352" class="divider"/>
+
+  <!-- ===================== Infra row (y=352,h=78) ===================== -->
+  <rect x="35"   y="352" width="330" height="78" class="box infra"/>
+  <text x="200" y="378" text-anchor="middle" class="titlec">llm_gateway.py</text>
+  <text x="200" y="396" text-anchor="middle" class="sub">統一 Gemini 呼叫層</text>
+  <text x="200" y="411" text-anchor="middle" class="sub">RPM 限流／重試／用量 log</text>
+
+  <rect x="395" y="352" width="330" height="78" class="box infra"/>
+  <text x="560" y="378" text-anchor="middle" class="titlec">MongoDB · product_specs</text>
+  <text x="560" y="396" text-anchor="middle" class="sub">主規格庫（硬體＋軟體）</text>
+  <text x="560" y="411" text-anchor="middle" class="sub">Single Source of Truth</text>
+
+  <rect x="755" y="352" width="330" height="78" class="box infra"/>
+  <text x="920" y="378" text-anchor="middle" class="titlec" font-size="12.5">MongoDB Atlas Vector Search</text>
+  <text x="920" y="396" text-anchor="middle" class="sub">EKI_DataSheet_Chunks</text>
+  <text x="920" y="411" text-anchor="middle" class="sub">1070 筆，僅 EKI 系列</text>
+
+  <rect x="1115" y="352" width="330" height="78" class="box infra"/>
+  <text x="1280" y="378" text-anchor="middle" class="titlec" font-size="12.5">frontend/data/pics</text>
+  <text x="1280" y="396" text-anchor="middle" class="sub">型號圖片</text>
+  <text x="1280" y="411" text-anchor="middle" class="sub">啟動時自動產生縮圖快取</text>
+
+  <!-- ===================== ETL panel (y=460,h=100) ===================== -->
+  <rect x="250" y="460" width="620" height="100" rx="8" fill="none" stroke="#c9c2da" stroke-width="1.4" stroke-dasharray="3 3"/>
+
+  <rect x="270" y="495" width="170" height="48" class="box etlbox"/>
+  <text x="355" y="514" text-anchor="middle" class="title" font-size="12.5">Google Sheets</text>
+  <text x="355" y="530" text-anchor="middle" class="sub">PM 維護規格原始表</text>
+
+  <rect x="460" y="495" width="190" height="48" class="box etlbox"/>
+  <text x="555" y="514" text-anchor="middle" class="titlec" font-size="12">fetch_*.py →</text>
+  <text x="555" y="530" text-anchor="middle" class="subc">sync_specs_to_mongo.py</text>
+
+  <rect x="670" y="495" width="170" height="48" class="box etlbox"/>
+  <text x="755" y="514" text-anchor="middle" class="titlec" font-size="12">data/*_raw.json</text>
+  <text x="755" y="530" text-anchor="middle" class="sub">本地快取（除錯用）</text>
+
+  <line x1="440" y1="519" x2="458" y2="519" class="conne"/>
+  <line x1="650" y1="519" x2="668" y2="519" class="conne"/>
+  <line x1="555" y1="495" x2="560" y2="432" class="conne"/>
+
+  <!-- ===================== Legend (y~575) ===================== -->
+  <circle cx="470" cy="580" r="6" fill="#E4EFEC" stroke="#1F6E6C" stroke-width="1.5"/>
+  <text x="484" y="585" class="sub">無 LLM（確定性查詢）</text>
+
+  <circle cx="680" cy="580" r="6" fill="#F6ECDD" stroke="#B4650F" stroke-width="1.5"/>
+  <text x="694" y="585" class="sub">呼叫 LLM（Gemini，經 llm_gateway.py）</text>
+
+  <circle cx="960" cy="580" r="6" fill="#F5E7E4" stroke="#A8433B" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="974" y="585" class="sub">原型完成／規劃中，尚未接線</text>
+
+  <text x="740" y="602" text-anchor="middle" class="muted" font-size="11">※ app.js 同時驅動「選型主 UI」與「AI 對話 FAB」兩種前端行為，此圖依情境功能分欄，非依檔案切分</text>
+
+  <!-- ===================== Chatbot Pipeline detail (y=630+) ===================== -->
+  <text x="740" y="640" text-anchor="middle" class="cap">Chatbot Pipeline 展開圖 — POST /api/chat 內部固定執行順序（非 LLM 自主決策）</text>
+
+  <rect x="50"   y="652" width="260" height="88" class="box det"/>
+  <text x="180" y="677" text-anchor="middle" class="sub">Stage 0</text>
+  <text x="180" y="696" text-anchor="middle" class="titlec" font-size="13">model_detector</text>
+  <text x="180" y="714" text-anchor="middle" class="sub">規則式型號偵測</text>
+
+  <line x1="310" y1="696" x2="328" y2="696" class="conn"/>
+
+  <rect x="330" y="652" width="260" height="88" class="box llm"/>
+  <text x="460" y="677" text-anchor="middle" class="sub">Stage 1</text>
+  <text x="460" y="696" text-anchor="middle" class="titlec" font-size="13">intent_parser</text>
+  <text x="460" y="714" text-anchor="middle" class="sub">自然語言 → 結構化條件</text>
+
+  <line x1="590" y1="696" x2="608" y2="696" class="conn"/>
+
+  <rect x="610" y="652" width="260" height="88" class="box det"/>
+  <text x="740" y="677" text-anchor="middle" class="sub">Stage 2</text>
+  <text x="740" y="696" text-anchor="middle" class="titlec" font-size="13">hard_filter</text>
+  <text x="740" y="714" text-anchor="middle" class="sub">MongoDB 硬篩選</text>
+
+  <line x1="870" y1="696" x2="888" y2="696" class="conn"/>
+
+  <rect x="890" y="652" width="260" height="88" rx="8" fill="#F6ECDD" stroke="#B4650F" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="1020" y="677" text-anchor="middle" class="sub">Stage 3（條件式）</text>
+  <text x="1020" y="696" text-anchor="middle" class="titlec" font-size="13">vector_search</text>
+  <text x="1020" y="714" text-anchor="middle" class="sub">候選子集內語意搜尋</text>
+  <text x="1020" y="754" text-anchor="middle" class="muted" font-size="11">僅 semantic_query 非空時執行</text>
+
+  <line x1="1150" y1="696" x2="1168" y2="696" class="conn"/>
+
+  <rect x="1170" y="652" width="260" height="88" class="box llm"/>
+  <text x="1300" y="677" text-anchor="middle" class="sub">Stage 5</text>
+  <text x="1300" y="696" text-anchor="middle" class="titlec" font-size="13">report_generator</text>
+  <text x="1300" y="714" text-anchor="middle" class="sub">生成 Markdown 回答</text>
+
+</svg>

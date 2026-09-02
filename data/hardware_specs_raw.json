@@ -1,7 +1,6 @@
 {
   "industrial_sw": [
     {
-      "Application": "車載系統, 軌道沿線, 智慧工廠",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6520",
       "Product PN": "ADAM-6520-BE",
@@ -10,6 +9,7 @@
       "PLM Lifecycle": "MP",
       "Description": "Industrial Ethernet Switches with 5 x 10/100Base-TX Ports",
       "Type": "ADAM",
+      "MIT SKU": "TRUE",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -34,7 +34,6 @@
       "Note": ""
     },
     {
-      "Application": "軌道沿線",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6520I",
       "Product PN": "ADAM-6520I-AE",
@@ -43,6 +42,7 @@
       "PLM Lifecycle": "MP",
       "Description": "Industrial Ethernet Switches with 5 x 10/100Base-TX Ports w/Wide Temp",
       "Type": "ADAM",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -67,7 +67,6 @@
       "Note": "Continue supply"
     },
     {
-      "Application": "智慧工廠",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6521",
       "Product PN": "ADAM-6521-BE",
@@ -76,6 +75,7 @@
       "PLM Lifecycle": "MP",
       "Description": "Industrial Ethernet Switches with 4 x 10/100Base-TX Ports & 1 x 100Base-FX Fiber Optic Port",
       "Type": "ADAM",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -100,7 +100,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6521S",
       "Product PN": "ADAM-6521S-AE",
@@ -109,6 +108,7 @@
       "PLM Lifecycle": "MP",
       "Description": "Industrial Ethernet Switches with 4 x 10/100Base-TX Ports & 1 x 100Base-FX Fiber Optic Port",
       "Type": "ADAM",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -133,7 +133,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6521-ST",
       "Product PN": "ADAM-6521/ST-AE",
@@ -142,6 +141,7 @@
       "PLM Lifecycle": "MP",
       "Description": "Industrial Ethernet Switches with 4 x 10/100Base-TX Ports & 1 x 100Base-FX Fiber Optic Port",
       "Type": "ADAM",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -166,7 +166,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "ADAM-6520L",
       "Product PN": "ADAM-6520L-AE",
@@ -175,6 +174,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port 10/100 Mbps Unmanaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -199,7 +199,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2428G-4CA",
       "Product PN": "EKI-2428G-4CA-AE",
@@ -208,6 +207,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24G+4G Combo port unmanaged  Switch, 100/240VAC",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -232,7 +232,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2428G-4CAI",
       "Product PN": "EKI-2428G-4CAI-AE",
@@ -241,6 +240,7 @@
       "PLM Lifecycle": "NEW",
       "Description": "24G+4G Combo port unmanaged  Switch, 100/240VAC , wide tempt.",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -265,7 +265,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2428G-4CI",
       "Product PN": "EKI-2428G-4CI-BE",
@@ -274,6 +273,7 @@
       "PLM Lifecycle": "NEW",
       "Description": "24GE+4G combo port unmanaged Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -298,7 +298,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525",
       "Product PN": "EKI-2525-BE",
@@ -307,6 +306,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -331,7 +331,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525I",
       "Product PN": "EKI-2525I-BE",
@@ -340,6 +339,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Unmanaged Industrial Ethernet Switch w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -364,7 +364,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525LI",
       "Product PN": "EKI-2525LI-AE",
@@ -373,6 +372,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5 FE Low Profile Unmanaged Switch w/Wide Temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -397,7 +397,6 @@
       "Note": "height 8cm"
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525M",
       "Product PN": "EKI-2525M-BE",
@@ -406,6 +405,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4 + 1FX Multi-Mode unmanaged Ethernet switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -430,7 +430,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525MI",
       "Product PN": "EKI-2525MI-BE",
@@ -439,6 +438,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+1 100FX  Port Multi-Mode Unmanaged Industrial Ethernet Switch (SC) w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -463,7 +463,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525MI-ST",
       "Product PN": "EKI-2525MI-ST-BE",
@@ -472,6 +471,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+1 100FX  Port Multi-Mode Unmanaged Industrial Ethernet Switch (ST) w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -496,7 +496,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525S",
       "Product PN": "EKI-2525S-AE",
@@ -505,6 +504,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4 + 1FX Single-Mode unmanaged Ethernet switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -529,7 +529,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525SI",
       "Product PN": "EKI-2525SI-AE",
@@ -538,6 +537,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+1 100FX  Port Single-Mode Unmanaged Industrial Ethernet Switch (SC) w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -562,7 +562,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525SI-ST",
       "Product PN": "EKI-2525SI-ST-AE",
@@ -571,6 +570,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+1 100FX  Port Single-Mode Unmanaged Industrial Ethernet Switch (ST) w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -595,7 +595,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2526M",
       "Product PN": "EKI-2526M-AE",
@@ -604,6 +603,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+2 100FX Port Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -628,7 +628,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2526M-ST",
       "Product PN": "EKI-2526M-ST-AE",
@@ -637,6 +636,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4Tx + 2 MM Unmanaged Ethernet Switch w/ ST",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -661,7 +661,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2526S",
       "Product PN": "EKI-2526S-AE",
@@ -670,6 +669,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4+2 100FX Port Single Mode Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -694,7 +694,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2528",
       "Product PN": "EKI-2528-BE",
@@ -703,6 +702,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -727,7 +727,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2528I",
       "Product PN": "EKI-2528I-BE",
@@ -736,6 +735,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port Unmanaged Industrial Ethernet Switch w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -760,7 +760,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2528DI",
       "Product PN": "EKI-2528DI-AE",
@@ -769,6 +768,7 @@
       "PLM Lifecycle": "Continue supply, changed to DNV compliant",
       "Description": "DNV 8-port Unmanaged Industrial Ethernet Switch w/ Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -793,7 +793,6 @@
       "Note": "Continue supply"
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2528I-M12-AE",
       "Product PN": "EKI-2528I-M12-AE",
@@ -802,6 +801,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port M12 Unmanaged Ind. Ethernet Switch, IP67",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -826,7 +826,6 @@
       "Note": "NEW M12 IP67"
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2525I-LA",
       "Product PN": "EKI-2525I-LA-AE",
@@ -835,6 +834,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5 FE Unmanaged Switch w/Wide Temp. Low AC",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -859,7 +859,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2528I-LA",
       "Product PN": "EKI-2528I-LA-AE",
@@ -868,6 +867,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8 FE Unmanaged Switch w/Wide Temp. Low AC",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -892,7 +892,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2705E-1GPI",
       "Product PN": "EKI-2705E-1GPI-A/\nEKI-2705E-1GPI-AU",
@@ -901,6 +900,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4FE+1GE Unmanaged Industrial PoE Switch w/wide temp.",
       "Type": "Din-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "1",
       "RJ-45 Gigabit": "",
@@ -925,7 +925,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2705G-1GPI",
       "Product PN": "EKI-2705G-1GPI-A/\nEKI-2705G-1GPI-AU",
@@ -934,6 +933,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5GE+1GE Unmanaged Industrial PoE Switch w/wide temp.",
       "Type": "Din-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "1",
@@ -958,7 +958,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2706E-1GFPI",
       "Product PN": "EKI-2706E-1GPI-BE/\nEKI-2705E-1GPI-BU",
@@ -967,6 +966,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5FE+1GE Unmanaged Industrial PoE Switch w/wide temp.",
       "Type": "Din-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "1",
       "RJ-45 Gigabit": "",
@@ -991,7 +991,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2706G-1GFPI",
       "Product PN": "EKI-2706G-1GFPI-BE/\nEKI-2706G-1GFPI-BU",
@@ -1000,6 +999,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5GE+1GE SFP Unmanaged Industrial PoE Switch w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "1",
@@ -1024,7 +1024,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2706G-2FPI",
       "Product PN": "EKI-2706G-2FPI-A",
@@ -1033,6 +1032,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4GE PoE + 2G SFP Ind. Unmnaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -1057,7 +1057,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2706G-2GPI",
       "Product PN": "EKI-2706G-2GPI-A",
@@ -1066,6 +1065,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4GE PoE + 2GE Ind. Unmnaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "2",
@@ -1090,7 +1090,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2708G-PI",
       "Product PN": "EKI-2708G-PI-A",
@@ -1099,6 +1098,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8GE PoE Ind. Unmanaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -1123,7 +1123,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2710G-2FPI",
       "Product PN": "EKI-2710G-2FPI-A",
@@ -1132,6 +1131,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8GE PoE +2G SFP Ind. Unmanaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -1156,7 +1156,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2712G-4FPI",
       "Product PN": "EKI-2712G-4FPI-AE",
@@ -1165,6 +1164,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+4SFP Gigabit Unmanaged Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -1189,7 +1189,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2720G-4F",
       "Product PN": "EKI-2720G-4F-AE",
@@ -1198,6 +1197,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16G+4SFP Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -1222,7 +1222,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2720G-4FI",
       "Product PN": "EKI-2720G-4FI-AE",
@@ -1231,6 +1230,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16G+4SFP Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -1255,7 +1255,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2725",
       "Product PN": "EKI-2725-CE",
@@ -1264,6 +1263,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Gigabit Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "5",
@@ -1288,7 +1288,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2725F-AE",
       "Product PN": "EKI-2725F-AE",
@@ -1297,6 +1296,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4 GE + 1 SFP Ind. Unmanaged Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -1321,7 +1321,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2725FI-AE",
       "Product PN": "EKI-2725FI-AE",
@@ -1330,6 +1329,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4 GE + 1 SFP Ind. Unmanaged Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -1354,7 +1354,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2725I",
       "Product PN": "EKI-2725I-CE",
@@ -1363,6 +1362,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Gigabit Unmanaged Industrial Ethernet Switch w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "5",
@@ -1387,7 +1387,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728",
       "Product PN": "EKI-2728-D",
@@ -1396,6 +1395,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port Gigabit Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -1420,7 +1420,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728I",
       "Product PN": "EKI-2728I-D",
@@ -1429,6 +1428,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port Gigabit Unmanaged Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -1453,7 +1453,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728M",
       "Product PN": "EKI-2728M-BE",
@@ -1462,6 +1461,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6GE+2GE Multi-mode Unmanaged Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1486,7 +1486,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728MI",
       "Product PN": "EKI-2728MI-BE",
@@ -1495,6 +1494,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6Gx+2 Multi-Mode Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1519,7 +1519,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728MI-ST",
       "Product PN": "EKI-2728MI-ST-BE",
@@ -1528,6 +1527,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6Gx+2 Multi-Mode ST Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1552,7 +1552,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728S",
       "Product PN": "EKI-2728S-AE",
@@ -1561,6 +1560,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6GE+2GE Single-mode Unmanaged Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1585,7 +1585,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728SI",
       "Product PN": "EKI-2728SI-AE",
@@ -1594,6 +1593,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6GE+2GE Single-mode Unmanaged Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1618,7 +1618,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2728SI-ST",
       "Product PN": "EKI-2728SI-ST-AE",
@@ -1627,6 +1626,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6GE+2GE Single-mode ST Unmanaged Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -1651,7 +1651,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2710E-2CI",
       "Product PN": "EKI-2710E-2CI-A",
@@ -1660,6 +1659,7 @@
       "PLM Lifecycle": "NEW, MP",
       "Description": "8FE + 2GE Combo unmanaged switch with EMC Level 4 & DIP switch for smart management",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -1684,7 +1684,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2718E-2CI",
       "Product PN": "EKI-2718E-2CI-A",
@@ -1693,6 +1692,7 @@
       "PLM Lifecycle": "NEW, MP",
       "Description": "16FE + 2GE   switch with EMC Level 4 & DIP switch for smart management",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -1717,7 +1717,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2716EI",
       "Product PN": "EKI-2716EI-A",
@@ -1726,6 +1725,7 @@
       "PLM Lifecycle": "NEW, MP",
       "Description": "16 port Fast Ethernet switch with EMC Level 4 & DIP switch for smart management",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -1750,7 +1750,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2716GI",
       "Product PN": "EKI-2716GI-A",
@@ -1759,6 +1758,7 @@
       "PLM Lifecycle": "NEW, MP",
       "Description": "16 port Giga thernet switch with EMC Level 4 & DIP switch for smart management",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -1783,7 +1783,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged",
       "Model Name": "EKI-2716GI-R",
       "Product PN": "EKI-2716GI-R-A",
@@ -1792,6 +1791,7 @@
       "PLM Lifecycle": "NEW, MP",
       "Description": "16 port Giga thernet switch with EMC Level 4 & DIP switch for X-Ring/RSTP",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -1816,7 +1816,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5524MMI",
       "Product PN": "EKI-5524MMI-AE",
@@ -1825,6 +1824,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port + 2x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -1849,7 +1849,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5524MMI-ST",
       "Product PN": "EKI-5524MMI-ST-AE",
@@ -1858,6 +1857,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port + 2x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -1882,7 +1882,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5524SSI",
       "Product PN": "EKI-5524SSI-AE",
@@ -1891,6 +1890,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port + 2x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -1915,7 +1915,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5524SSI-ST",
       "Product PN": "EKI-5524SSI-ST-AE",
@@ -1924,6 +1923,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port + 2x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -1948,7 +1948,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5525I",
       "Product PN": "EKI-5525I-AE",
@@ -1957,6 +1956,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Fast Ethernet ProView Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "5",
       "RJ-45 Gigabit": "",
@@ -1981,7 +1981,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5525MI",
       "Product PN": "EKI-5525MI-AE",
@@ -1990,6 +1989,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port +1x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -2014,7 +2014,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5525MI-ST",
       "Product PN": "EKI-5525MI-ST-AE",
@@ -2023,6 +2022,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port +1x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -2047,7 +2047,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5525SI",
       "Product PN": "EKI-5525SI-AE",
@@ -2056,6 +2055,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port +1x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -2080,7 +2080,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5525SI-ST",
       "Product PN": "EKI-5525SI-ST-AE",
@@ -2089,6 +2088,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4-port +1x100FX port (Single/Multi-mode, SC/ST type), Fast Ethernet ProView Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -2113,7 +2113,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5526I",
       "Product PN": "EKI-5526I-AE",
@@ -2122,6 +2121,7 @@
       "PLM Lifecycle": "Going to EOL, replaced by EKI-2716EI-A",
       "Description": "16-port Fast Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2146,7 +2146,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5526I-EI",
       "Product PN": "EKI-5526I-EI-AE",
@@ -2155,6 +2154,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "16 port Entry-Level Managed Switch Support Multiple Industrial Protocols  w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2179,7 +2179,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5526I-MB",
       "Product PN": "EKI-5526I-MB-AE",
@@ -2188,6 +2187,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5526I-EI-AE",
       "Description": "16 port Entry-Level Managed Switch Supporting Modbus/TCP w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2212,7 +2212,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5526I-PN",
       "Product PN": "EKI-5526I-PN-AE",
@@ -2221,6 +2220,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5526I-EI-AE",
       "Description": "16 port Entry-Level Managed Switch Supporting PROFINET w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2245,7 +2245,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5528I",
       "Product PN": "EKI-5528I-AE",
@@ -2254,6 +2253,7 @@
       "PLM Lifecycle": "Going to EOL, replaced by EKI-2728-D",
       "Description": "8-port Fast Ethernet ProView Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2278,7 +2278,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5528I-EI",
       "Product PN": "EKI-5528I-EI-AE",
@@ -2287,6 +2286,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8 port Entry-Level Managed Switch Support Multiple Industrial Protocols w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2311,7 +2311,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5528I-MB",
       "Product PN": "EKI-5528I-MB-AE",
@@ -2320,6 +2319,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5528I-EI-AE",
       "Description": "8 port Entry-Level Managed Switch Supporting Modbus/TCP w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2344,7 +2344,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5528I-PN",
       "Product PN": "EKI-5528I-PN-AE",
@@ -2353,6 +2352,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5528I-EI-AE",
       "Description": "8 port Entry-Level Managed Switch Supporting PROFINET w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2377,7 +2377,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5528-PNMA",
       "Product PN": "EKI-5528-PNMA-AE",
@@ -2386,6 +2385,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5528I-EI-AE",
       "Description": "8 Port Entry-Level Managed Switch Supporting PROFINET MRP Manager",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2410,7 +2410,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5626CI",
       "Product PN": "EKI-5626CI-AE",
@@ -2419,6 +2418,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16FE + 2GE Combo Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2443,7 +2443,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5626CI-EI",
       "Product PN": "EKI-5626CI-EI-BE",
@@ -2452,6 +2451,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16FE + 2G Combo Ports Entry-Level Managed Switch Support Multiple Industrial Protocols w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2476,7 +2476,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5626CI-MB",
       "Product PN": "EKI-5626CI-MB-BE",
@@ -2485,6 +2484,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5626CI-EI-BE",
       "Description": "16FE + 2G Combo Ports Entry-Level Managed Switch Supporting Modbus/TCP w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2509,7 +2509,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5626CI-PN",
       "Product PN": "EKI-5626CI-PN-BE",
@@ -2518,6 +2517,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5626CI-EI-BE",
       "Description": "16FE + 2G Combo Ports Entry-Level Managed Switch Supporting PROFINET w/wide temp.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -2542,7 +2542,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5629CI",
       "Product PN": "EKI-5629CI-AE",
@@ -2551,6 +2550,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE + 2GE Combo Ethernet ProView Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2575,7 +2575,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5629CI-EI",
       "Product PN": "EKI-5629CI-EI-BE",
@@ -2584,6 +2583,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE + 2G Combo Ports Entry-Level Managed Switch Support Multiple Industrial Protocols w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2608,7 +2608,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5629CI-MB",
       "Product PN": "EKI-5629CI-MB-BE",
@@ -2617,6 +2616,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5629CI-EI-BE",
       "Description": "8FE + 2G Combo Ports Entry-Level Managed Switch Supporting Modbus/TCP w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2641,7 +2641,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5629CI-PN",
       "Product PN": "EKI-5629CI-PN-BE",
@@ -2650,6 +2649,7 @@
       "PLM Lifecycle": "Going to EOL. Replaced by EKI-5629CI-EI-BE",
       "Description": "8FE + 2G Combo Ports Entry-Level Managed Switch Supporting PROFINET w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -2674,7 +2674,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5726I-MB",
       "Product PN": "EKI-5726I-MB-AE",
@@ -2683,6 +2682,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "16GE Ind. Switch with Modbus TCP/IP, W/T.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -2707,7 +2707,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5726FI-MB",
       "Product PN": "EKI-5726FI-MB-AE",
@@ -2716,6 +2715,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "16G+2G Ind. Switch with Modbus TCP/IP, W/T",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -2740,7 +2740,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5728I-MB",
       "Product PN": "EKI-5728I-MB-AE",
@@ -2749,6 +2748,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8GE Ind. Switch with Modbus TCP/IP, W/T.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -2773,7 +2773,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Entry Level Managed Switch",
       "Model Name": "EKI-5729FI-MB",
       "Product PN": "EKI-5729FI-MB-AE",
@@ -2782,6 +2781,7 @@
       "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8GE+2G Ind. Switch Support Multiple Industrial Protocols, W/T.",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -2806,7 +2806,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5725I",
       "Product PN": "EKI-5725I-AE",
@@ -2815,6 +2814,7 @@
       "PLM Lifecycle": "MP",
       "Description": "5-port Gigabit Ethernet ProView Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "5",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "5",
@@ -2839,7 +2839,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5726FI",
       "Product PN": "EKI-5726FI-AE",
@@ -2848,6 +2847,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16-port+2 SFP Gigabit Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "18",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -2872,7 +2872,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5726I",
       "Product PN": "EKI-5726I-AE",
@@ -2881,6 +2880,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16-port Gigabit Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -2905,7 +2905,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5728I",
       "Product PN": "EKI-5728I-AE",
@@ -2914,6 +2913,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-port Gigabit Ethernet ProView Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -2938,7 +2938,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5729FI",
       "Product PN": "EKI-5729FI-AE",
@@ -2947,6 +2946,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8-Port+2 SFP Gigabit Ethernet ProView Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -2971,7 +2971,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Unmanaged / Proview",
       "Model Name": "EKI-5729PI",
       "Product PN": "EKI-5729PI-AE",
@@ -2980,6 +2979,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8 GE with PoE+ + 2GE Industry Ethernet Proview PoE Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "2",
@@ -3004,7 +3004,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-5708E",
       "Product PN": "EKI-5708E-I-A",
@@ -3013,6 +3012,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8 FE Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -3037,7 +3037,6 @@
       "Note": "2024/9 launch"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-5708E-2FI",
       "Product PN": "EKI-5708E-2FI-A",
@@ -3046,6 +3045,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6 FE with 2 SFP Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "6",
       "RJ-45 Gigabit": "",
@@ -3070,7 +3070,6 @@
       "Note": "2024/9 launch"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-5710E",
       "Product PN": "EKI-5710E-I-A",
@@ -3079,6 +3078,7 @@
       "PLM Lifecycle": "MP",
       "Description": "10 FE Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "10",
       "RJ-45 Gigabit": "",
@@ -3103,7 +3103,6 @@
       "Note": "2024/9 launch"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-5710E-2FI",
       "Product PN": "EKI-5710E-2FI-A",
@@ -3112,6 +3111,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8 FE with 2 SFP Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -3136,7 +3136,6 @@
       "Note": "2024/9 launch"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7412G-4XP",
       "Product PN": "EKI-7412G-4XP-AE",
@@ -3145,6 +3144,7 @@
       "PLM Lifecycle": "EOL. No Replacement",
       "Description": "8GE + 4 SFP+ L2 Managed PoE Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3169,7 +3169,6 @@
       "Note": "Temp: 0 ~ 60C"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4CA",
       "Product PN": "EKI-7428G-4CA-AE",
@@ -3178,6 +3177,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24G+4G Combo port L2 Managed Switch, 100/240VAC",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -3202,7 +3202,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4CI",
       "Product PN": "EKI-7428G-4CI-AE",
@@ -3211,6 +3210,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-7428G-4CI-BE",
       "Description": "24G+4G Combo port L2 Managed Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -3235,7 +3235,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4CI",
       "Product PN": "EKI-7428G-4CI-BE",
@@ -3244,6 +3243,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24G+4G Combo port L2 Managed Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -3268,7 +3268,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4CPI-AE",
       "Product PN": "EKI-7428G-4CPI-AE",
@@ -3277,6 +3276,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-7428G-4CPI-BE",
       "Description": "24G+4G Combo port L2 Managed PoE+ Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3301,7 +3301,6 @@
       "Note": "LTB 2023/12/31"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4CPI-BE",
       "Product PN": "EKI-7428G-4CPI-BE",
@@ -3310,6 +3309,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24G+4G Combo port L2 Managed PoE+ Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3334,7 +3334,6 @@
       "Note": "Going to MP in 2022/3"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4X",
       "Product PN": "EKI-7428G-4X-AE",
@@ -3343,6 +3342,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24GE + 4 SFP+ L2 Managed Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -3367,7 +3367,6 @@
       "Note": "Temp: 0 ~ 60C"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7428G-4XP-AE",
       "Product PN": "EKI-7428G-4XP-AE",
@@ -3376,6 +3375,7 @@
       "PLM Lifecycle": "MP",
       "Description": "24GE + 4 SFP+ L2 Managed Poe Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3400,7 +3400,6 @@
       "Note": "Temp: 0 ~ 60C"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7454G-6X",
       "Product PN": "EKI-7454G-6X-AE",
@@ -3409,6 +3408,7 @@
       "PLM Lifecycle": "EOL. No Replacement",
       "Description": "48GE + 6 SFP+ L2 Managed Switch",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "54",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "48",
@@ -3433,7 +3433,6 @@
       "Note": "Temp: 0 ~ 60C"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7706E-2F",
       "Product PN": "EKI-7706E-2F-AE",
@@ -3442,6 +3441,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4FE+2SFP Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -3466,7 +3466,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7706E-2FI",
       "Product PN": "EKI-7706E-2FI-AE",
@@ -3475,6 +3474,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4FE+2SFP Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -3499,7 +3499,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7706G-2F",
       "Product PN": "EKI-7706G-2F-AE",
@@ -3508,6 +3507,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4GE+2SFP Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -3532,7 +3532,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7706G-2FI",
       "Product PN": "EKI-7706G-2FI-AE",
@@ -3541,6 +3540,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4GE+2SFP Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "6",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -3565,7 +3565,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-4F",
       "Product PN": "EKI-7708E-4F-AE",
@@ -3574,6 +3573,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-5708E-2FI",
       "Description": "4FE+4SFP Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -3598,7 +3598,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-4FI",
       "Product PN": "EKI-7708E-4FI-AE",
@@ -3607,6 +3606,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-5708E-2FI",
       "Description": "4FE+4SFP Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "4",
       "RJ-45 Gigabit": "",
@@ -3631,7 +3631,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-2MI",
       "Product PN": "EKI-7708E-2MI-AE",
@@ -3640,6 +3639,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6xFE+2 Multi-Mode Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -3664,7 +3664,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-2SI",
       "Product PN": "EKI-7708E-2SI-AE",
@@ -3673,6 +3672,7 @@
       "PLM Lifecycle": "MP",
       "Description": "6xFE+2 Single-Mode Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -3697,7 +3697,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-4FP",
       "Product PN": "EKI-7708E-4FP-AE",
@@ -3706,6 +3705,7 @@
       "PLM Lifecycle": "EOL, propose \"I' version",
       "Description": "4FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3730,7 +3730,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-4FPI",
       "Product PN": "EKI-7708E-4FPI-AE",
@@ -3739,6 +3738,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "4FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3763,7 +3763,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708E-4FPI",
       "Product PN": "EKI-7708E-4FPI-BE",
@@ -3772,6 +3771,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3796,7 +3796,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-2MI",
       "Product PN": "EKI-7708G-2MI-AE",
@@ -3805,6 +3804,7 @@
       "PLM Lifecycle": "EOL. No successor. By requeste",
       "Description": "6Gx+2 Multi-Mode Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -3829,7 +3829,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-2SI",
       "Product PN": "EKI-7708G-2SI-AE",
@@ -3838,6 +3837,7 @@
       "PLM Lifecycle": "EOL. No successor. By requeste",
       "Description": "6Gx+2 Single-Mode Unmanaged Ethernet Switch with Wide Temperature",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -3862,7 +3862,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4F",
       "Product PN": "EKI-7708G-4F-AE",
@@ -3871,6 +3870,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-7708G-4FI-BE",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -3895,7 +3895,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4FI",
       "Product PN": "EKI-7708G-4FI-AE",
@@ -3904,6 +3903,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-7708G-4FI-BE",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -3928,7 +3928,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4FI",
       "Product PN": "EKI-7708G-4FI-BE",
@@ -3937,6 +3936,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "4",
@@ -3961,7 +3961,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4FP-AE",
       "Product PN": "EKI-7708G-4FP-AE",
@@ -3970,6 +3969,7 @@
       "PLM Lifecycle": "EOL, propose \"I' version",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -3994,7 +3994,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4FPI-AE",
       "Product PN": "EKI-7708G-4FPI-AE",
@@ -4003,6 +4002,7 @@
       "PLM Lifecycle": "EOL. Replaced by EKI-7708G-4FPI-BE",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4027,7 +4027,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7708G-4FPI-BE",
       "Product PN": "EKI-7708G-4FPI-BE",
@@ -4036,6 +4035,7 @@
       "PLM Lifecycle": "MP",
       "Description": "4G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "8",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4060,7 +4060,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710E-2C",
       "Product PN": "EKI-7710E-2C-BE",
@@ -4069,6 +4068,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+2G Port Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4093,7 +4093,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710E-2CI",
       "Product PN": "EKI-7710E-2CI-BE",
@@ -4102,6 +4101,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+2G Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4126,7 +4126,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710E-2CPI",
       "Product PN": "EKI-7710E-2CPI-BE",
@@ -4135,6 +4134,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+2G Port Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4159,7 +4159,6 @@
       "Note": "Phase out, LTB 2023/12/E, Successor EKI-7710G-2CPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710G-2C",
       "Product PN": "EKI-7710G-2C-BE",
@@ -4168,6 +4167,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+2G Port Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4192,7 +4192,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710G-2CI",
       "Product PN": "EKI-7710G-2CI-BE",
@@ -4201,6 +4200,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+2G Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4225,7 +4225,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7710G-2CPI-BE",
       "Product PN": "EKI-7710G-2CPI-BE",
@@ -4234,6 +4233,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+2G Port Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4258,7 +4258,6 @@
       "Note": "Replace AE version."
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4F",
       "Product PN": "EKI-7712E-4F-AE",
@@ -4267,6 +4266,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8FE+4SFP Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4291,7 +4291,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4FI",
       "Product PN": "EKI-7712E-4FI-AE",
@@ -4300,6 +4299,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8FE+4SFP Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4324,7 +4324,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4FP",
       "Product PN": "EKI-7712E-4FP-AE",
@@ -4333,6 +4332,7 @@
       "PLM Lifecycle": "EOL, propose \"I' version",
       "Description": "8FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4357,7 +4357,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4FPI",
       "Product PN": "EKI-7712E-4FPI-AE",
@@ -4366,6 +4365,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4390,7 +4390,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4F",
       "Product PN": "EKI-7712G-4F-AE",
@@ -4399,6 +4398,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4423,7 +4423,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FI",
       "Product PN": "EKI-7712G-4FI-AE",
@@ -4432,6 +4431,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4456,7 +4456,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FMPI",
       "Product PN": "EKI-7712G-4FMPI-AE",
@@ -4465,6 +4464,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8G+4SFP with Mega PoE Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4489,7 +4489,6 @@
       "Note": "PoE 802.3bt solution"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FP-AE",
       "Product PN": "EKI-7712G-4FP-AE",
@@ -4498,6 +4497,7 @@
       "PLM Lifecycle": "EOL, propose \"I' version",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4522,7 +4522,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FPI-AE",
       "Product PN": "EKI-7712G-4FPI-AE",
@@ -4531,6 +4530,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4555,7 +4555,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4F",
       "Product PN": "EKI-7712E-4F-BE",
@@ -4564,6 +4563,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+4SFP Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4588,7 +4588,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4FI",
       "Product PN": "EKI-7712E-4FI-BE",
@@ -4597,6 +4596,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+4SFP Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "8",
       "RJ-45 Gigabit": "",
@@ -4621,7 +4621,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712E-4FPI",
       "Product PN": "EKI-7712E-4FPI-BE",
@@ -4630,6 +4629,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8FE+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4654,7 +4654,6 @@
       "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4F",
       "Product PN": "EKI-7712G-4F-BE",
@@ -4663,6 +4662,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4687,7 +4687,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FI",
       "Product PN": "EKI-7712G-4FI-BE",
@@ -4696,6 +4695,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4720,7 +4720,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FPI-BE",
       "Product PN": "EKI-7712G-4FPI-BE",
@@ -4729,6 +4728,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+4SFP Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4753,7 +4753,6 @@
       "Note": "Replace AE version."
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7712G-4FMPI",
       "Product PN": "EKI-7712G-4FMPI-BE",
@@ -4762,6 +4761,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8G+4SFP with Mega PoE Wide Temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -4786,7 +4786,6 @@
       "Note": "PoE 802.3bt solution"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7716G-4F4CI",
       "Product PN": "EKI-7716G-4F4CI-AE",
@@ -4795,6 +4794,7 @@
       "PLM Lifecycle": "EOL. Replaced by BE version",
       "Description": "8GE+4G SFP+4G Combo Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4819,7 +4819,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7716G-4F4CI",
       "Product PN": "EKI-7716G-4F4CI-BE",
@@ -4828,6 +4827,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8GE+4G SFP+4G Combo Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "16",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -4852,7 +4852,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7720E-4F",
       "Product PN": "EKI-7720E-4F-BE",
@@ -4861,6 +4860,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16FE+4SFP Port Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -4885,7 +4885,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7720E-4FI",
       "Product PN": "EKI-7720E-4FI-BE",
@@ -4894,6 +4893,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16FE+4SFP Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "16",
       "RJ-45 Gigabit": "",
@@ -4918,7 +4918,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7720G-4F",
       "Product PN": "EKI-7720G-4F-BE",
@@ -4927,6 +4926,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16G+4SFP Port Gigabit Managed Redundant Industrial Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -4951,7 +4951,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7720G-4FI",
       "Product PN": "EKI-7720G-4FI-BE",
@@ -4960,6 +4959,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16G+4SFP Port Gigabit Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -4984,7 +4984,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-7720G-4FPI",
       "Product PN": "EKI-7720G-4FPI-BE",
@@ -4993,6 +4992,7 @@
       "PLM Lifecycle": "MP",
       "Description": "16GE+4 SFP Port Gigabit Managed Redundant Industrial PoE+ Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -5017,7 +5017,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "Managed-TSN",
       "Model Name": "EKI-8510G-2FI",
       "Product PN": "EKI-8510G-2FI-AE",
@@ -5026,6 +5025,7 @@
       "PLM Lifecycle": "MP",
       "Description": "8GE+2 SFP Port TSN managed switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "10",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -5050,7 +5050,6 @@
       "Note": "Temp: -40 ~ 66C"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9226G-20FMI",
       "Product PN": "EKI-9226G-20FMI-AE",
@@ -5059,6 +5058,7 @@
       "PLM Lifecycle": "MP",
       "Description": "IEC61850-3 20G x SFP + 6G Managed Ethernet Switch, 48DC",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "26",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -5083,7 +5083,6 @@
       "Note": "IEC61850-3"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9226G-20FOI",
       "Product PN": "EKI-9226G-20FOI-AE",
@@ -5092,6 +5091,7 @@
       "PLM Lifecycle": "MP",
       "Description": "IEC61850-3 20G x SFP + 6G Managed Ethernet Switch, 90 ~ 264VAC/88 ~ 370VDC",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "26",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "6",
@@ -5116,7 +5116,6 @@
       "Note": "IEC61850-3"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9228G-8CMI",
       "Product PN": "EKI-9228G-8CMI-AE",
@@ -5125,6 +5124,7 @@
       "PLM Lifecycle": "Inactivate",
       "Description": "16G RJ-45 +4G x SFP + 8G Combo ports, dual 48VDC",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -5149,7 +5149,6 @@
       "Note": "Phase Out.LTB 2022/12"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9228G-8COI",
       "Product PN": "EKI-9228G-8COI-AE",
@@ -5158,6 +5157,7 @@
       "PLM Lifecycle": "Phase Out.LTB 2024/12 for china",
       "Description": "16G RJ-45 +4G x SFP + 8G Combo ports, dual AC/DC power input",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -5182,7 +5182,6 @@
       "Note": "Phase Out.LTB 2022/12"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9612G-4FI",
       "Product PN": "EKI-9612G-4FI-AE",
@@ -5191,6 +5190,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 8G+4G SFP Managed Redundant Industrial Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -5215,7 +5215,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "Managed",
       "Model Name": "EKI-9628G-4CI",
       "Product PN": "EKI-9628G-4CI-AE",
@@ -5224,6 +5223,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 24G+4G Combo port Managed Switch w/wide temp",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -5248,7 +5248,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed",
       "Model Name": "EKI-8712G-4XFI",
       "Product PN": "EKI-8712G-4XFI-AE",
@@ -5257,6 +5256,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 8G+4 10G SFP+ Port Managed Industrial L3 Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -5281,7 +5281,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed",
       "Model Name": "EKI-8712G-4XFPI",
       "Product PN": "EKI-8712G-4XFPI-AE",
@@ -5290,6 +5289,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 8G+4 10G SFP+ Port Managed Industrial L3 PoE Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -5314,7 +5314,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed",
       "Model Name": "EKI-8720G-4XFI",
       "Product PN": "EKI-8720G-4XFI-A",
@@ -5323,6 +5322,7 @@
       "PLM Lifecycle": "MP expected in mid/July",
       "Description": "L3 16G+4 10G SFP+ Port Managed Industrial L3 Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -5347,7 +5347,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed",
       "Model Name": "EKI-8720G-4XFPI",
       "Product PN": "EKI-8720G-4XFPI-A",
@@ -5356,6 +5355,7 @@
       "PLM Lifecycle": "MP expected in mid/July",
       "Description": "L3 16G+4 10G SFP+ Port Managed Industrial L3 PoE Switch w/wide temp",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "20",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -5380,7 +5380,6 @@
       "Note": "Layer 3"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed",
       "Model Name": "EKI-9728G-4X8CI",
       "Product PN": "EKI-9728G-4X8CI-AE",
@@ -5389,6 +5388,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 4x10GbE + 16G + 8G Combo port Managed Switch w/wide temp",
       "Type": "Rack",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "16",
@@ -5413,7 +5413,6 @@
       "Note": "Phase Out.LTB 2022/12"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed Modular",
       "Model Name": "EKI-8528-4XF",
       "Product PN": "EKI-8528-4XF-A",
@@ -5422,6 +5421,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L3 module managed switch with TSN and 1588 enabled\n(3 x 8-port slots, up to 24 Giga ports) and 4x10G SFP w/wide temp",
       "Type": "Rack modular",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "up to 24",
@@ -5446,7 +5446,6 @@
       "Note": "Modules need to be ordered seperately\nPlease refer to \"cables, modules, accessories\" worksheet"
     },
     {
-      "Application": "電力系統",
       "Function": "L2 Managed Modular",
       "Model Name": "EKI-8528-4XFL",
       "Product PN": "EKI-8528-4XFL-A",
@@ -5455,6 +5454,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L2 module managed switch with TSN and 1588 enabled\n(3 x 8-port slots, up to 24 Giga ports) and 4x10G SFP w/wide temp",
       "Type": "Rack modular",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "up to 24",
@@ -5479,7 +5479,6 @@
       "Note": "Modules need to be ordered seperately\nPlease refer to \"cables, modules, accessories\" worksheet"
     },
     {
-      "Application": "電力系統",
       "Function": "L3 Managed Modular",
       "Model Name": "EKI-8528-4XFRC",
       "Product PN": "EKI-8528-4XFRC-A",
@@ -5488,6 +5487,7 @@
       "PLM Lifecycle": "EVT",
       "Description": "L3 module managed switch with rear cabling\n(3 x 8-port slots, up to 24 Giga ports) and 4x10G SFP w/wide temp",
       "Type": "Rack modular",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "up to 24",
@@ -5512,7 +5512,6 @@
       "Note": "Ethernet Modules need to be ordered seperately\nPlease refer to \"cables, modules, accessories\" worksheet"
     },
     {
-      "Application": "電力系統",
       "Function": "L2 Managed Modular",
       "Model Name": "EKI-7528-4XF24T-A",
       "Product PN": "EKI-7528-4XF24T-A",
@@ -5521,6 +5520,7 @@
       "PLM Lifecycle": "MP",
       "Description": "L2 24GE + 4 10G SFP + managed switch",
       "Type": "Rack modular",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "24",
@@ -5545,7 +5545,6 @@
       "Note": ""
     },
     {
-      "Application": "電力系統",
       "Function": "L2 Managed Modular",
       "Model Name": "EKI-7528-4XF24F-A",
       "Product PN": "EKI-7528-4XF24F-A",
@@ -5554,6 +5553,7 @@
       "PLM Lifecycle": "PVT",
       "Description": "L2 24GE SFP + 4 10G SFP + managed switch",
       "Type": "Rack modular",
+      "MIT SKU": "",
       "Port Numbers": "28",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "",
@@ -5578,7 +5578,6 @@
       "Note": "Estimate to MP by 2026Q1"
     },
     {
-      "Application": "電力系統",
       "Function": "L2 Managed Modular",
       "Model Name": "EKI-9212G-4XFOI",
       "Product PN": "EKI-9212G-4XFOI-A",
@@ -5587,6 +5586,7 @@
       "PLM Lifecycle": "PVT",
       "Description": "IEC 61850-3 12 port L2 Managed Redbox Switch",
       "Type": "DIN-Rail",
+      "MIT SKU": "",
       "Port Numbers": "12",
       "RJ-45 10/100M": "",
       "RJ-45 Gigabit": "8",
@@ -5613,7 +5613,6 @@
   ],
   "train_sw": [
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MPW",
       "Product PN": "EKI-9508E-MPW-B",
@@ -5641,7 +5640,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MW",
       "Product PN": "EKI-9508E-MW-B",
@@ -5669,7 +5667,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-PW",
       "Product PN": "EKI-9508E-PW-B",
@@ -5697,7 +5694,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-W",
       "Product PN": "EKI-9508E-W-B",
@@ -5725,7 +5721,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MPW",
       "Product PN": "EKI-9508G-MPW-B",
@@ -5753,7 +5748,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MW",
       "Product PN": "EKI-9508G-MW-B",
@@ -5781,7 +5775,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-PW",
       "Product PN": "EKI-9508G-PW-B",
@@ -5809,7 +5802,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-W",
       "Product PN": "EKI-9508G-W-B",
@@ -5837,7 +5829,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MPW",
       "Product PN": "EKI-9510E-MPW-B",
@@ -5865,7 +5856,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MW",
       "Product PN": "EKI-9510E-MW-B",
@@ -5893,7 +5883,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-PW",
       "Product PN": "EKI-9510E-PW-B",
@@ -5921,7 +5910,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-W",
       "Product PN": "EKI-9510E-W-B",
@@ -5949,7 +5937,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMPW",
       "Product PN": "EKI-9510E-2GMPW-B",
@@ -5977,7 +5964,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMW",
       "Product PN": "EKI-9510E-2GMW-B",
@@ -6005,7 +5991,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GPW",
       "Product PN": "EKI-9510E-2GPW-B",
@@ -6033,7 +6018,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GW",
       "Product PN": "EKI-9510E-2GW-B",
@@ -6061,7 +6045,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MPW",
       "Product PN": "EKI-9510G-MPW-B",
@@ -6089,7 +6072,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MW",
       "Product PN": "EKI-9510G-MW-B",
@@ -6117,7 +6099,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-PW",
       "Product PN": "EKI-9510G-PW-B",
@@ -6145,7 +6126,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-W",
       "Product PN": "EKI-9510G-W-B",
@@ -6173,7 +6153,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MPS",
       "Product PN": "EKI-9508E-MPS-B",
@@ -6201,7 +6180,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MS",
       "Product PN": "EKI-9508E-MS-B",
@@ -6229,7 +6207,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-PS",
       "Product PN": "EKI-9508E-PS-B",
@@ -6257,7 +6234,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-S",
       "Product PN": "EKI-9508E-S-B",
@@ -6285,7 +6261,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MPS",
       "Product PN": "EKI-9508G-MPS-B",
@@ -6313,7 +6288,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MS",
       "Product PN": "EKI-9508G-MS-B",
@@ -6341,7 +6315,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-PS",
       "Product PN": "EKI-9508G-PS-B",
@@ -6369,7 +6342,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-S",
       "Product PN": "EKI-9508G-S-B",
@@ -6397,7 +6369,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MPS",
       "Product PN": "EKI-9510E-MPS-B",
@@ -6425,7 +6396,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MS",
       "Product PN": "EKI-9510E-MS-B",
@@ -6453,7 +6423,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-PS",
       "Product PN": "EKI-9510E-PS-B",
@@ -6481,7 +6450,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-S",
       "Product PN": "EKI-9510E-S-B",
@@ -6509,7 +6477,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMPS",
       "Product PN": "EKI-9510E-2GMPS-B",
@@ -6537,7 +6504,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMS",
       "Product PN": "EKI-9510E-2GMS-B",
@@ -6565,7 +6531,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GPS",
       "Product PN": "EKI-9510E-2GPS-B",
@@ -6593,7 +6558,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GS",
       "Product PN": "EKI-9510E-2GS-B",
@@ -6621,7 +6585,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MPS",
       "Product PN": "EKI-9510G-MPS-B",
@@ -6649,7 +6612,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MS",
       "Product PN": "EKI-9510G-MS-B",
@@ -6677,7 +6639,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-PS",
       "Product PN": "EKI-9510G-PS-B",
@@ -6705,7 +6666,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-S",
       "Product PN": "EKI-9510G-S-B",
@@ -6733,7 +6693,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MPST",
       "Product PN": "EKI-9508E-MPST-B",
@@ -6761,7 +6720,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508E-MST",
       "Product PN": "EKI-9508E-MST-B",
@@ -6789,7 +6747,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-PST",
       "Product PN": "EKI-9508E-PST-B",
@@ -6817,7 +6774,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508E-ST",
       "Product PN": "EKI-9508E-ST-B",
@@ -6845,7 +6801,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MPST",
       "Product PN": "EKI-9508G-MPST-B",
@@ -6873,7 +6828,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9508G-MST",
       "Product PN": "EKI-9508G-MST-B",
@@ -6901,7 +6855,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-PST",
       "Product PN": "EKI-9508G-PST-B",
@@ -6929,7 +6882,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9508G-ST",
       "Product PN": "EKI-9508G-ST-B",
@@ -6957,7 +6909,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MPST",
       "Product PN": "EKI-9510E-MPST-B",
@@ -6985,7 +6936,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-MST",
       "Product PN": "EKI-9510E-MST-B",
@@ -7013,7 +6963,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-PST",
       "Product PN": "EKI-9510E-PST-B",
@@ -7041,7 +6990,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-ST",
       "Product PN": "EKI-9510E-ST-B",
@@ -7069,7 +7017,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMPST",
       "Product PN": "EKI-9510E-2GMPST-B",
@@ -7097,7 +7044,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510E-2GMST",
       "Product PN": "EKI-9510E-2GMST-B",
@@ -7125,7 +7071,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GPST",
       "Product PN": "EKI-9510E-2GPST-B",
@@ -7153,7 +7098,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510E-2GST",
       "Product PN": "EKI-9510E-2GST-B",
@@ -7181,7 +7125,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MPST",
       "Product PN": "EKI-9510G-MPST-B",
@@ -7209,7 +7152,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9510G-MST",
       "Product PN": "EKI-9510G-MST-B",
@@ -7237,7 +7179,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-PST",
       "Product PN": "EKI-9510G-PST-B",
@@ -7265,7 +7206,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Unmanaged",
       "Model Name": "EKI-9510G-ST",
       "Product PN": "EKI-9510G-ST-B",
@@ -7293,7 +7233,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512E-4GMPW",
       "Product PN": "EKI-9512E-4GMPW-AE",
@@ -7321,7 +7260,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512G-4GMPW",
       "Product PN": "EKI-9512G-4GMPW-AE",
@@ -7349,7 +7287,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512E-4GMW",
       "Product PN": "EKI-9512E-4GMW-AE",
@@ -7377,7 +7314,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512G-4GMW",
       "Product PN": "EKI-9512G-4GMW-AE",
@@ -7405,7 +7341,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512E-4GMPX",
       "Product PN": "EKI-9512E-4GMPX-AE",
@@ -7433,7 +7368,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512G-4GMPX",
       "Product PN": "EKI-9512G-4GMPX-AE",
@@ -7461,7 +7395,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512E-4GMX",
       "Product PN": "EKI-9512E-4GMX-AE",
@@ -7489,7 +7422,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9512G-4GMX",
       "Product PN": "EKI-9512G-4GMX-AE",
@@ -7517,7 +7449,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-8GMPW",
       "Product PN": "EKI-9516E-8GMPW-AE",
@@ -7545,7 +7476,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-4GMPW",
       "Product PN": "EKI-9516E-4GMPW-AE",
@@ -7573,7 +7503,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516G-4GMPW",
       "Product PN": "EKI-9516G-4GMPW-AE",
@@ -7601,7 +7530,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-4GMW",
       "Product PN": "EKI-9516E-4GMW-AE",
@@ -7629,7 +7557,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516G-4GMW",
       "Product PN": "EKI-9516G-4GMW-AE",
@@ -7657,7 +7584,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-8GMPX",
       "Product PN": "EKI-9516E-8GMPX-AE",
@@ -7685,7 +7611,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-4GMPX",
       "Product PN": "EKI-9516E-4GMPX-AE",
@@ -7713,7 +7638,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516G-4GMPX",
       "Product PN": "EKI-9516G-4GMPX-AE",
@@ -7741,7 +7665,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-4GMX",
       "Product PN": "EKI-9516E-4GMX-AE",
@@ -7769,7 +7692,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516G-4GMX",
       "Product PN": "EKI-9516G-4GMX-AE",
@@ -7797,7 +7719,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-MX",
       "Product PN": "EKI-9516E-MX-AE",
@@ -7825,7 +7746,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9516E-MPX",
       "Product PN": "EKI-9516E-MPX-AE",
@@ -7853,7 +7773,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Router",
       "Model Name": "EKI-9512E-4GETB",
       "Product PN": "EKI-9512E-4GETB-A",
@@ -7881,7 +7800,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Router",
       "Model Name": "EKI-9512G-4GETB",
       "Product PN": "EKI-9512G-4GETB-A",
@@ -7909,7 +7827,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-12GMPW",
       "Product PN": "EKI-9528E-12GMPW-A",
@@ -7937,7 +7854,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-8GMPW",
       "Product PN": "EKI-9528E-8GMPW-A",
@@ -7965,7 +7881,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528G-4GMPW",
       "Product PN": "EKI-9528G-4GMPW-A",
@@ -7993,7 +7908,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-12GMW",
       "Product PN": "EKI-9528E-12GMW-A",
@@ -8021,7 +7935,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-8GMW",
       "Product PN": "EKI-9528E-8GMW-A",
@@ -8049,7 +7962,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528G-4GMW",
       "Product PN": "EKI-9528G-4GMW-A",
@@ -8077,7 +7989,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-12GMPX",
       "Product PN": "EKI-9528E-12GMPX-A",
@@ -8105,7 +8016,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-8GMPX",
       "Product PN": "EKI-9528E-8GMPX-A",
@@ -8133,7 +8043,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528G-4GMPX",
       "Product PN": "EKI-9528G-4GMPX-A",
@@ -8161,7 +8070,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-12GMX",
       "Product PN": "EKI-9528E-12GMX-A",
@@ -8189,7 +8097,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528E-8GMX",
       "Product PN": "EKI-9528E-8GMX-A",
@@ -8217,7 +8124,6 @@
       "Note": "By request"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9528G-4GMX",
       "Product PN": "EKI-9528G-4GMX-A",
@@ -8245,7 +8151,6 @@
       "Note": "Available"
     },
     {
-      "Application": "Train",
       "Function": "Managed",
       "Model Name": "EKI-9520H-6XPW",
       "Product PN": "EKI-9520H-6XPW-A",

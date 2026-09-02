@@ -28,4 +28,5 @@ frontend/data/pics_thumb/
 # Backups and tool files
 frontend_backup_20260706/
 .claude/
+*.code-workspace
 

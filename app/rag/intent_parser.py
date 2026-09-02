@@ -100,6 +100,45 @@ def _build_intent_prompt(user_query: str, sw_feat_keys: list[str]) -> str:
 """
 
 
+def merge_known_constraints(intent: IntentResult, known: Optional[dict]) -> IntentResult:
+    """
+    把跨輪次累積的「已知限制條件」(前端 context.known_constraints) 併入這一輪剛解析出的 intent，
+    讓使用者不必每輪重複講一次「要寬溫、要 PoE」。
+
+    合併規則：這一輪訊息明確提到的欄位（non-null）優先；沒提到的欄位才 fallback 用已知條件，
+    因此使用者只要在新一輪明確講出不同的值（例如「不用 PoE 了」），就能覆蓋掉舊的累積條件。
+    software_requirements 用聯集去重（這一輪在前）。
+    """
+    known = known or {}
+    f = intent.filter
+    merged_filter = IntentFilter(
+        function       = f.function if f.function is not None else known.get("function"),
+        has_poe        = f.has_poe if f.has_poe is not None else known.get("has_poe"),
+        temp_grade     = f.temp_grade if f.temp_grade is not None else known.get("temp_grade"),
+        port_count_min = f.port_count_min if f.port_count_min is not None else known.get("port_count_min"),
+    )
+    merged_sw = list(dict.fromkeys(
+        intent.software_requirements + list(known.get("software_requirements") or [])
+    ))
+    return IntentResult(
+        filter=merged_filter,
+        software_requirements=merged_sw,
+        semantic_query=intent.semantic_query,
+    )
+
+
+def intent_to_known_constraints(intent: IntentResult) -> dict:
+    """把合併後的 IntentResult 序列化成要回傳給前端、供下一輪帶回來的 known_constraints 格式。"""
+    f = intent.filter
+    return {
+        "function": f.function,
+        "has_poe": f.has_poe,
+        "temp_grade": f.temp_grade,
+        "port_count_min": f.port_count_min,
+        "software_requirements": intent.software_requirements,
+    }
+
+
 def parse_intent(user_query: str) -> IntentResult:
     """
     主要入口：解析使用者問題，回傳 IntentResult。
