@@ -2200,7 +2200,7 @@ function renderProductTable(data_list) {
     ).join('');
     let pickerHtml = `
     <div class="col-picker-panel" id="tv-col-panel">
-        <div class="col-picker-label">Select columns to display</div>
+        <div class="col-picker-label">${T('selectColumnsToDisplay')}</div>
         <div class="col-picker-row" id="tv-col-chips">
             <div class="col-picker-general">${_pickerGeneralHtml}</div>
             <div class="col-picker-groups">
