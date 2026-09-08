@@ -179,7 +179,9 @@ const FS_GROUPS = [
 // 待軟體規格資料確認無誤後，把 FS_SOFTWARE_HIDDEN 改回 false 即可恢復顯示所有卡片。
 // 注意：這裡只影響「卡片顯示」與「模態框內搜尋」，不影響 FS_GROUPS 本身或資料載入/分類邏輯。
 const FS_SOFTWARE_HIDDEN = true;
-const FS_HARDWARE_GROUP_IDS = new Set(['portspeed', 'power', 'certifications', 'hw']);
+// 'portspeed'（Port Type / Connector）已移除：內容（PoE/Fiber/RJ-45/M12）跟左側 Wizard 的
+// PoE 與 Interface Type 篩選重複，保留在 Advanced Filter 容易讓使用者混淆重複設定同一條件。
+const FS_HARDWARE_GROUP_IDS = new Set(['power', 'certifications', 'hw']);
 const FS_VISIBLE_GROUPS = FS_SOFTWARE_HIDDEN
     ? FS_GROUPS.filter(g => FS_HARDWARE_GROUP_IDS.has(g.id))
     : FS_GROUPS;

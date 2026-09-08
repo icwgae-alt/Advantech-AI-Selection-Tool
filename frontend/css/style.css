@@ -79,6 +79,41 @@ body {
     font-family: 'IBM Plex Mono', monospace;
 }
 
+.lang-switch {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.lang-switch-btn {
+    background: #fff;
+    border: 1.5px solid #b8cfe8;
+    color: #2a4a7a;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s;
+    line-height: 1.2;
+}
+
+.lang-switch-btn:hover {
+    border-color: #0062cc;
+    color: #003366;
+    background: #ddeaf8;
+}
+
+.lang-switch-btn.active {
+    background: var(--adv-blue);
+    border-color: var(--adv-blue);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.25);
+}
+
 /* ── LAYOUT ──────────────────────────────────── */
 .main-container {
     max-width: 1200px;

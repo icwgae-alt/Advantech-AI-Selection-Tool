@@ -43,6 +43,10 @@
             <h1>Advantech Industrial Switch</h1>
             <p>Selection Tool · v1.0</p>
         </div>
+        <div class="lang-switch" id="langSwitch">
+            <button class="lang-switch-btn" data-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-switch-btn" data-lang="ja" onclick="setLang('ja')">日本語</button>
+        </div>
     </div>
 
     <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
@@ -52,7 +56,7 @@
 
             <!-- 左側：篩選條件 -->
             <div class="left-part card dark-panel">
-                <h3>Device Configuration</h3>
+                <h3 data-i18n="deviceConfiguration">Device Configuration</h3>
 
                 <!-- Quick Start 場景模板（暫時隱藏，保留供日後重新啟用） -->
                 <!--
@@ -70,7 +74,7 @@
 
                 <!-- 1. MGMT -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">1</span> Management Type</label>
+                    <label class="dp-label"><span class="dp-badge">1</span> <span data-i18n="mgmtTypeLabel">Management Type</span></label>
                     <!-- hidden select kept for backward-compat with app.js -->
                     <select id="mgmtType" style="display:none">
                         <option value=""></option>
@@ -91,31 +95,22 @@
                     </div>
                 </div>
 
-                <!-- 2. MIN PORT -->
+                <!-- 2. TOTAL PORT COUNT -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">2</span> Min Port Count</label>
+                    <label class="dp-label"><span class="dp-badge">2</span> <span data-i18n="totalPortCountLabel">Total Port Count</span></label>
                     <div class="dp-select-wrap">
                         <select id="numInput" class="dp-select">
-                            <option value="" disabled selected hidden>Select port count...</option>
-                            <option value="2">2</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="8">8</option>
-                            <option value="10">10</option>
-                            <option value="12">12</option>
-                            <option value="16">16</option>
-                            <option value="18">18</option>
-                            <option value="20">20</option>
-                            <option value="26">26</option>
-                            <option value="28">28</option>
+                            <option value="" disabled selected hidden>Select port range...</option>
+                            <option value="1-9">1 ~ 9 ports</option>
+                            <option value="10-20">10 ~ 20 ports</option>
+                            <option value="21-">&gt; 20 ports</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- 3. MAX SPEED -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">3</span> Max Port Speed</label>
+                    <label class="dp-label"><span class="dp-badge">3</span> <span data-i18n="maxPortSpeedLabel">Max Port Speed</span></label>
                     <div class="dp-chips" id="speedChips">
                         <button class="dp-chip" data-val="100M"
                             onclick="dpChipSelect('speed','100M', this)">100M</button>
@@ -127,30 +122,33 @@
 
                 <!-- 4. PoE -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">4</span> PoE Required</label>
-                    <div class="dp-toggle-row">
-                        <label class="dp-toggle-switch">
-                            <input type="checkbox" id="poeToggle" onchange="dpUpdatePoE(this)">
-                            <span class="dp-toggle-track"></span>
-                        </label>
-                        <span class="dp-toggle-label" id="poeLabel">Not Required</span>
+                    <label class="dp-label"><span class="dp-badge">4</span> <span data-i18n="poeSectionLabel">PoE</span></label>
+                    <div class="dp-chips" id="poeChips">
+                        <button class="dp-chip active" data-val="any"
+                            onclick="dpChipSelect('poe','any', this)">Any</button>
+                        <button class="dp-chip" data-val="poe"
+                            onclick="dpChipSelect('poe','poe', this)">PoE</button>
+                        <button class="dp-chip" data-val="non-poe"
+                            onclick="dpChipSelect('poe','non-poe', this)">Non-PoE</button>
                     </div>
                 </div>
 
                 <!-- 5. INTERFACE -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">5</span> Interface Type</label>
+                    <label class="dp-label"><span class="dp-badge">5</span> <span data-i18n="interfaceTypeLabel">Interface Type</span></label>
                     <div class="dp-chips" id="ifaceChips">
-                        <button class="dp-chip" data-val="rj45"
-                            onclick="dpChipToggle('iface','rj45',  this)">RJ-45</button>
-                        <button class="dp-chip" data-val="fiber"
-                            onclick="dpChipToggle('iface','fiber', this)">Fiber</button>
+                        <button class="dp-chip active" data-val="any"
+                            onclick="dpChipSelect('iface','any', this)">Any</button>
+                        <button class="dp-chip" data-val="m12"
+                            onclick="dpChipSelect('iface','m12', this)">M12</button>
+                        <button class="dp-chip" data-val="spe"
+                            onclick="dpChipSelect('iface','spe', this)">SPE</button>
                     </div>
                 </div>
 
                 <!-- 6. CERTIFICATIONS -->
                 <div class="section dp-section">
-                    <label class="dp-label"><span class="dp-badge">6</span> Certifications (Optional)</label>
+                    <label class="dp-label"><span class="dp-badge">6</span> <span data-i18n="certificationsLabel">Certifications (Optional)</span></label>
                     <div class="dp-chips" id="certChips">
                         <button class="dp-chip" data-val="Cert_UL"
                             onclick="dpChipToggle('cert','Cert_UL',      this)">UL</button>
@@ -167,31 +165,31 @@
 
                 <!-- Search Inventory -->
                 <div class="section dp-section">
-                    <label class="dp-label" style="margin-bottom:6px;">Search Inventory</label>
+                    <label class="dp-label" style="margin-bottom:6px;" data-i18n="searchInventoryLabel">Search Inventory</label>
 
-                    <input type="text" id="searchInput" class="dp-search" placeholder="Search product items…">
+                    <input type="text" id="searchInput" class="dp-search" placeholder="Search product items…" data-i18n-placeholder="searchProductItemsPlaceholder">
                     <div id="searchResults"></div>
-                    <button id="advancedFilterBtn" type="button" class="dp-adv-btn">⊞ Advanced Filter</button>
+                    <button id="advancedFilterBtn" type="button" class="dp-adv-btn">⊞ <span data-i18n="advancedFilter">Advanced Filter</span></button>
                 </div>
             </div>
 
             <!-- 右側：選型摘要 -->
             <div class="right-part card">
-                <h3>Selection Summary</h3>
+                <h3 data-i18n="selectionSummary">Selection Summary</h3>
 
                 <div class="forth-part">
-                    <label>Filter Conditions</label>
+                    <label data-i18n="filterConditions">Filter Conditions</label>
                     <div id="filterTags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;min-height:28px;">
                     </div>
-                    <label>Chosen Items</label>
+                    <label data-i18n="chosenItems">Chosen Items</label>
                     <div class="chosen-items-area">
                         <div id="selectedItems"></div>
                     </div>
                 </div>
 
                 <div class="btn-group" style="margin-top:16px;">
-                    <button onclick="submitItems()" type="button" class="submit-btn">🔍 Find Matching Products</button>
-                    <button onclick="resetAll()" type="button" class="submit-btn secondary">↺ Reset All</button>
+                    <button onclick="submitItems()" type="button" class="submit-btn">🔍 <span data-i18n="findMatchingProducts">Find Matching Products</span></button>
+                    <button onclick="resetAll()" type="button" class="submit-btn secondary">↺ <span data-i18n="resetAll">Reset All</span></button>
                 </div>
             </div>
 
@@ -200,27 +198,27 @@
         <!-- 下方：結果卡片列表 -->
         <div class="lower-part card">
             <div class="results-header">
-                <h3>Acquired Product Information</h3>
+                <h3 data-i18n="acquiredProductInfo">Acquired Product Information</h3>
                 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px;">
                     <!-- View Toggle -->
                     <div class="view-toggle">
                         <button class="view-tab-btn active" id="view-btn-list" onclick="switchView('list')"
-                            title="Card List">
-                            <i class="ti ti-layout-list" aria-hidden="true"></i> List
+                            title="Card List" data-i18n-title="cardListTooltip">
+                            <i class="ti ti-layout-list" aria-hidden="true"></i> <span data-i18n="viewList">List</span>
                         </button>
                         <button class="view-tab-btn" id="view-btn-table" onclick="switchView('table')"
-                            title="Table View">
-                            <i class="ti ti-table" aria-hidden="true"></i> Table
+                            title="Table View" data-i18n-title="tableViewTooltip">
+                            <i class="ti ti-table" aria-hidden="true"></i> <span data-i18n="viewTable">Table</span>
                         </button>
                     </div>
                     <!-- Col Picker (table mode only) -->
                     <button class="col-picker-btn" id="tv-col-picker-btn" onclick="tvToggleColPanel()"
                         style="display:none;">
-                        <i class="ti ti-columns" aria-hidden="true"></i> Columns
+                        <i class="ti ti-columns" aria-hidden="true"></i> <span data-i18n="columns">Columns</span>
                     </button>
                     <button class="col-picker-btn" id="tv-download-btn" onclick="tvDownloadCSV()"
-                        style="display:none;" title="Download full table as CSV">
-                        <i class="ti ti-download" aria-hidden="true"></i> Export CSV
+                        style="display:none;" title="Download full table as CSV" data-i18n-title="exportCsvTooltip">
+                        <i class="ti ti-download" aria-hidden="true"></i> <span data-i18n="exportCsv">Export CSV</span>
                     </button>
                     <select id="sortSelect" onchange="applySort()" class="sort-select">
                         <option value="default">Default Sorting</option>
@@ -303,23 +301,23 @@
     <div id="fs-modal-overlay">
         <div id="fs-modal-container">
             <div id="fs-modal-header">
-                <span>⊞ Advanced Features Filter</span>
+                <span>⊞ <span data-i18n="advancedFeaturesFilter">Advanced Features Filter</span></span>
                 <button id="fs-modal-close">✕</button>
             </div>
             <div id="fs-modal-body">
                 <div id="fs-chip-bar">
-                    <span id="fs-chip-hint">No features selected</span>
+                    <span id="fs-chip-hint" data-i18n="noFeaturesSelected">No features selected</span>
                 </div>
                 <div class="fs-search-wrap">
-                    <input type="text" id="fs-search" placeholder="Search features... (e.g. VLAN, PoE, STP, TSN)">
+                    <input type="text" id="fs-search" placeholder="Search features... (e.g. VLAN, PoE, STP, TSN)" data-i18n-placeholder="searchFeaturesPlaceholder">
                     <span id="fs-s-clear">×</span>
                 </div>
                 <div id="fs-cat-grid"></div>
                 <div id="fs-sub-area"></div>
             </div>
             <div id="fs-modal-footer">
-                <button id="fs-cancel-btn">Cancel</button>
-                <button id="fs-apply-btn">Apply Filter</button>
+                <button id="fs-cancel-btn" data-i18n="cancel">Cancel</button>
+                <button id="fs-apply-btn" data-i18n="applyFilter">Apply Filter</button>
             </div>
         </div>
     </div>
@@ -332,6 +330,7 @@
 
     <!-- Main Application Script -->
     <script src="js/config.js"></script>
+    <script src="js/i18n.js?v=1"></script>
     <script src="js/feature-selector.js?v=3"></script>
     <script src="js/scenes.js?v=4"></script>
     <script src="js/sfp-selector.js?v=4"></script>

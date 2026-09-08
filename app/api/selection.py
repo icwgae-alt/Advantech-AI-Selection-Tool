@@ -20,6 +20,13 @@ base_hardware_mappings = {
         {"hardware.PoE (D-code)": {"$regex": "^[1-9]"}},
         {"hardware.PoE (X-code)": {"$regex": "^[1-9]"}}
     ]},
+    # 明確排除所有具備 PoE 供電的型號（與 Has_PoE 條件互斥，供 PoE 篩選的 "Non-PoE" 選項使用）
+    "No_PoE": lambda: {"$nor": [
+        {"hardware.PoE RJ-45 100M": {"$regex": "^[1-9]"}},
+        {"hardware.PoE RJ-45 GbE": {"$regex": "^[1-9]"}},
+        {"hardware.PoE (D-code)": {"$regex": "^[1-9]"}},
+        {"hardware.PoE (X-code)": {"$regex": "^[1-9]"}}
+    ]},
     "Has_Fiber": lambda: {"$or": [
         {"hardware.Fiber 100M": {"$regex": "^[1-9]"}},
         {"hardware.Fiber Gigabit": {"$regex": "^[1-9]"}},
@@ -83,6 +90,9 @@ base_hardware_mappings = {
         {"hardware.Eth Multi-Giga (X-code)": {"$regex": "^[1-9]"}}
     ]},
     "Port_M12_GbE": lambda: {"hardware.Eth Gigabit (X-code)": {"$regex": "^[1-9]"}},
+    # TODO: SPE (Single Pair Ethernet) 資料庫目前無對應欄位，此條件永遠 0 筆結果（佔位）。
+    # 待資料庫補上 SPE 相關欄位後，把下方欄位名稱換成實際欄位即可啟用。
+    "Port_SPE_Any": lambda: {"hardware.SPE": {"$regex": "^[1-9]"}},
     "Port_MultiGiga": lambda: {"$or": [
         {"hardware.Eth Multi-Giga (X-code)": {"$regex": "^[1-9]"}},
         {"hardware.RJ-45 10GbE": {"$regex": "^[1-9]"}}
@@ -200,10 +210,12 @@ def load_dynamic_mappings_if_needed():
         "Port_M12_Any":   "Any M12 Connector",
         "Port_M12_GbE":   "M12 GbE (X-code)",
         "Port_MultiGiga": "Multi-Giga (2.5/5/10G M12)",
-        "Port_Bypass":    "LAN Bypass"
+        "Port_Bypass":    "LAN Bypass",
+        "Port_SPE_Any":   "Any SPE Connector (T1)"
     }
     PORT_FEATURE_KEY_LABELS = {
         "Has_PoE":        "Has PoE",
+        "No_PoE":         "No PoE",
         "Has_Fiber":      "Has Fiber Port",
         "Has_RJ-45":      "Has RJ-45 Port"
     }
@@ -316,7 +328,7 @@ def submit_product_selection(req: SubmitProdRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"DB connection error: {str(e)}")
 
-    print(f"[submitProdType] items={req.items}, type={req.type}, portnum={req.portnum}")
+    print(f"[submitProdType] items={req.items}, type={req.type}, portnum={req.portnum}, portnum_max={req.portnum_max}")
 
     # Step 1：組裝基本硬體條件（直接對應資料庫原始欄位）
     and_conditions = [
@@ -353,6 +365,16 @@ def submit_product_selection(req: SubmitProdRequest):
                 "$gte": [
                     {"$toInt": {"$ifNull": ["$hardware.Port Numbers", "0"]}},
                     req.portnum
+                ]
+            }
+        })
+
+    if req.portnum_max != -1:
+        and_conditions.append({
+            "$expr": {
+                "$lte": [
+                    {"$toInt": {"$ifNull": ["$hardware.Port Numbers", "0"]}},
+                    req.portnum_max
                 ]
             }
         })

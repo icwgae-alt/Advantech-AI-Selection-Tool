@@ -426,7 +426,7 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "",
       "Op Temp Range": "",
-      "Certifications": "",
+      "Certifications": "UL62368",
       "Note": ""
     },
     {
@@ -2175,8 +2175,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "UL508",
-      "Note": ""
+      "Certifications": "UL508, LVD62368",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Entry Level Managed Switch",
@@ -2307,8 +2307,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "UL508",
-      "Note": ""
+      "Certifications": "UL508, LVD62368",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Entry Level Managed Switch",
@@ -2448,7 +2448,7 @@
       "Product PN": "EKI-5626CI-EI-BE",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "16FE + 2G Combo Ports Entry-Level Managed Switch Support Multiple Industrial Protocols w/wide temp.",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -2580,7 +2580,7 @@
       "Product PN": "EKI-5629CI-EI-BE",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8FE + 2G Combo Ports Entry-Level Managed Switch Support Multiple Industrial Protocols w/wide temp",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -2703,8 +2703,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL508",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Entry Level Managed Switch",
@@ -2736,8 +2736,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL508, LVD62368",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Entry Level Managed Switch",
@@ -2769,8 +2769,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL508, LVD62368",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Entry Level Managed Switch",
@@ -2802,8 +2802,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL508",
+      "Note": "C1D2, ATEX"
     },
     {
       "Function": "Unmanaged / Proview",
@@ -3009,7 +3009,7 @@
       "Product PN": "EKI-5708E-I-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8 FE Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -3033,8 +3033,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "2024/9 launch"
+      "Certifications": "LVD62368",
+      "Note": ""
     },
     {
       "Function": "Managed",
@@ -3042,7 +3042,7 @@
       "Product PN": "EKI-5708E-2FI-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "6 FE with 2 SFP Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -3066,8 +3066,8 @@
       "Input Voltage": "12-49VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "2024/9 launch"
+      "Certifications": "LVD62368",
+      "Note": ""
     },
     {
       "Function": "Managed",
@@ -3075,7 +3075,7 @@
       "Product PN": "EKI-5710E-I-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "10 FE Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -3099,8 +3099,8 @@
       "Input Voltage": "12-51VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "2024/9 launch"
+      "Certifications": "LVD62368",
+      "Note": ""
     },
     {
       "Function": "Managed",
@@ -3108,7 +3108,7 @@
       "Product PN": "EKI-5710E-2FI-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP",
+      "PLM Lifecycle": "MP, support 3 protocols",
       "Description": "8 FE with 2 SFP Port Managed Industrial Ethernet Switch",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -3132,8 +3132,8 @@
       "Input Voltage": "12-52VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "2024/9 launch"
+      "Certifications": "LVD62368",
+      "Note": ""
     },
     {
       "Function": "Managed",
@@ -3462,8 +3462,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL61010, LVD62368",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -3495,8 +3495,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL61010, LVD62368",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -3528,8 +3528,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL61010, LVD62368",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -3561,8 +3561,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "UL61010, LVD62368",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -3641,8 +3641,8 @@
       "Type": "DIN-Rail",
       "MIT SKU": "",
       "Port Numbers": "8",
-      "RJ-45 10/100M": "",
-      "RJ-45 Gigabit": "6",
+      "RJ-45 10/100M": "6",
+      "RJ-45 Gigabit": "",
       "RJ-45 Combo": "",
       "RJ-45 10GbE": "",
       "Fiber 100M": "2",
@@ -3674,8 +3674,8 @@
       "Type": "DIN-Rail",
       "MIT SKU": "",
       "Port Numbers": "8",
-      "RJ-45 10/100M": "",
-      "RJ-45 Gigabit": "6",
+      "RJ-45 10/100M": "6",
+      "RJ-45 Gigabit": "",
       "RJ-45 Combo": "",
       "RJ-45 10GbE": "",
       "Fiber 100M": "2",
@@ -3792,8 +3792,8 @@
       "Input Voltage": "48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
+      "Certifications": "LVD62368, UL61010",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -3957,8 +3957,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4056,8 +4056,8 @@
       "Input Voltage": "48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Phase out, LTB 2023/12/E, Succossor EKI-7708G-4FPI-BE"
+      "Certifications": "LVD62368, UL61010",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4089,8 +4089,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4122,8 +4122,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4155,8 +4155,8 @@
       "Input Voltage": "24-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Phase out, LTB 2023/12/E, Successor EKI-7710G-2CPI-BE"
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4188,8 +4188,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4221,8 +4221,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4254,8 +4254,8 @@
       "Input Voltage": "24-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Replace AE version."
+      "Certifications": "LVD62368, UL62368, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4584,8 +4584,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4617,8 +4617,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4650,8 +4650,8 @@
       "Input Voltage": "48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Phase out, LTB 2023/12/E, Succerssor EKI-7712G-4FPI-BE"
+      "Certifications": "LVD62368, UL61010",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4683,8 +4683,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4716,8 +4716,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4749,8 +4749,8 @@
       "Input Voltage": "48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Replace AE version."
+      "Certifications": "LVD62368, UL61010",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4848,8 +4848,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4881,8 +4881,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4914,8 +4914,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4947,8 +4947,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Normal",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -4980,8 +4980,8 @@
       "Input Voltage": "12-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "LVD62368, UL61010, NEMA",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed",
@@ -5013,8 +5013,8 @@
       "Input Voltage": "48 - 57VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": ""
+      "Certifications": "NEMA, UL62368",
+      "Note": "EN 50121-4"
     },
     {
       "Function": "Managed-TSN",
@@ -5046,8 +5046,8 @@
       "Input Voltage": "24-48VDC",
       "Temp Grade": "Wide",
       "Op Temp Range": "",
-      "Certifications": "",
-      "Note": "Temp: -40 ~ 66C"
+      "Certifications": "UL62368",
+      "Note": "Temp: -40 ~ 66C\nEN 50121-4"
     },
     {
       "Function": "Managed",
@@ -5248,6 +5248,138 @@
       "Note": "Layer 3"
     },
     {
+      "Function": "Managed",
+      "Model Name": "EKI-7712G-4XFI",
+      "Product PN": "EKI-7712G-4XFI-A",
+      "Software Series": "",
+      "Firmware Version": "",
+      "PLM Lifecycle": "MP",
+      "Description": "L2 8G+4 10G SFP+ Port Managed Industrial L3 Switch w/wide temp",
+      "Type": "DIN-Rail",
+      "MIT SKU": "",
+      "Port Numbers": "12",
+      "RJ-45 10/100M": "",
+      "RJ-45 Gigabit": "8",
+      "RJ-45 Combo": "",
+      "RJ-45 10GbE": "",
+      "Fiber 100M": "",
+      "Fiber Gigabit": "",
+      "Fiber GE Combo": "",
+      "Fiber 10G": "4",
+      "Fiber Type": "SFP+",
+      "Fiber Connector": "",
+      "PoE RJ-45 100M": "",
+      "PoE RJ-45 GbE": "",
+      "PoE Standard": "",
+      "Power Budget (W)": "",
+      "Port自動加總": "12",
+      "Port驗證": "✔",
+      "Input Voltage": "12-48VDC",
+      "Temp Grade": "Wide",
+      "Op Temp Range": "",
+      "Certifications": "UL62368",
+      "Note": ""
+    },
+    {
+      "Function": "Managed",
+      "Model Name": "EKI-7712G-4XFPI",
+      "Product PN": "EKI-7712G-4XFPI-A",
+      "Software Series": "",
+      "Firmware Version": "",
+      "PLM Lifecycle": "MP",
+      "Description": "L2 8G+4 10G SFP+ Port Managed Industrial L3 PoE Switch w/wide temp",
+      "Type": "DIN-Rail",
+      "MIT SKU": "",
+      "Port Numbers": "12",
+      "RJ-45 10/100M": "",
+      "RJ-45 Gigabit": "",
+      "RJ-45 Combo": "",
+      "RJ-45 10GbE": "",
+      "Fiber 100M": "",
+      "Fiber Gigabit": "",
+      "Fiber GE Combo": "",
+      "Fiber 10G": "4",
+      "Fiber Type": "SFP+",
+      "Fiber Connector": "",
+      "PoE RJ-45 100M": "",
+      "PoE RJ-45 GbE": "8",
+      "PoE Standard": "IEEE 802.3at/af",
+      "Power Budget (W)": "240W",
+      "Port自動加總": "12",
+      "Port驗證": "✔",
+      "Input Voltage": "48 - 57VDC",
+      "Temp Grade": "Wide",
+      "Op Temp Range": "",
+      "Certifications": "UL62368",
+      "Note": ""
+    },
+    {
+      "Function": "Managed",
+      "Model Name": "EKI-7720G-4XFI",
+      "Product PN": "EKI-7720G-4XFI-A",
+      "Software Series": "",
+      "Firmware Version": "",
+      "PLM Lifecycle": "MP",
+      "Description": "L2 16G+4 10G SFP+ Port Managed Industrial L3 Switch w/wide temp",
+      "Type": "DIN-Rail",
+      "MIT SKU": "",
+      "Port Numbers": "20",
+      "RJ-45 10/100M": "",
+      "RJ-45 Gigabit": "16",
+      "RJ-45 Combo": "",
+      "RJ-45 10GbE": "",
+      "Fiber 100M": "",
+      "Fiber Gigabit": "",
+      "Fiber GE Combo": "",
+      "Fiber 10G": "4",
+      "Fiber Type": "SFP+",
+      "Fiber Connector": "",
+      "PoE RJ-45 100M": "",
+      "PoE RJ-45 GbE": "",
+      "PoE Standard": "",
+      "Power Budget (W)": "",
+      "Port自動加總": "20",
+      "Port驗證": "✔",
+      "Input Voltage": "12-48VDC",
+      "Temp Grade": "Wide",
+      "Op Temp Range": "",
+      "Certifications": "UL62368",
+      "Note": ""
+    },
+    {
+      "Function": "Managed",
+      "Model Name": "EKI-7720G-4XFPI",
+      "Product PN": "EKI-7720G-4XFPI-A",
+      "Software Series": "",
+      "Firmware Version": "",
+      "PLM Lifecycle": "MP",
+      "Description": "L2 16G+4 10G SFP+ Port Managed Industrial L3 PoE Switch w/wide temp",
+      "Type": "DIN-Rail",
+      "MIT SKU": "",
+      "Port Numbers": "20",
+      "RJ-45 10/100M": "",
+      "RJ-45 Gigabit": "",
+      "RJ-45 Combo": "",
+      "RJ-45 10GbE": "",
+      "Fiber 100M": "",
+      "Fiber Gigabit": "",
+      "Fiber GE Combo": "",
+      "Fiber 10G": "4",
+      "Fiber Type": "SFP+",
+      "Fiber Connector": "",
+      "PoE RJ-45 100M": "",
+      "PoE RJ-45 GbE": "16",
+      "PoE Standard": "IEEE 802.3at/af",
+      "Power Budget (W)": "480W",
+      "Port自動加總": "20",
+      "Port驗證": "✔",
+      "Input Voltage": "48 - 57VDC",
+      "Temp Grade": "Wide",
+      "Op Temp Range": "",
+      "Certifications": "UL62368",
+      "Note": ""
+    },
+    {
       "Function": "L3 Managed",
       "Model Name": "EKI-8712G-4XFI",
       "Product PN": "EKI-8712G-4XFI-AE",
@@ -5319,7 +5451,7 @@
       "Product PN": "EKI-8720G-4XFI-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP expected in mid/July",
+      "PLM Lifecycle": "MP",
       "Description": "L3 16G+4 10G SFP+ Port Managed Industrial L3 Switch w/wide temp",
       "Type": "DIN-Rail",
       "MIT SKU": "",
@@ -5352,7 +5484,7 @@
       "Product PN": "EKI-8720G-4XFPI-A",
       "Software Series": "",
       "Firmware Version": "",
-      "PLM Lifecycle": "MP expected in mid/July",
+      "PLM Lifecycle": "MP",
       "Description": "L3 16G+4 10G SFP+ Port Managed Industrial L3 PoE Switch w/wide temp",
       "Type": "DIN-Rail",
       "MIT SKU": "",

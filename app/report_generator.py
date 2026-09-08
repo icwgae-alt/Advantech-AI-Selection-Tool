@@ -193,22 +193,35 @@ def generate_selection_report(products: list[dict], criteria: dict, ai_summary: 
     req_type = str(raw_type).strip().lower()
     formatted_type = type_map.get(req_type) or str(raw_type).replace("_", " ").title()
 
-    # Min Port Count
-    port_display = (f"≥ {criteria.get('portnum')} ports"
-                    if criteria.get("portnum", -1) > 0 else "No limit")
+    # Total Port Count
+    port_min = criteria.get("portnum", -1)
+    port_max = criteria.get("portnum_max", -1)
+    if port_min <= 0 and port_max <= 0:
+        port_display = "No limit"
+    elif port_max > 0:
+        port_display = f"{port_min} ~ {port_max} ports"
+    else:
+        port_display = f"> {port_min - 1} ports"
 
     # Max Port Speed
     speed_map = {"Speed_100M": "100M", "Speed_GbE": "1G", "Speed_10G": "10G+"}
     speed_display = next((v for k, v in speed_map.items() if k in item_set), "Any")
 
     # PoE
-    poe_display = "Required" if "Has_PoE" in item_set else "Not Required"
+    if "Has_PoE" in item_set:
+        poe_display = "PoE"
+    elif "No_PoE" in item_set:
+        poe_display = "Non-PoE"
+    else:
+        poe_display = "Any"
 
     # Interface Type
-    iface_parts = []
-    if "Has_RJ-45" in item_set: iface_parts.append("RJ-45")
-    if "Has_Fiber"  in item_set: iface_parts.append("Fiber")
-    iface_display = ", ".join(iface_parts) if iface_parts else "Any"
+    if "Port_M12_Any" in item_set:
+        iface_display = "M12"
+    elif "Port_SPE_Any" in item_set:
+        iface_display = "SPE"
+    else:
+        iface_display = "Any"
 
     # Certifications
     cert_map = {

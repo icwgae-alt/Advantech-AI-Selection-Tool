@@ -179,6 +179,15 @@ def main():
         db.product_specs.create_index([("product_pn", 1)])
         db.product_specs.create_index([("model_name", 1)])
         db.product_specs.bulk_write(product_inserts)
+
+        # 清除孤兒資料：來源 JSON 中已移除／改名的舊 Product PN，
+        # 若不清除會與新 PN 的文件並存於 product_specs，
+        # 在前端表格上顯示為同一型號的重複列（曾發生於 PN 後綴由 -A 改為 -AE 的情況）。
+        current_pns = [hw.get("Product PN", "").strip() for hw in hw_list if hw.get("Product PN", "").strip()]
+        orphan_result = db.product_specs.delete_many({"_id": {"$nin": current_pns}})
+        orphan_result_hw = db.hardware_specs.delete_many({"_id": {"$nin": current_pns}})
+        if orphan_result.deleted_count or orphan_result_hw.deleted_count:
+            print(f"🧹 已清除孤兒資料：product_specs {orphan_result.deleted_count} 筆、hardware_specs {orphan_result_hw.deleted_count} 筆")
         
     # 產出 Validation Report
     report_path = "data/validation_report.json"

@@ -15,11 +15,13 @@ class SubmitProdRequest(BaseModel):
     /api/submitProdType POST 的請求體。
     items: 使用者選取的特徵 key 清單（格式：category|||feat_key 或 硬體key）
     type:  管理類型過濾，"Managed" / "Unmanaged" / "ALL"
-    portnum: 埠數過濾，-1 代表不限
+    portnum: 埠數下限（含），-1 代表不限
+    portnum_max: 埠數上限（含），-1 代表不限
     """
     items: List[str] = Field(default=[], description="選取的特徵 key 清單")
     type: str = Field(default="ALL", description="Managed / Unmanaged / ALL")
-    portnum: int = Field(default=-1, description="埠數，-1 不限")
+    portnum: int = Field(default=-1, description="埠數下限（含），-1 不限")
+    portnum_max: int = Field(default=-1, description="埠數上限（含），-1 不限")
 
 
 # =========================================================================

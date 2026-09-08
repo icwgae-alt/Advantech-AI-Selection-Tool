@@ -136,6 +136,12 @@ function renderSelected(culpritItems = new Set()) {
     renderFilterTags();
 }
 
+// Total Port Count 區間值（如 "10-20"）→ 顯示用文字
+function portRangeLabel(val) {
+    const map = { '1-9': '1 ~ 9', '10-20': '10 ~ 20', '21-': '> 20' };
+    return map[val] || val;
+}
+
 // ═══════════════════════════════════════════════
 // 渲染：Filter Tags（管理類型 + Port 數）
 // ═══════════════════════════════════════════════
@@ -210,7 +216,7 @@ function renderFilterTags(culprits = {}, culpritItems = new Set()) {
         if (portManual && !scenePortActive) {
             const t = document.createElement('span');
             t.className = 'filter-tag';
-            t.textContent = `Port: ≥${portManual}`;
+            t.textContent = `Port: ${portRangeLabel(portManual)}`;
             filterDiv.appendChild(t);
         }
 
@@ -246,7 +252,7 @@ function renderFilterTags(culprits = {}, culpritItems = new Set()) {
         if (portVal) {
             const tag = document.createElement('span');
             tag.className = 'filter-tag' + (culprits.port ? ' culprit' : '');
-            tag.innerHTML = `Port: ≥${portVal} <span class="filter-tag-x" onclick="ftRemovePort()">×</span>`;
+            tag.innerHTML = `Port: ${portRangeLabel(portVal)} <span class="filter-tag-x" onclick="ftRemovePort()">×</span>`;
             filterDiv.appendChild(tag);
         }
         // Max Port Speed
@@ -261,24 +267,28 @@ function renderFilterTags(culprits = {}, culpritItems = new Set()) {
             filterDiv.appendChild(tag);
         }
 
-        // PoE Required
-        if (document.getElementById('poeToggle')?.checked) {
+        // PoE
+        const poeVal = window._dpPoe || 'any';
+        if (poeVal !== 'any') {
+            const poeItemKey = poeVal === 'poe' ? 'Has_PoE' : 'No_PoE';
+            const poeLabel = poeVal === 'poe' ? 'PoE' : 'Non-PoE';
             const tag = document.createElement('span');
-            tag.className = 'filter-tag' + (culpritItems.has('Has_PoE') ? ' culprit' : '');
-            tag.innerHTML = `PoE: Required <span class="filter-tag-x" onclick="ftRemovePoe()">×</span>`;
+            tag.className = 'filter-tag' + (culpritItems.has(poeItemKey) ? ' culprit' : '');
+            tag.innerHTML = `PoE: ${poeLabel} <span class="filter-tag-x" onclick="ftRemovePoe()">×</span>`;
             filterDiv.appendChild(tag);
         }
 
         // Interface Type
-        const ifaceKeyMap = { 'rj45': 'Has_RJ-45', 'fiber': 'Has_Fiber' };
-        document.querySelectorAll('#ifaceChips .dp-chip.active').forEach(c => {
-            const val = c.dataset.val;
-            const isCulprit = culpritItems.has(ifaceKeyMap[val]);
+        const ifaceVal = window._dpIface || 'any';
+        if (ifaceVal !== 'any') {
+            const ifaceKeyMap = { 'm12': 'Port_M12_Any', 'spe': 'Port_SPE_Any' };
+            const ifaceLabelMap = { 'm12': 'M12', 'spe': 'SPE' };
+            const isCulprit = culpritItems.has(ifaceKeyMap[ifaceVal]);
             const tag = document.createElement('span');
             tag.className = 'filter-tag' + (isCulprit ? ' culprit' : '');
-            tag.innerHTML = `Interface: ${c.textContent.trim()} <span class="filter-tag-x" onclick="ftRemoveChip('#ifaceChips','${val}')">×</span>`;
+            tag.innerHTML = `Interface: ${ifaceLabelMap[ifaceVal]} <span class="filter-tag-x" onclick="ftRemoveIface()">×</span>`;
             filterDiv.appendChild(tag);
-        });
+        }
 
         // Certifications
         document.querySelectorAll('#certChips .dp-chip.active').forEach(c => {
@@ -290,7 +300,7 @@ function renderFilterTags(culprits = {}, culpritItems = new Set()) {
         });
 
         if (filterDiv.children.length === 0) {
-            filterDiv.innerHTML = '<span style="font-size:0.78rem;color:var(--text-muted);font-style:italic;">No filters applied yet</span>';
+            filterDiv.innerHTML = `<span style="font-size:0.78rem;color:var(--text-muted);font-style:italic;">${T('noFiltersAppliedYet')}</span>`;
         }
 
         // 清除場景注解（如果有的話）
@@ -305,6 +315,14 @@ document.getElementById('numInput').addEventListener('change', () => renderFilte
 
 // 初始化
 renderFilterTags();
+
+// 語言切換時，重繪目前畫面上帶有語系文字的動態內容（filter tags、已渲染的產品卡片/表格）
+document.addEventListener('langchange', () => {
+    renderFilterTags();
+    if (currentDataList.length > 0) {
+        _renderCurrentView(_getSortedList());
+    }
+});
 
 // ═══════════════════════════════════════════════
 // 產品卡片列表渲染引擎
@@ -336,9 +354,9 @@ const specDef = [
     { key: 'temp', label: 'Operating Temp' },
 ];
 const tabsDef = [
-    { id: 'port', icon: 'ti-plug-connected', label: 'Port' },
-    { id: 'spec', icon: 'ti-list-details', label: 'Specs' },
-    { id: 'sfp', icon: 'ti-wave-sine', label: 'SFP Guide' },
+    { id: 'port', icon: 'ti-plug-connected', labelKey: 'tabPort' },
+    { id: 'spec', icon: 'ti-list-details', labelKey: 'tabSpecs' },
+    { id: 'sfp', icon: 'ti-wave-sine', labelKey: 'tabSfpGuide' },
 ];
 
 // 解決部分型號資料庫中 RJ-45 欄位已包含 PoE 數量，而部分型號卻未包含的不一致問題
@@ -597,7 +615,7 @@ function buildTabBar(pid, activeTab, item) {
         .filter(t => t.id !== 'sfp' || hasFiber)  // SFP tab 僅在有光纖 port 時顯示
         .map(t =>
             `<button class="tab-btn${t.id === activeTab ? ' active' : ''}" onclick="pcSwitchTab('${pid}','${t.id}')">
-                <i class="ti ${t.icon}" aria-hidden="true"></i>${t.label}</button>`
+                <i class="ti ${t.icon}" aria-hidden="true"></i>${T(t.labelKey)}</button>`
         ).join('');
 }
 
@@ -807,7 +825,7 @@ function renderProductCards(data_list) {
                 <div class="pc-product-link-bar">
                     <a class="pc-product-link" href="${prodUrl}" target="_blank" rel="noopener noreferrer"
                         onclick="event.stopPropagation()">
-                        Go to Product Page
+                        ${T('goToProductPage')}
                         <span class="link-arrow">→</span>
                     </a>
                 </div>
@@ -824,8 +842,18 @@ function submitItems() {
     if (typeVal === 'managed') typeVal = 'Managed';
     if (typeVal === 'unmanaged') typeVal = 'Unmanaged';
 
-    let portVal = parseInt(numInput.value);
-    if (isNaN(portVal)) portVal = -1;
+    // Total Port Count：下拉值格式為 "1-9" / "10-20" / "21-"（無上限），拆成 min/max 兩個查詢參數
+    let portVal = -1;
+    let portValMax = -1;
+    if (numInput.value) {
+        const [minStr, maxStr] = numInput.value.split('-');
+        portVal = parseInt(minStr);
+        if (isNaN(portVal)) portVal = -1;
+        if (maxStr) {
+            portValMax = parseInt(maxStr);
+            if (isNaN(portValMax)) portValMax = -1;
+        }
+    }
 
     // 移除舊的 zero-result hint
     const oldHint = document.getElementById('zeroResultHint');
@@ -842,17 +870,15 @@ function submitItems() {
         if (key) extraItems.push(key);
     }
 
-    // PoE Required
-    if (document.getElementById('poeToggle')?.checked) {
-        extraItems.push('Has_PoE');
-    }
+    // PoE (PoE / Non-PoE / Any)
+    const poeVal = window._dpPoe || 'any';
+    if (poeVal === 'poe') extraItems.push('Has_PoE');
+    else if (poeVal === 'non-poe') extraItems.push('No_PoE');
 
-    // Interface Type (multi-select)
-    const ifaceMap = { 'rj45': 'Has_RJ-45', 'fiber': 'Has_Fiber' };
-    document.querySelectorAll('#ifaceChips .dp-chip.active').forEach(c => {
-        const key = ifaceMap[c.dataset.val];
-        if (key) extraItems.push(key);
-    });
+    // Interface Type (Any / M12 / SPE)
+    const ifaceVal = window._dpIface || 'any';
+    const ifaceMap = { 'm12': 'Port_M12_Any', 'spe': 'Port_SPE_Any' };
+    if (ifaceMap[ifaceVal]) extraItems.push(ifaceMap[ifaceVal]);
 
     // Certifications (multi-select chips)
     document.querySelectorAll('#certChips .dp-chip.active').forEach(c => {
@@ -864,7 +890,8 @@ function submitItems() {
     const requestBody = {
         items: [...Object.keys(selectedItemsMap), ...extraItems],
         type: typeVal,
-        portnum: portVal
+        portnum: portVal,
+        portnum_max: portValMax
     };
 
     // 儲存目前的選型條件，供 PDF 報表使用
@@ -915,7 +942,7 @@ function submitItems() {
                 });
                 renderSelected(culpritItems);
                 renderFilterTags(culprits, culpritItems);
-                _appendZeroHint('⚠ No products found. The highlighted condition(s) are newly added and may be causing this.');
+                _appendZeroHint(T('zeroResultHintCulprit'));
 
             } else if (data_list.length > 0) {
                 // 有結果 → 更新快照，清除警告，渲染表格
@@ -938,7 +965,7 @@ function submitItems() {
                 const allCulpritItems = new Set(thisSnapshot.items);
                 renderSelected(allCulpritItems);
                 renderFilterTags(allCulprits, allCulpritItems);
-                _appendZeroHint('⚠ No products found. The highlighted condition(s) may be causing this. Please broaden your search criteria.');
+                _appendZeroHint(T('zeroResultHintBroaden'));
             }
 
             updateContextBar();
@@ -2257,7 +2284,7 @@ function renderProductTable(data_list) {
                 lastTier = tier;
                 const label = TV_TIER_LABELS[tier] || '';
                 separatorRow = `<tr class="tv-tier-sep">
-                    <td colspan="${colSpan}">層級 ${tier}・${label}</td>
+                    <td colspan="${colSpan}">${T('tierLabel')} ${tier}・${label}</td>
                 </tr>`;
             }
         }
@@ -2441,6 +2468,12 @@ function dpChipSelect(group, val, btn) {
     } else if (group === 'speed') {
         window._dpSpeed = val;
         renderFilterTags();
+    } else if (group === 'poe') {
+        window._dpPoe = val;
+        renderFilterTags();
+    } else if (group === 'iface') {
+        window._dpIface = val;
+        renderFilterTags();
     }
 }
 
@@ -2452,12 +2485,6 @@ function dpChipToggle(group, val, btn) {
 
 // Single-select chip — also triggers renderFilterTags via dpChipSelect already
 
-// PoE toggle label update
-function dpUpdatePoE(checkbox) {
-    document.getElementById('poeLabel').textContent = checkbox.checked ? 'Required' : 'Not Required';
-    renderFilterTags();
-}
-
 // Sync MGMT chips to match the hidden select value (called by scene system)
 function dpSyncMgmtChips() {
     const val = document.getElementById('mgmtType').value;
@@ -2466,13 +2493,22 @@ function dpSyncMgmtChips() {
     });
 }
 
+// Reset a single-select chip group (poe/iface) back to its "any" default
+function dpResetToAny(containerId) {
+    document.querySelectorAll(`#${containerId} .dp-chip`).forEach(c => {
+        c.classList.toggle('active', c.dataset.val === 'any');
+    });
+}
+
 // Clear all dark-panel chips/toggles
 function dpResetAll() {
-    document.querySelectorAll('#mgmtChips .dp-chip, #speedChips .dp-chip, #ifaceChips .dp-chip, #certChips .dp-chip')
+    document.querySelectorAll('#mgmtChips .dp-chip, #speedChips .dp-chip, #certChips .dp-chip')
         .forEach(c => c.classList.remove('active'));
-    const poe = document.getElementById('poeToggle');
-    if (poe) { poe.checked = false; dpUpdatePoE(poe); }
+    dpResetToAny('poeChips');
+    dpResetToAny('ifaceChips');
     window._dpSpeed = null;
+    window._dpPoe = 'any';
+    window._dpIface = 'any';
 }
 
 // ═══════════════════════════════════════════════
@@ -2491,8 +2527,15 @@ function ftRemovePort() {
 }
 
 function ftRemovePoe() {
-    const poe = document.getElementById('poeToggle');
-    if (poe) { poe.checked = false; dpUpdatePoE(poe); }
+    dpResetToAny('poeChips');
+    window._dpPoe = 'any';
+    renderFilterTags();
+}
+
+function ftRemoveIface() {
+    dpResetToAny('ifaceChips');
+    window._dpIface = 'any';
+    renderFilterTags();
 }
 
 function ftRemoveChip(containerSelector, val) {
