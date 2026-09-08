@@ -1,0 +1,757 @@
+/* ═══════════════════════════════════════════════════════════
+   Advantech Switch Selection Tool — Compare Module Styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   卡片上的比較 Checkbox
+───────────────────────────────────────────── */
+.cmp-cb-wrap {
+    /* button reset */
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--surface);
+    font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    /* 與 expand-btn 相同高度 */
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 5px;
+    border: 1.5px solid var(--adv-border);
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: border-color 0.18s, background 0.18s, color 0.18s, box-shadow 0.18s;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.cmp-cb-wrap:hover {
+    border-color: var(--adv-accent);
+    background: var(--adv-light-blue);
+    color: var(--adv-accent);
+}
+
+.cmp-cb-wrap.checked {
+    border-color: var(--adv-accent);
+    background: var(--adv-accent);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 98, 204, 0.3);
+}
+
+
+.cmp-cb-icon {
+    font-size: 11px;
+    line-height: 1;
+    transition: transform 0.15s;
+}
+
+.cmp-cb-wrap.checked .cmp-cb-icon {
+    transform: scale(1.15);
+}
+
+/* ─────────────────────────────────────────────
+   底部浮動 Compare Bar
+───────────────────────────────────────────── */
+#cmp-bar {
+    position: fixed;
+    bottom: -100px;         /* 預設隱藏在畫面外 */
+    left: 0;
+    right: 0;
+    z-index: 900;           /* 在 chat panel (999) 之下 */
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+#cmp-bar.visible {
+    bottom: 0;
+    pointer-events: all;
+}
+
+.cmp-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--adv-blue);
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #00558a 100%);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 -4px 20px rgba(0, 51, 102, 0.25);
+    border-top: 2px solid rgba(255,255,255,0.12);
+}
+
+.cmp-bar-label {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0.9;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.cmp-bar-count {
+    font-size: 15px;
+    font-weight: 700;
+    color: #7dd3fc;         /* Sky 300 */
+    margin-right: 2px;
+}
+
+.cmp-bar-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cmp-bar-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    transition: background 0.15s;
+}
+
+.cmp-bar-chip-x {
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0 1px;
+    transition: opacity 0.15s;
+}
+
+.cmp-bar-chip-x:hover {
+    opacity: 1;
+    color: #fca5a5;         /* Red 300 */
+}
+
+.cmp-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.cmp-bar-btn {
+    background: #fff;
+    color: var(--adv-blue);
+    border: none;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.cmp-bar-btn:hover:not(:disabled) {
+    background: #e8f2ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.cmp-bar-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.cmp-bar-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.cmp-bar-clear {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.75);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.cmp-bar-clear:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+/* ─────────────────────────────────────────────
+   比較側拉面板
+───────────────────────────────────────────── */
+#cmp-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(1000px, 95vw);
+    height: 100vh;
+    background: #f8fafc;
+    border-left: 1px solid var(--adv-border);
+    box-shadow: -8px 0 40px rgba(0, 51, 102, 0.14);
+    z-index: 998;           /* chat panel 是 999，此面板在其下 */
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+#cmp-panel.open {
+    transform: translateX(0);
+}
+
+/* Panel 標頭 */
+.cmp-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #004d99 100%);
+    color: #fff;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cmp-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+}
+
+.cmp-panel-icon {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.cmp-panel-count {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.cmp-panel-close {
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px 9px;
+    border-radius: 6px;
+    transition: background 0.15s;
+    line-height: 1;
+}
+
+.cmp-panel-close:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+.cmp-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cmp-panel-dl {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.15s;
+    line-height: 1.2;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+}
+
+.cmp-panel-dl:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Panel 主體（可捲動） */
+.cmp-panel-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 16px;
+}
+
+/* ─────────────────────────────────────────────
+   AI Summary 區塊
+───────────────────────────────────────────── */
+#cmp-ai-summary {
+    background: linear-gradient(135deg, #eef6ff 0%, #f5f0ff 100%);
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.cmp-ai-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.cmp-ai-icon {
+    font-size: 15px;
+}
+
+.cmp-ai-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3730a3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Loading 動畫（三個跳動點）*/
+.cmp-ai-loading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 0;
+}
+
+.cmp-ai-dot {
+    width: 7px;
+    height: 7px;
+    background: #818cf8;
+    border-radius: 50%;
+    animation: cmp-bounce 1.2s infinite ease-in-out;
+}
+
+.cmp-ai-dot:nth-child(2) { animation-delay: 0.2s; }
+.cmp-ai-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes cmp-bounce {
+    0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+    40%           { transform: scale(1.1); opacity: 1; }
+}
+
+/* Markdown 渲染樣式 */
+#cmp-ai-content {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #374151;
+}
+
+#cmp-ai-content h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin: 10px 0 4px;
+    border-bottom: 1px solid #c7d2fe;
+    padding-bottom: 3px;
+}
+
+#cmp-ai-content ul {
+    margin: 4px 0 8px 16px;
+    padding: 0;
+}
+
+#cmp-ai-content li {
+    margin-bottom: 3px;
+}
+
+#cmp-ai-content p {
+    margin: 4px 0;
+}
+
+#cmp-ai-content strong {
+    color: #1e3a5f;
+}
+
+/* ─────────────────────────────────────────────
+   比較表格
+───────────────────────────────────────────── */
+.cmp-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--adv-border);
+    background: var(--surface);
+}
+
+.cmp-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 12px;
+}
+
+/* 標頭行（型號列） */
+.cmp-header-row {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.cmp-header-row th {
+    padding: 0;
+    border-bottom: 1px solid #e0e0dc;
+    font-weight: 600;
+}
+
+/* 第一欄（規格標籤）固定 */
+.cmp-label-col {
+    position: sticky;
+    left: 0;
+    background: inherit;
+    z-index: 5;
+    width: 160px;
+    min-width: 160px;
+}
+
+/* 表頭的第一欄 — 提高優先級以覆蓋 .cmp-header-row th { padding: 0 } */
+.cmp-header-row .cmp-th-sticky {
+    z-index: 15 !important;
+    background: #fff;
+    padding: 10px 14px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* 產品欄標頭（可點擊切換基準） */
+.cmp-prod-col {
+    min-width: 150px;
+    padding: 10px 14px;
+    border-left: 1px solid #e0e0dc;
+    vertical-align: bottom;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.cmp-prod-col:hover {
+    background: #f5f5f3;
+}
+
+/* 基準欄：底部藍線標示 */
+.cmp-prod-col.cmp-prod-baseline {
+    background: #f0f6ff;
+    border-bottom: 2px solid #185fa5;
+}
+
+.cmp-baseline-label {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    background: #185fa5;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.cmp-prod-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.cmp-prod-name {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #185fa5;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.15s;
+}
+
+.cmp-prod-name:hover {
+    color: #0d3d75;
+    text-decoration: underline;
+}
+
+.cmp-prod-pn {
+    font-size: 11px;
+    color: #aaa;
+    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.cmp-prod-link {
+    font-size: 11px;
+    color: #185fa5;
+    text-decoration: none;
+    margin-top: 2px;
+    transition: color 0.15s;
+}
+
+.cmp-prod-link:hover {
+    color: #0d3d75;
+    text-decoration: underline;
+}
+
+.cmp-ext-icon {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+/* Section 標題列 */
+.cmp-section-row td {
+    background: #f8f8f6;
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-top: 1px solid #e0e0dc;
+    border-bottom: 1px solid #e0e0dc;
+}
+
+/* Section 標題的第一欄 sticky */
+.cmp-section-row .cmp-label-col {
+    background: #f8f8f6;
+    z-index: 6;
+}
+
+/* 資料列 */
+.cmp-data-row {
+    border-bottom: 1px solid #eef0f4;
+    transition: background 0.12s;
+}
+
+.cmp-data-row:hover {
+    background: #f5f9ff;
+}
+
+.cmp-data-row:last-child {
+    border-bottom: none;
+}
+
+/* 相同的列（淡化） */
+.cmp-row-same {
+    opacity: 0.55;
+}
+
+.cmp-row-same:hover {
+    opacity: 0.8;
+}
+
+/* 只看差異模式下隱藏相同列 */
+.cmp-row-hidden {
+    display: none;
+}
+
+/* 規格項目標籤（第一欄） */
+.cmp-field-label {
+    font-size: 12px;
+    color: #666;
+    padding: 7px 14px;
+    background: #fff;
+    border-right: 1px solid #e0e0dc;
+    white-space: nowrap;
+}
+
+/* 資料格 */
+.cmp-data-cell {
+    padding: 9px 14px;
+    border-left: 1px solid #eef0f4;
+    vertical-align: middle;
+    text-align: center;
+    transition: background 0.15s;
+}
+
+/* 三色語意：最優值（綠） */
+.cmp-data-cell.cmp-cell-best {
+    background: #dff0cc;
+}
+.cmp-data-cell.cmp-cell-best .cmp-val-num,
+.cmp-data-cell.cmp-cell-best .cmp-val-str {
+    color: #1a3d06;
+    font-weight: 700;
+}
+
+/* 三色語意：較低值（橙） */
+.cmp-data-cell.cmp-cell-low {
+    background: #fde8c4;
+}
+.cmp-data-cell.cmp-cell-low .cmp-val-num,
+.cmp-data-cell.cmp-cell-low .cmp-val-str {
+    color: #5c2a00;
+    font-weight: 600;
+}
+
+/* 三色語意：與基準不同（藍） */
+.cmp-data-cell.cmp-cell-diff {
+    background: #d9eaf8;
+}
+.cmp-data-cell.cmp-cell-diff .cmp-val-num,
+.cmp-data-cell.cmp-cell-diff .cmp-val-str {
+    color: #083468;
+    font-weight: 600;
+}
+
+/* 格內數值樣式 */
+.cmp-val-num {
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-main);
+}
+
+.cmp-val-str {
+    font-size: 11.5px;
+    color: var(--text-main);
+}
+
+.cmp-val-zero {
+    font-size: 12px;
+    color: #c8d0dc;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.cmp-val-check {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.cmp-val-cross {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   Toolbar（只看差異 + 差異計數）
+───────────────────────────────────────────── */
+.cmp-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cmp-diff-btn {
+    font-size: 11px;
+    padding: 5px 11px;
+    border-radius: 6px;
+    border: 1px solid var(--adv-border);
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.12s;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+}
+
+.cmp-diff-btn:hover {
+    background: #f0f6ff;
+    border-color: var(--adv-accent);
+    color: var(--adv-accent);
+}
+
+.cmp-diff-btn.active {
+    background: #e6f1fb;
+    border-color: var(--adv-accent);
+    color: var(--adv-accent);
+}
+
+.cmp-diff-count {
+    font-size: 11px;
+    background: #e6f1fb;
+    color: #185fa5;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ─────────────────────────────────────────────
+   表格下方圖例說明
+───────────────────────────────────────────── */
+.cmp-legend {
+    margin-top: 10px;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 2px;
+    flex-wrap: wrap;
+}
+
+.cmp-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cmp-leg-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.cmp-leg-best { background: #eaf3de; border: 1px solid #c0dd97; }
+.cmp-leg-low  { background: #faeeda; border: 1px solid #fac775; }
+.cmp-leg-diff { background: #e6f1fb; border: 1px solid #b5d4f4; }
+.cmp-leg-same { background: #f0f2f5; border: 1px solid #dde1e7; opacity: 0.55; }
+.cmp-leg-same-item { opacity: 0.6; }
+
+/* ─────────────────────────────────────────────
+   Toast 提示訊息
+───────────────────────────────────────────── */
+#cmp-toast {
+    position: fixed;
+    bottom: 76px;           /* 在 compare bar 上方 */
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: rgba(17, 24, 39, 0.88);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 500;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+#cmp-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

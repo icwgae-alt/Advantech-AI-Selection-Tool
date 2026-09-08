@@ -1,0 +1,2490 @@
+/* ═══════════════════════════════════════════════════════════
+   Advantech Switch Selection Tool — Main Stylesheet
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    --adv-blue: #003366;
+    --adv-light-blue: #ddeaf8;
+    --adv-gray: #f4f6f9;
+    --adv-border: #dde1e7;
+    --adv-accent: #0062cc;
+    --adv-teal: #00829b;
+    --text-light: #fff;
+    --surface: #ffffff;
+    --bg: #eef1f6;
+    --text-main: #1a2233;
+    --text-muted: #6b7a90;
+    --radius: 10px;
+    --radius-sm: 6px;
+
+    /* Chatbot */
+    --chat-bg: #ffffff;
+    --chat-user: #003366;
+    --chat-ai: #f0f4fa;
+    --chat-width: 390px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(0, 51, 102, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(0, 130, 155, 0.05) 0%, transparent 50%);
+    margin: 0;
+    padding: 24px 20px;
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* ── PAGE HEADER ─────────────────────────────── */
+.page-header {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.page-header .logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--adv-blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.page-header .logo-mark svg {
+    display: block;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--adv-blue);
+    letter-spacing: -0.01em;
+}
+
+.page-header p {
+    margin: 2px 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.lang-switch {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.lang-switch-btn {
+    background: #fff;
+    border: 1.5px solid #b8cfe8;
+    color: #2a4a7a;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s;
+    line-height: 1.2;
+}
+
+.lang-switch-btn:hover {
+    border-color: #0062cc;
+    color: #003366;
+    background: #ddeaf8;
+}
+
+.lang-switch-btn.active {
+    background: var(--adv-blue);
+    border-color: var(--adv-blue);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.25);
+}
+
+/* ── LAYOUT ──────────────────────────────────── */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.upper-part {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* ── CARD ────────────────────────────────────── */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--adv-border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: 0 2px 12px rgba(0, 51, 102, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+/* right-part 需要能撐開顯示完整內容，不裁切 */
+.right-part.card {
+    overflow: visible;
+}
+
+/* lower-part 內的表格需要 sticky thead；overflow:hidden 的祖先會讓 position:sticky 失效 */
+.lower-part.card {
+    overflow: visible;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--adv-blue) 0%, var(--adv-teal) 100%);
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* ── HEADINGS ────────────────────────────────── */
+h3 {
+    margin: 0 0 16px 0;
+    color: var(--adv-blue);
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h3::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--adv-border);
+}
+
+/* ── FORM ELEMENTS ───────────────────────────── */
+.left-part .section {
+    margin-bottom: 18px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 7px;
+}
+
+label .step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--adv-blue);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    background: var(--adv-gray);
+    color: var(--text-main);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 34px;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: var(--adv-accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.12);
+}
+
+/* ── SEARCH RESULTS ──────────────────────────── */
+#searchResults {
+    border: 1.5px solid var(--adv-border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    background: #fff;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#searchResults:empty {
+    display: none;
+}
+
+#searchResults div {
+    padding: 9px 13px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#searchResults div::before {
+    content: '→';
+    color: var(--adv-teal);
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+#searchResults div:hover {
+    background: var(--adv-light-blue);
+}
+
+#searchResults div:hover::before {
+    opacity: 1;
+}
+
+#searchResults div:last-child {
+    border-bottom: none;
+}
+
+/* ── SELECTED ITEMS ──────────────────────────── */
+.right-part {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.chosen-items-area {
+    background: var(--adv-gray);
+    border: 1.5px dashed var(--adv-border);
+    border-radius: var(--radius-sm);
+    min-height: 100px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 6px;
+}
+
+.chosen-items-area:empty::after {
+    content: 'No items selected yet';
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+}
+
+.selected-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #ddeaf8 0%, #e8f2fc 100%);
+    border: 1px solid #b3cfea;
+    padding: 4px 10px 4px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--adv-blue);
+    transition: all 0.15s;
+}
+
+.selected-item:hover {
+    background: #cce0f5;
+}
+
+.remove-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 51, 102, 0.15);
+    border-radius: 50%;
+    color: var(--adv-blue);
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+
+.remove-btn:hover {
+    background: #e84040;
+    color: #fff;
+}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #004d99 100%);
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    font-family: 'IBM Plex Mono', monospace;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.25);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, var(--adv-accent) 0%, #0056b3 100%);
+    box-shadow: 0 4px 14px rgba(0, 51, 102, 0.3);
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn.secondary {
+    background: linear-gradient(135deg, #5a6472 0%, #6c757d 100%);
+    box-shadow: 0 2px 8px rgba(90, 100, 114, 0.2);
+}
+
+.submit-btn.secondary:hover {
+    background: linear-gradient(135deg, #495058 0%, #5a6472 100%);
+    box-shadow: 0 4px 12px rgba(90, 100, 114, 0.3);
+}
+
+/* ── RESULTS AREA ────────────────────────────── */
+.lower-part {
+    min-height: 200px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.results-header h3 {
+    margin-bottom: 0;
+}
+
+.sort-select {
+    width: auto;
+    padding: 6px 32px 6px 14px;
+    font-size: 0.78rem;
+    border-radius: 20px;
+    background-color: var(--surface);
+    color: var(--adv-blue);
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid #b3cfea;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.sort-select:hover {
+    background-color: #f8fbff;
+}
+
+.count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--adv-light-blue);
+    border: 1px solid #b3cfea;
+    color: var(--adv-blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.count-badge .count-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--adv-teal);
+    border-radius: 50%;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 48px;
+    font-size: 0.85rem;
+}
+
+/* ── PRODUCT CARD LIST ───────────────────────── */
+.prod-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.pc {
+    border-bottom: 1px solid var(--adv-border);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.pc:last-child {
+    border-bottom: none;
+}
+
+/* ── EXPANDED CARD: 高亮整張卡 ── */
+.pc.is-expanded {
+    background: linear-gradient(180deg, #EFF6FF 0%, #F8FAFC 100%);
+    border-bottom: 1px solid #B3CFE8;
+    box-shadow: inset 3px 0 0 0 var(--adv-accent);
+    position: relative;
+    z-index: 1;
+}
+
+.pc-main {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+}
+
+.pc-main:hover {
+    background: var(--adv-light-blue);
+}
+
+/* 展開狀態的 header 列 */
+.pc.is-expanded .pc-main {
+    background: rgba(0, 98, 204, 0.07);
+    border-bottom: 1px solid #C9DCF2;
+}
+
+.pc.is-expanded .pc-name {
+    color: var(--adv-accent);
+}
+
+/* 展開狀態的序號圓形高亮 */
+.pc.is-expanded .pc-thumb {
+    background: var(--adv-accent);
+    border-color: var(--adv-accent);
+    color: #fff !important;
+}
+
+.pc-thumb {
+    width: 36px;
+    height: 26px;
+    border-radius: 4px;
+    background: var(--adv-gray);
+    border: 1px solid var(--adv-border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pc-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pc-name {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--adv-blue);
+}
+
+.pc-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pc-badges {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.pb {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--adv-border);
+    background: var(--adv-gray);
+    color: var(--text-muted);
+}
+
+.pb-type-m {
+    background: #E6F1FB;
+    color: #0C447C;
+    border-color: #B5D4F4;
+}
+
+.pb-type-u {
+    background: #EAF3DE;
+    color: #27500A;
+    border-color: #C0DD97;
+}
+
+.pb-temp {
+    background: #FAEEDA;
+    color: #633806;
+    border-color: #FAC775;
+}
+
+.pb-cert {
+    background: #f0f4f8;
+    color: #4a6080;
+    border-color: #c8d8e8;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.pc-photo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pc-photo-thumb {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.pc-photo-popup {
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%) scale(0.92);
+    background: #fff;
+    border: 1px solid var(--adv-border);
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s;
+    width: 160px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pc-photo-popup img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.pc-photo:hover .pc-photo-popup {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.pc-photo-fallback {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.pc-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.expand-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1px solid var(--adv-border);
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: background 0.15s, transform 0.2s;
+    font-size: 14px;
+}
+
+.expand-btn:hover {
+    background: var(--adv-gray);
+}
+
+.expand-btn.open {
+    transform: rotate(180deg);
+}
+
+/* ── PRODUCT DETAIL (Tab area) ───────────────── */
+.prod-detail {
+    display: none;
+    border-top: 1px solid #C9DCF2;
+    background: #F5F9FF;
+    animation: detail-slide-in 0.18s ease;
+}
+
+@keyframes detail-slide-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.prod-detail.open {
+    display: block;
+}
+
+.tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--adv-border);
+    padding: 0 14px 0 60px;
+    background: var(--surface);
+}
+
+.tab-btn {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 7px 10px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+}
+
+.tab-btn.active {
+    color: var(--adv-blue);
+    border-bottom-color: var(--adv-blue);
+    font-weight: 600;
+}
+
+.tab-pane {
+    display: none;
+    padding: 12px 14px 14px 60px;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Port tab */
+.port-total-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.port-total-num {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--adv-blue);
+}
+
+.port-total-label {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.port-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.port-group {
+    background: var(--surface);
+    border: 1px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+}
+
+/* Combo 群組：雙色虛線邊框，暗示「RJ-45 或 SFP」二選一 */
+.port-group-combo {
+    background: linear-gradient(135deg, #f0f7ff 0%, #f0fdf8 100%);
+    border: 1.5px dashed #7cb9e8;
+    position: relative;
+}
+
+.port-group-combo .port-group-label {
+    color: #0062cc;
+}
+
+.port-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.port-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.port-type {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.port-val {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-main);
+}
+
+.port-val-zero {
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #c0c8d8;
+}
+
+.port-vis {
+    display: flex;
+    gap: 8px;
+    /* 組與組之間間距，留空給 badge 溢出 */
+    flex-wrap: wrap;
+    margin-top: 8px;
+    align-items: flex-start;
+    padding: 4px 2px;
+    /* 上下留白給 badge 溢出 */
+}
+
+/* 每 8 port 一組 → 2×4 faceplate grid */
+.pv-faceplate-group {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    gap: 3px;
+    padding: 3px;
+    /* 組內邂，避免 badge 被裁切 */
+}
+
+/* 基礎方塊：固定 20×20px，所有埠尺寸一致 */
+.pv-block {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* PoE badge：定位在方塊外側右上角，不占用方塊內部空間 */
+.pv-poe-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background: #F59E0B;
+    /* Amber 500 */
+    border-radius: 2px;
+    border: 1px solid var(--bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pv-rj45     { background: #4B9FE1; }  /* Blue 400  — RJ-45 10/100 */
+.pv-rj45-gbe { background: #1D5FA8; }  /* Blue 700  — RJ-45 GbE   */
+.pv-m12      { background: #818CF8; }  /* Indigo 400 — M12 D-code  */
+.pv-m12-gbe  { background: #4F46E5; }  /* Indigo 600 — M12 X-code  */
+.pv-m12-multi{ background: #312E81; }  /* Indigo 900 — M12 Multi-Giga */
+.pv-fiber    { background: #34D399; }  /* Emerald 400 — Fiber 10/100  */
+.pv-fiber-gbe{ background: #059669; }  /* Emerald 600 — Fiber GbE     */
+.pv-fiber-10g{ background: #064E3B; }  /* Emerald 900 — Fiber 10G SFP+ */
+.pv-combo    { background: #94A3B8; }  /* Slate 400   — RJ-45/SFP Combo (neutral hybrid) */
+.pv-bypass   { background: #F43F5E; }  /* Rose 500 — Bypass 10/100 */
+.pv-bypass-gbe{background: #BE123C; }  /* Rose 700 — Bypass GbE */
+
+.pv-legend {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pv-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+/* Legend 用的彩色色块（非 PoE）*/
+.pv-leg-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Legend PoE 條目：獨立的 amber badge，與埠上 badge 視覺一致 */
+.pv-leg-poe-badge {
+    width: 10px;
+    height: 10px;
+    background: #F59E0B;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.port-poe-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 9px;
+    padding: 0 5px;
+    border-radius: 3px;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FCD34D;
+    margin-left: 5px;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+/* Spec tab */
+.spec-group {
+    display: inline-block;
+    min-width: 240px;
+    background: var(--surface);
+    border: 1px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+}
+
+.spec-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--adv-border);
+    gap: 24px;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-key {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.spec-val {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-main);
+    text-align: right;
+}
+
+/* ── CHATBOT FAB ─────────────────────────────── */
+#chatFab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, var(--adv-blue) 0%, var(--adv-teal) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.35);
+    z-index: 1000;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatFab:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 51, 102, 0.4);
+}
+
+/* ── CHAT PANEL（浮動視窗：可拖曳 / 可縮放）─────── */
+#chatPanel {
+    position: fixed;
+    width: 860px;
+    height: 640px;
+    min-width: 560px;
+    min-height: 400px;
+    background: var(--chat-bg);
+    border: 1px solid var(--adv-border);
+    border-radius: 14px;
+    box-shadow: 0 16px 48px rgba(0, 51, 102, 0.22);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    opacity: 0;
+    transform: scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+}
+
+#chatPanel.open {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+#chatHeader {
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #004d99 100%);
+    color: #fff;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: move;
+    user-select: none;
+}
+
+/* ── CHAT BODY：左側對話 / 右側參考 chunk 並排 ──── */
+#chatBody {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#chatMain {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── 左右欄拖曳分隔線（JS 控制 #chatSourcesPanel 寬度）──── */
+#chatColResizer {
+    flex: 0 0 6px;
+    cursor: col-resize;
+    background: transparent;
+    position: relative;
+    z-index: 4;
+}
+
+#chatColResizer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2px;
+    width: 2px;
+    background: var(--adv-border);
+    transition: background 0.15s;
+}
+
+#chatColResizer:hover::after,
+#chatColResizer.resizing::after {
+    background: var(--adv-accent);
+}
+
+#chatSourcesPanel {
+    /* 預設寬度，開啟面板時會被 JS 讀取的記憶寬度覆寫（inline style） */
+    flex: 0 0 320px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: #f7f9fc;
+    overflow: hidden;
+}
+
+#chatSourcesHeader {
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--adv-blue);
+    border-bottom: 1px solid var(--adv-border);
+    background: #eef4fb;
+    flex-shrink: 0;
+}
+
+#chatSourcesBody {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.chat-sources-empty {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 12px 4px;
+}
+
+.source-chunk-card {
+    background: #fff;
+    border: 1px solid var(--adv-border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+}
+
+.source-chunk-card .src-model-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.source-chunk-card .src-model {
+    font-weight: 700;
+    color: var(--adv-blue);
+    font-size: 0.8rem;
+}
+
+.source-chunk-card .src-score {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.source-chunk-card .src-content {
+    margin-top: 4px;
+    color: var(--text-main);
+    white-space: pre-wrap;
+}
+
+/* ── RESIZE HANDLE ───────────────────────────── */
+#chatResizeHandle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    cursor: nwse-resize;
+    z-index: 5;
+}
+
+#chatResizeHandle::before {
+    content: '';
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--adv-border);
+    border-bottom: 2px solid var(--adv-border);
+}
+
+.chat-header-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-header-title .ai-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ddb8f;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #4ddb8f;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+#chatHeader span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.chat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#chatSourcesToggleBtn,
+#chatClearBtn,
+#chatCloseBtn {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 6px;
+    transition: background 0.15s, opacity 0.15s;
+    line-height: 1;
+}
+
+#chatSourcesToggleBtn:hover,
+#chatClearBtn:hover,
+#chatCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+#chatSourcesToggleBtn.toggled-off {
+    opacity: 0.5;
+}
+
+#contextBar {
+    background: linear-gradient(90deg, #e8f2fc 0%, #f0f7ff 100%);
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    color: #445;
+    border-bottom: 1px solid var(--adv-border);
+    flex-shrink: 0;
+    min-height: 32px;
+    max-height: 120px;
+    overflow-y: auto;
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.6;
+    transition: max-height 0.2s ease;
+}
+
+#contextBar.expanded {
+    max-height: 200px;
+}
+
+.ctx-prefix {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ctx-prefix::before {
+    content: '●';
+    color: var(--adv-teal);
+    font-size: 0.5rem;
+}
+
+.ctx-model-chip {
+    display: inline-block;
+    background: rgba(0, 98, 204, 0.1);
+    border: 1px solid rgba(0, 98, 204, 0.2);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 1px 2px;
+    font-size: 0.72rem;
+    color: var(--adv-blue);
+}
+
+.ctx-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--adv-accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 0.72rem;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin: 1px 2px;
+}
+
+.ctx-expand-btn:hover {
+    background: var(--adv-blue);
+}
+
+#chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fafbfd;
+}
+
+.msg-bubble {
+    max-width: 88%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+.msg-bubble.user {
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #004d99 100%);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.22);
+}
+
+.msg-bubble.assistant {
+    background: #fff;
+    color: var(--text-main);
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+    border: 1px solid var(--adv-border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.msg-refs {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+.msg-bubble p {
+    margin: 0 0 8px;
+}
+
+.msg-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.msg-bubble table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 0.78rem;
+}
+
+.msg-bubble th,
+.msg-bubble td {
+    border: 1px solid #dde1e7;
+    padding: 5px 8px;
+    text-align: left;
+}
+
+.msg-bubble th {
+    background: #f0f4fa;
+    font-weight: 600;
+}
+
+.msg-bubble.loading {
+    color: var(--text-muted);
+    font-style: italic;
+    background: #f0f4fa;
+}
+
+/* ── PIPELINE STEPS（Hard Filter → Semantic Search 階段軌跡）──── */
+.pipeline-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+    max-width: 88%;
+}
+
+.pipeline-step {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    background: #f4f7fb;
+    border: 1px solid var(--adv-border);
+    border-radius: 8px;
+    padding: 5px 8px;
+}
+
+.pipeline-step summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.pipeline-step summary::-webkit-details-marker {
+    display: none;
+}
+
+.pipeline-step .step-icon {
+    flex-shrink: 0;
+}
+
+.pipeline-step .step-text {
+    color: var(--text-main);
+}
+
+.pipeline-step-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 5px;
+    padding: 4px 0 0;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* ── QUICK PROMPTS ───────────────────────────── */
+#quickPrompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 14px;
+    border-top: 1px solid var(--adv-border);
+    flex-shrink: 0;
+    background: #fafbfd;
+}
+
+.quick-btn {
+    background: #fff;
+    border: 1px solid var(--adv-border);
+    color: var(--adv-blue);
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 0.74rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.quick-btn:hover {
+    background: var(--adv-light-blue);
+    border-color: #9fc5e8;
+}
+
+/* ── CHAT INPUT ──────────────────────────────── */
+#chatInputBar {
+    display: flex;
+    padding: 12px;
+    gap: 8px;
+    border-top: 1px solid var(--adv-border);
+    flex-shrink: 0;
+    background: #fff;
+    align-items: flex-end;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 9px 14px;
+    border: 1.5px solid var(--adv-border);
+    border-radius: 20px;
+    font-size: 0.86rem;
+    outline: none;
+    resize: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: border-color 0.2s;
+    background: var(--adv-gray);
+    color: var(--text-main);
+}
+
+#chatInput:focus {
+    border-color: var(--adv-accent);
+    background: #fff;
+}
+
+#chatSendBtn {
+    background: linear-gradient(135deg, var(--adv-blue) 0%, var(--adv-teal) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.25);
+}
+
+#chatSendBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.35);
+}
+
+#chatSendBtn:disabled {
+    background: #c0c8d4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ── FILTER TAGS ─────────────────────────────── */
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #e8f4ec 0%, #d4edd9 100%);
+    border: 1px solid #9fd0a8;
+    color: #2a6e3a;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.filter-tag-x {
+    margin-left: 2px;
+    cursor: pointer;
+    opacity: 0.6;
+    font-size: 0.85rem;
+    line-height: 1;
+}
+.filter-tag-x:hover {
+    opacity: 1;
+}
+
+.filter-tag .filter-icon {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.filter-tag.culprit {
+    background: linear-gradient(135deg, #fde8e8 0%, #fbd5d5 100%);
+    border-color: #f09090;
+    color: #b91c1c;
+    animation: shake 0.4s ease;
+    position: relative;
+}
+
+.filter-tag.culprit::after {
+    content: '';
+}
+
+.selected-item.culprit {
+    background: linear-gradient(135deg, #fde8e8 0%, #fbd5d5 100%);
+    border-color: #f09090;
+    color: #b91c1c;
+    animation: shake 0.4s ease;
+}
+
+.selected-item.culprit .remove-btn {
+    background: rgba(185, 28, 28, 0.15);
+    color: #b91c1c;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.zero-result-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff5f5;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: #b91c1c;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ── SCENE TEMPLATE ──────────────────────────── */
+.scene-section {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--adv-border);
+}
+
+.scene-section>label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.scene-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.scene-btn {
+    border: 1.5px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    background: var(--adv-gray);
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.3;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.scene-btn:hover {
+    border-color: var(--adv-accent);
+    background: var(--adv-light-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.1);
+}
+
+.scene-btn.active {
+    border-color: var(--adv-blue);
+    background: var(--adv-light-blue);
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.18);
+}
+
+.scene-btn-icon {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.scene-btn-name {
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--adv-blue);
+    display: block;
+}
+
+.scene-btn-desc {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 1px;
+}
+
+.scene-clear-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    padding: 4px 0;
+    margin-top: 6px;
+    text-decoration: underline;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: color 0.15s;
+}
+
+.scene-clear-link:hover {
+    color: #b91c1c;
+}
+
+/* 場景按鈕已修改狀態（橘色） */
+.scene-btn.scene-modified {
+    border-color: #d4a017;
+    background: #fef9e7;
+    box-shadow: 0 0 0 2px rgba(212, 160, 23, 0.2);
+}
+
+.scene-btn.scene-modified .scene-btn-name {
+    color: #7a5800;
+}
+
+.scene-btn.scene-modified .scene-btn-desc {
+    color: #a07020;
+}
+
+/* 恢復預設按鈕 */
+.scene-restore-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0.73rem;
+    color: #d4a017;
+    padding: 4px 0;
+    margin-top: 2px;
+    text-decoration: underline;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: color 0.15s;
+}
+
+.scene-restore-btn:hover {
+    color: #7a5800;
+}
+
+/* 條件被改過 Tag（橘色警示） */
+.filter-tag-modified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #FAEEDA 0%, #fde8a0 100%);
+    border: 1.5px solid #d4a017;
+    color: #7a5800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Select 欄位場景高亮 */
+select.scene-prefilled {
+    border-color: var(--adv-blue);
+    background: var(--adv-light-blue);
+    color: var(--adv-blue);
+    font-weight: 500;
+}
+
+select.scene-prefilled-sug {
+    border-color: #d4a017;
+    background: #fef9e7;
+    color: #7a5800;
+    font-weight: 500;
+}
+
+/* 場景來源 Tag（深藍） */
+.filter-tag-scene {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, var(--adv-blue) 0%, #004d99 100%);
+    border: 1px solid var(--adv-blue);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* 必選條件 Tag（藍色，無刪除） */
+.filter-tag-req {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #ddeaf8 0%, #c8dfff 100%);
+    border: 1px solid #7fb3e8;
+    color: var(--adv-blue);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* 建議條件 Tag（橘色，可刪除） */
+.filter-tag-sug {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #fef3cd 0%, #fde8a0 100%);
+    border: 1px solid #f5c842;
+    color: #7a5800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.tag-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    background: rgba(122, 88, 0, 0.15);
+    border-radius: 50%;
+    color: #7a5800;
+    font-size: 0.62rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    flex-shrink: 0;
+    font-style: normal;
+}
+
+.tag-remove:hover {
+    background: #e84040;
+    color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT BLUE PANEL — left filter card redesign
+   ═══════════════════════════════════════════════════════ */
+.dark-panel {
+    background: #f0f5ff !important;
+    border-color: #c5d8f5 !important;
+    color: #1a2a4a;
+}
+
+.dark-panel::before {
+    background: linear-gradient(90deg, #003366 0%, #0062cc 100%) !important;
+}
+
+.dark-panel h3 {
+    color: #003366;
+}
+
+.dark-panel h3::after {
+    background: #c5d8f5;
+}
+
+/* ── dp-section labels ─────────────────────────── */
+.dp-section {
+    margin-bottom: 20px;
+}
+
+.dp-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #3a5a8a;
+    margin-bottom: 8px;
+}
+
+.dp-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #003366;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ── Chip buttons ─────────────────────────────── */
+.dp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.dp-chip {
+    background: #fff;
+    border: 1.5px solid #b8cfe8;
+    color: #2a4a7a;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s;
+    line-height: 1.2;
+}
+
+.dp-chip:hover {
+    border-color: #0062cc;
+    color: #003366;
+    background: #ddeaf8;
+}
+
+.dp-chip.active {
+    background: #003366;
+    border-color: #003366;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.25);
+}
+
+/* ── Dropdown (light) ─────────────────────────── */
+.dp-select-wrap {
+    position: relative;
+}
+
+.dp-select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%233a5a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.dp-select {
+    width: 100%;
+    padding: 9px 34px 9px 13px;
+    background: #fff;
+    border: 1.5px solid #b8cfe8;
+    border-radius: 8px;
+    color: #2a4a7a;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.18s;
+}
+
+.dp-select:focus {
+    border-color: #0062cc;
+    box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.12);
+}
+
+/* ── PoE toggle ───────────────────────────────── */
+.dp-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dp-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.dp-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.dp-toggle-track {
+    position: absolute;
+    inset: 0;
+    background: #d0ddf0;
+    border-radius: 22px;
+    border: 1.5px solid #b8cfe8;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.dp-toggle-track::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #8aaad0;
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.dp-toggle-switch input:checked + .dp-toggle-track {
+    background: #003366;
+    border-color: #003366;
+}
+
+.dp-toggle-switch input:checked + .dp-toggle-track::after {
+    transform: translateX(18px) translateY(-50%);
+    background: #fff;
+}
+
+.dp-toggle-label {
+    font-size: 0.82rem;
+    color: #3a5a8a;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── Search & Advanced Filter ─────────────────── */
+.dp-search {
+    width: 100%;
+    padding: 9px 13px;
+    background: #fff !important;
+    border: 1.5px solid #b8cfe8 !important;
+    border-radius: 8px !important;
+    color: #1a2a4a !important;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.18s;
+}
+
+.dp-search::placeholder {
+    color: #7a9ab8;
+}
+
+.dp-search:focus {
+    border-color: #0062cc !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.12) !important;
+}
+
+.dp-adv-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1.5px dashed #b8cfe8;
+    border-radius: 8px;
+    color: #0062cc;
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+
+.dp-adv-btn:hover {
+    border-color: #003366;
+    color: #003366;
+    background: #ddeaf8;
+}
+
+/* 場景說明注解 */
+.scene-state-note {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    background: linear-gradient(90deg, #e8f2fc 0%, #f0f7ff 100%);
+    border-left: 3px solid var(--adv-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 7px 10px;
+    margin-top: 8px;
+}
+
+/* ── SCROLLBAR ───────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c0c8d8;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9aabbc;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SFP 選型面板
+   ═══════════════════════════════════════════════════════════ */
+
+/* SFP badge（產品卡片上）— 可點擊 */
+.pb-sfp {
+    background: #EDE9FE;
+    color: #5B21B6;
+    border-color: #C4B5FD;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.pb-sfp:hover {
+    background: #C4B5FD;
+    transform: translateY(-1px);
+}
+
+.pb-fiber-fixed {
+    background: #D1FAE5;
+    color: #065F46;
+    border-color: #6EE7B7;
+}
+
+/* ── 載入中 / 無 Fiber ──────────────────────── */
+.sfp-loading, .sfp-no-fiber {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.sfp-loading-dot {
+    width: 8px; height: 8px;
+    background: var(--adv-teal);
+    border-radius: 50%;
+    animation: sfp-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes sfp-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.sfp-icon { font-size: 1.1rem; }
+
+/* ── 固定接頭說明 ────────────────────────────── */
+.sfp-fixed-info    { padding: 4px 0 8px; }
+
+.sfp-fixed-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.sfp-fixed-rows {
+    background: var(--surface);
+    border: 1px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    width: fit-content;
+    min-width: 240px;
+}
+
+.sfp-fixed-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--adv-border);
+    gap: 20px;
+}
+
+.sfp-fixed-row:last-child { border-bottom: none; }
+
+.sfp-fixed-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sfp-fixed-val {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.sfp-fixed-tip .sfp-fixed-val {
+    color: var(--adv-teal);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* ── 速度分組外框 ─────────────────────────────── */
+.sfp-slots-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+}
+
+.sfp-speed-group {
+    /* Removed boxed layout */
+    margin-bottom: 16px;
+}
+
+.sfp-speed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed var(--adv-border);
+    padding-bottom: 6px;
+}
+
+.sfp-slot-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.sfp-combo-note {
+    font-size: 10px;
+    color: #92400E;
+    background: #FEF3C7;
+    border: 1px solid #FCD34D;
+    border-radius: 3px;
+    padding: 1px 6px;
+}
+
+/* 速度 badge */
+.sfp-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.sfp-badge-fixed   { background: #D1FAE5; color: #065F46; border-color: #6EE7B7; }
+.sfp-badge-100m    { background: #DBEAFE; color: #1E40AF; border-color: #93C5FD; }
+.sfp-badge-1g      { background: #EDE9FE; color: #5B21B6; border-color: #C4B5FD; }
+.sfp-badge-10g     { background: #FEE2E2; color: #991B1B; border-color: #FCA5A5; }
+.sfp-badge-sfpplus { background: #FFF7ED; color: #9A3412; border-color: #FDBA74; }
+
+/* ═══════════════════════════════════════════════
+   單欄橫向折疊 (Accordion) - Pill Layout
+   ═══════════════════════════════════════════════ */
+.sfp-acc-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sfp-acc-item {
+    width: 100%;
+}
+
+.sfp-acc-item.is-open {
+    /* No longer need width change since they are always 100% container */
+}
+
+.sfp-acc-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 14px;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--adv-border);
+    transition: background 0.15s, border-color 0.15s;
+    width: 100%;
+}
+
+.sfp-acc-hdr:hover {
+    background: #F8FAFC;
+    border-color: #cbd5e1;
+}
+
+.sfp-acc-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sfp-acc-tag {
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.sfp-acc-tag-mm { background: #E1F5EE; color: #085041; border: 1px solid #b2e2d1; }
+.sfp-acc-tag-sm { background: #E6F1FB; color: #0C447C; border: 1px solid #c0daf1; }
+.sfp-acc-tag-bidi { background: #FBEAF0; color: #72243E; border: 1px solid #f2c7d6; }
+.sfp-acc-tag-copper { background: #FAEEDA; color: #633806; border: 1px solid #f0d5a6; }
+
+.sfp-acc-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.sfp-acc-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: #ffffff;
+    border: 1px solid var(--adv-border);
+    padding: 1px 8px;
+    border-radius: 12px;
+}
+
+.sfp-acc-arrow {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+    margin-left: 2px;
+}
+
+.sfp-acc-item.is-open .sfp-acc-arrow {
+    transform: rotate(180deg);
+}
+
+.sfp-acc-body {
+    display: none;
+    padding: 12px 0;
+}
+
+.sfp-acc-item.is-open .sfp-acc-body {
+    display: block;
+}
+
+/* ── Accordion 內部的模組卡片 Grid ── */
+.sfp-sgrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sfp-scard {
+    width: 200px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid var(--adv-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+}
+
+.sfp-spart {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--adv-blue);
+    margin-bottom: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.sfp-smeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+.sfp-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.sfp-tag-mm { background: #E1F5EE; color: #085041; }
+.sfp-tag-sm { background: #E6F1FB; color: #0C447C; }
+.sfp-tag-bidi { background: #EEEDFE; color: #3C3489; }
+.sfp-tag-cu { background: #FAEEDA; color: #633806; }
+.sfp-tag-neu { background: #fff; color: var(--text-muted); border: 1px solid var(--adv-border); }
+
+.sfp-sdet {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.sfp-spair {
+    font-size: 10px;
+    color: #5B21B6;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed var(--adv-border);
+}
+
+/* ═══════════════════════════════════════════════
+   產品連結樣式
+   ═══════════════════════════════════════════════ */
+
+/* 型號名稱旁的 ↗ 外部連結圖示 */
+.pc-name-link {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    gap: 4px;
+}
+
+.pc-name-link .ext-icon {
+    font-size: 11px;
+    color: var(--text-muted);
+    transition: color 0.15s, transform 0.15s;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.pc-name-link:hover .ext-icon {
+    color: var(--adv-accent);
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+/* 卡片底部 CTA —「前往研華產品頁 →」 */
+.pc-product-link-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 7px 14px 7px;
+    border-top: 1px solid #e2ebf5;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 98, 204, 0.03) 100%);
+}
+
+.pc-product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--adv-accent);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 98, 204, 0.2);
+    background: rgba(0, 98, 204, 0.05);
+    transition: all 0.18s;
+    font-family: 'IBM Plex Sans', sans-serif;
+    letter-spacing: 0.01em;
+}
+
+.pc-product-link:hover {
+    background: rgba(0, 98, 204, 0.12);
+    border-color: rgba(0, 98, 204, 0.4);
+    color: var(--adv-blue);
+    transform: translateX(2px);
+}
+
+.pc-product-link .link-arrow {
+    transition: transform 0.18s;
+}
+
+.pc-product-link:hover .link-arrow {
+    transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════════
+   SFP chip 連結（pill 形狀，可點擊）
+   ═══════════════════════════════════════════════ */
+
+/* 模組 scard 改造為 chip */
+.sfp-scard {
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+    text-decoration: none;
+    display: block;
+}
+
+.sfp-scard:hover {
+    border-color: var(--adv-accent);
+    box-shadow: 0 2px 8px rgba(0, 98, 204, 0.15);
+    transform: translateY(-1px);
+}
+
+/* scard 內部外部連結圖示 */
+.sfp-spart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.sfp-ext-icon {
+    font-size: 10px;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: color 0.15s, opacity 0.15s;
+    flex-shrink: 0;
+}
+
+.sfp-scard:hover .sfp-ext-icon {
+    color: var(--adv-accent);
+    opacity: 1;
+}
+

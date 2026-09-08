@@ -1,0 +1,32 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables & Credentials
+.env
+configs/*.json
+configs/*.env
+credentials.json
+validation_report.json
+
+# Logs & temporary data
+logs/
+data/*.json
+data/DS_md/
+data/pics/
+frontend/temp/
+frontend/data/pics/
+frontend/data/pics_thumb/
+
+# Backups and tool files
+frontend_backup_20260706/
+.claude/
+*.code-workspace
+

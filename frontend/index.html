@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advantech Industrial Switch AI Selection Tool — 工業交換機智能選型工具">
+    <title>Advantech Switch Selection Tool</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet（相對路徑，供 GitHub Pages 使用） -->
+    <link rel="stylesheet" href="css/style.css?v=11">
+    <link rel="stylesheet" href="css/feature-selector.css?v=2">
+    <link rel="stylesheet" href="css/compare.css?v=4">
+    <link rel="stylesheet" href="css/table-view.css?v=12">
+
+    <!-- marked.js：Markdown 渲染（Chatbot 回覆美化） -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- html2pdf.js：PDF 匯出 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+    <div class="page-header">
+        <div class="logo-mark">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect x="2" y="2" width="8" height="8" fill="white" opacity="0.9" />
+                <rect x="12" y="2" width="8" height="8" fill="white" opacity="0.5" />
+                <rect x="2" y="12" width="8" height="8" fill="white" opacity="0.5" />
+                <rect x="12" y="12" width="8" height="8" fill="white" opacity="0.9" />
+            </svg>
+        </div>
+        <div>
+            <h1>Advantech Industrial Switch</h1>
+            <p>Selection Tool · v1.0</p>
+        </div>
+        <div class="lang-switch" id="langSwitch">
+            <button class="lang-switch-btn" data-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-switch-btn" data-lang="ja" onclick="setLang('ja')">日本語</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <div class="main-container">
+
+        <div class="upper-part">
+
+            <!-- 左側：篩選條件 -->
+            <div class="left-part card dark-panel">
+                <h3 data-i18n="deviceConfiguration">Device Configuration</h3>
+
+                <!-- Quick Start 場景模板（暫時隱藏，保留供日後重新啟用） -->
+                <!--
+                <div class="section scene-section">
+                    <label>⚡ Quick Start — Applications</label>
+                    <div class="scene-grid" id="sceneGrid"></div>
+                    <button class="scene-clear-link" id="sceneClearBtn" onclick="clearScene()" style="display:none">✕ Clear Scene</button>
+                    <button class="scene-restore-btn" id="sceneRestoreBtn" onclick="restoreSceneDefaults()" style="display:none">↺ Restore Defaults</button>
+                </div>
+                -->
+                <!-- Quick Start 隱藏時仍需初始化 sceneGrid（scenes.js 依賴此 DOM） -->
+                <div style="display:none">
+                    <div id="sceneGrid"></div><button id="sceneClearBtn"></button><button id="sceneRestoreBtn"></button>
+                </div>
+
+                <!-- 1. MGMT -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">1</span> <span data-i18n="mgmtTypeLabel">Management Type</span></label>
+                    <!-- hidden select kept for backward-compat with app.js -->
+                    <select id="mgmtType" style="display:none">
+                        <option value=""></option>
+                        <option value="managed">Managed (All)</option>
+                        <option value="l2_managed">L2 Managed</option>
+                        <option value="l3_managed">L3 Managed</option>
+                        <option value="unmanaged">Unmanaged</option>
+                    </select>
+                    <div class="dp-chips" id="mgmtChips">
+                        <button class="dp-chip" data-val="managed"
+                            onclick="dpChipSelect('mgmt','managed',   this)">Managed (All)</button>
+                        <button class="dp-chip" data-val="l2_managed"
+                            onclick="dpChipSelect('mgmt','l2_managed',this)">L2 Managed</button>
+                        <button class="dp-chip" data-val="l3_managed"
+                            onclick="dpChipSelect('mgmt','l3_managed',this)">L3 Managed</button>
+                        <button class="dp-chip" data-val="unmanaged"
+                            onclick="dpChipSelect('mgmt','unmanaged', this)">Unmanaged</button>
+                    </div>
+                </div>
+
+                <!-- 2. TOTAL PORT COUNT -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">2</span> <span data-i18n="totalPortCountLabel">Total Port Count</span></label>
+                    <div class="dp-select-wrap">
+                        <select id="numInput" class="dp-select">
+                            <option value="" disabled selected hidden>Select port range...</option>
+                            <option value="1-9">1 ~ 9 ports</option>
+                            <option value="10-20">10 ~ 20 ports</option>
+                            <option value="21-">&gt; 20 ports</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 3. MAX SPEED -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">3</span> <span data-i18n="maxPortSpeedLabel">Max Port Speed</span></label>
+                    <div class="dp-chips" id="speedChips">
+                        <button class="dp-chip" data-val="100M"
+                            onclick="dpChipSelect('speed','100M', this)">100M</button>
+                        <button class="dp-chip" data-val="1G" onclick="dpChipSelect('speed','1G',   this)">1G</button>
+                        <button class="dp-chip" data-val="10G+"
+                            onclick="dpChipSelect('speed','10G+', this)">10G+</button>
+                    </div>
+                </div>
+
+                <!-- 4. PoE -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">4</span> <span data-i18n="poeSectionLabel">PoE</span></label>
+                    <div class="dp-chips" id="poeChips">
+                        <button class="dp-chip active" data-val="any"
+                            onclick="dpChipSelect('poe','any', this)">Any</button>
+                        <button class="dp-chip" data-val="poe"
+                            onclick="dpChipSelect('poe','poe', this)">PoE</button>
+                        <button class="dp-chip" data-val="non-poe"
+                            onclick="dpChipSelect('poe','non-poe', this)">Non-PoE</button>
+                    </div>
+                </div>
+
+                <!-- 5. INTERFACE -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">5</span> <span data-i18n="interfaceTypeLabel">Interface Type</span></label>
+                    <div class="dp-chips" id="ifaceChips">
+                        <button class="dp-chip active" data-val="any"
+                            onclick="dpChipSelect('iface','any', this)">Any</button>
+                        <button class="dp-chip" data-val="m12"
+                            onclick="dpChipSelect('iface','m12', this)">M12</button>
+                        <button class="dp-chip" data-val="spe"
+                            onclick="dpChipSelect('iface','spe', this)">SPE</button>
+                    </div>
+                </div>
+
+                <!-- 6. CERTIFICATIONS -->
+                <div class="section dp-section">
+                    <label class="dp-label"><span class="dp-badge">6</span> <span data-i18n="certificationsLabel">Certifications (Optional)</span></label>
+                    <div class="dp-chips" id="certChips">
+                        <button class="dp-chip" data-val="Cert_UL"
+                            onclick="dpChipToggle('cert','Cert_UL',      this)">UL</button>
+                        <button class="dp-chip" data-val="Cert_IEC61850"
+                            onclick="dpChipToggle('cert','Cert_IEC61850',this)">IEC 61850</button>
+                        <button class="dp-chip" data-val="Cert_EN50155"
+                            onclick="dpChipToggle('cert','Cert_EN50155', this)">EN 50155</button>
+                        <button class="dp-chip" data-val="Cert_EMark"
+                            onclick="dpChipToggle('cert','Cert_EMark',   this)">E-Mark</button>
+                        <button class="dp-chip" data-val="Cert_ITxPT"
+                            onclick="dpChipToggle('cert','Cert_ITxPT',   this)">ITxPT</button>
+                    </div>
+                </div>
+
+                <!-- Search Inventory -->
+                <div class="section dp-section">
+                    <label class="dp-label" style="margin-bottom:6px;" data-i18n="searchInventoryLabel">Search Inventory</label>
+
+                    <input type="text" id="searchInput" class="dp-search" placeholder="Search product items…" data-i18n-placeholder="searchProductItemsPlaceholder">
+                    <div id="searchResults"></div>
+                    <button id="advancedFilterBtn" type="button" class="dp-adv-btn">⊞ <span data-i18n="advancedFilter">Advanced Filter</span></button>
+                </div>
+            </div>
+
+            <!-- 右側：選型摘要 -->
+            <div class="right-part card">
+                <h3 data-i18n="selectionSummary">Selection Summary</h3>
+
+                <div class="forth-part">
+                    <label data-i18n="filterConditions">Filter Conditions</label>
+                    <div id="filterTags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;min-height:28px;">
+                    </div>
+                    <label data-i18n="chosenItems">Chosen Items</label>
+                    <div class="chosen-items-area">
+                        <div id="selectedItems"></div>
+                    </div>
+                </div>
+
+                <div class="btn-group" style="margin-top:16px;">
+                    <button onclick="submitItems()" type="button" class="submit-btn">🔍 <span data-i18n="findMatchingProducts">Find Matching Products</span></button>
+                    <button onclick="resetAll()" type="button" class="submit-btn secondary">↺ <span data-i18n="resetAll">Reset All</span></button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 下方：結果卡片列表 -->
+        <div class="lower-part card">
+            <div class="results-header">
+                <h3 data-i18n="acquiredProductInfo">Acquired Product Information</h3>
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px;">
+                    <!-- View Toggle -->
+                    <div class="view-toggle">
+                        <button class="view-tab-btn active" id="view-btn-list" onclick="switchView('list')"
+                            title="Card List" data-i18n-title="cardListTooltip">
+                            <i class="ti ti-layout-list" aria-hidden="true"></i> <span data-i18n="viewList">List</span>
+                        </button>
+                        <button class="view-tab-btn" id="view-btn-table" onclick="switchView('table')"
+                            title="Table View" data-i18n-title="tableViewTooltip">
+                            <i class="ti ti-table" aria-hidden="true"></i> <span data-i18n="viewTable">Table</span>
+                        </button>
+                    </div>
+                    <!-- Col Picker (table mode only) -->
+                    <button class="col-picker-btn" id="tv-col-picker-btn" onclick="tvToggleColPanel()"
+                        style="display:none;">
+                        <i class="ti ti-columns" aria-hidden="true"></i> <span data-i18n="columns">Columns</span>
+                    </button>
+                    <button class="col-picker-btn" id="tv-download-btn" onclick="tvDownloadCSV()"
+                        style="display:none;" title="Download full table as CSV" data-i18n-title="exportCsvTooltip">
+                        <i class="ti ti-download" aria-hidden="true"></i> <span data-i18n="exportCsv">Export CSV</span>
+                    </button>
+                    <select id="sortSelect" onchange="applySort()" class="sort-select">
+                        <option value="default">Default Sorting</option>
+                        <option value="port_asc">Total Ports: Low to High</option>
+                        <option value="port_desc">Total Ports: High to Low</option>
+                        <option value="model_asc">Model Name: A to Z</option>
+                        <option value="model_desc">Model Name: Z to A</option>
+                        <option value="mgmt_asc">Management: Basic to Advanced</option>
+                        <option value="mgmt_desc">Management: Advanced to Basic</option>
+                    </select>
+                    <div class="count-badge">
+                        <span class="count-dot"></span>
+                        Total: <span id="itemCount">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-list" id="prodList"></div>
+        </div>
+
+    </div><!-- /.main-container -->
+
+    <!-- ═══════════════ CHATBOT PANEL ═══════════════ -->
+    <button id="chatFab" onclick="toggleChat()" title="AI Assistant">💬</button>
+
+    <div id="chatPanel">
+        <div id="chatHeader">
+            <div class="chat-header-title">
+                <span class="ai-dot"></span>
+                <span>🤖 AI Assistant</span>
+            </div>
+            <div class="chat-header-actions">
+                <button id="chatSourcesToggleBtn" onclick="toggleSourcesPanel()" title="隱藏參考片段">📑</button>
+                <button id="chatClearBtn" onclick="clearChat()" title="Clear Chat History">🗑️</button>
+                <button id="chatCloseBtn" onclick="toggleChat()">✕</button>
+            </div>
+        </div>
+
+        <div id="chatBody">
+            <div id="chatMain">
+                <div id="contextBar">No models selected</div>
+
+                <div id="chatMessages">
+                    <div class="msg-bubble assistant">
+                        Hello! I am the Advantech Industrial Switch AI Assistant.<br>
+                        Please select models on the left before asking, or describe your application needs directly.
+                    </div>
+                </div>
+
+                <div id="quickPrompts">
+                    <button class="quick-btn" onclick="sendQuick('Application: Power System')">⚡ Power System</button>
+                    <button class="quick-btn" onclick="sendQuick('Application: Railway System')">🚆 Railway System</button>
+                    <button class="quick-btn" onclick="sendQuick('What is the operating temperature range?')">🌡️ Temp
+                        Spec</button>
+                    <button class="quick-btn" onclick="sendQuick('Which model supports PoE? What is the power budget?')">⚡ PoE
+                        Feature</button>
+                    <button class="quick-btn" onclick="sendQuick('Compare the port count and types of these models')">🔌 Port
+                        Compare</button>
+                </div>
+
+                <div id="chatInputBar">
+                    <textarea id="chatInput" rows="1" placeholder="Type your question... (Enter to send)"></textarea>
+                    <button id="chatSendBtn" onclick="sendMessage()">➤</button>
+                </div>
+            </div>
+
+            <div id="chatColResizer" title="拖曳調整左右比例"></div>
+
+            <div id="chatSourcesPanel">
+                <div id="chatSourcesHeader">🔍 AI 參考的原廠規格片段</div>
+                <div id="chatSourcesBody">
+                    <div class="chat-sources-empty">尚無回答，等待 AI 回覆後這裡會顯示引用的原始規格片段，方便跟左側答案並排比對。</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chatResizeHandle" title="拖曳調整大小"></div>
+    </div>
+
+    <!-- ═══════════════ FEATURE SELECTOR MODAL ═══════════════ -->
+    <div id="fs-modal-overlay">
+        <div id="fs-modal-container">
+            <div id="fs-modal-header">
+                <span>⊞ <span data-i18n="advancedFeaturesFilter">Advanced Features Filter</span></span>
+                <button id="fs-modal-close">✕</button>
+            </div>
+            <div id="fs-modal-body">
+                <div id="fs-chip-bar">
+                    <span id="fs-chip-hint" data-i18n="noFeaturesSelected">No features selected</span>
+                </div>
+                <div class="fs-search-wrap">
+                    <input type="text" id="fs-search" placeholder="Search features... (e.g. VLAN, PoE, STP, TSN)" data-i18n-placeholder="searchFeaturesPlaceholder">
+                    <span id="fs-s-clear">×</span>
+                </div>
+                <div id="fs-cat-grid"></div>
+                <div id="fs-sub-area"></div>
+            </div>
+            <div id="fs-modal-footer">
+                <button id="fs-cancel-btn" data-i18n="cancel">Cancel</button>
+                <button id="fs-apply-btn" data-i18n="applyFilter">Apply Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ COMPARE BAR ═══════════════ -->
+    <div id="cmp-bar"></div>
+
+    <!-- ═══════════════ COMPARE PANEL ═══════════════ -->
+    <div id="cmp-panel"></div>
+
+    <!-- Main Application Script -->
+    <script src="js/config.js"></script>
+    <script>
+        // ENABLE_CHATBOT 為 false 時，隱藏聊天機器人相關 DOM（外部發布版本使用）
+        // 注意：只能用 CSS 隱藏，不能整個 remove() —— app.js 頂層有直接對
+        // #chatInput 等元素呼叫 addEventListener 的程式碼，若元素不存在會
+        // 拋出例外，導致 app.js 後續程式碼（含 tvActiveCols 宣告）都不會執行。
+        if (typeof ENABLE_CHATBOT !== 'undefined' && !ENABLE_CHATBOT) {
+            const chatFab = document.getElementById('chatFab');
+            const chatPanel = document.getElementById('chatPanel');
+            if (chatFab) chatFab.style.setProperty('display', 'none', 'important');
+            if (chatPanel) chatPanel.style.setProperty('display', 'none', 'important');
+        }
+    </script>
+    <script src="js/i18n.js?v=1"></script>
+    <script src="js/feature-selector.js?v=3"></script>
+    <script src="js/scenes.js?v=4"></script>
+    <script src="js/sfp-selector.js?v=4"></script>
+    <script src="js/compare.js"></script>
+    <script src="js/app.js?v=25"></script>
+
+</body>
+
+</html>

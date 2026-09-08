@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advantech Switch Selection Tool — 系統架構圖</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f9;
+    padding: 32px 24px;
+    color: #1a2233;
+  }
+  h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #003366;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 0.82rem;
+    color: #6b7a90;
+    margin-bottom: 28px;
+  }
+
+  /* ── Section ── */
+  .section {
+    background: #fff;
+    border: 1px solid #dde1e7;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,51,102,0.05);
+  }
+  .section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #003366;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #dde1e7;
+  }
+
+  /* ── User journey table ── */
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .journey-step {
+    background: #f8faff;
+    border: 1px solid #b3cfea;
+    border-radius: 8px;
+    padding: 12px 10px;
+    text-align: center;
+    position: relative;
+  }
+  .journey-step .num {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #003366;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 6px;
+  }
+  .journey-step .action {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 4px;
+  }
+  .journey-step .trigger {
+    font-size: 0.68rem;
+    color: #6b7a90;
+    font-family: monospace;
+  }
+  .journey-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #b3cfea;
+    padding-top: 20px;
+  }
+
+  /* ── Component map ── */
+  .comp-row {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .comp-row.col3 { grid-template-columns: repeat(3, 1fr); }
+  .comp-row.col4 { grid-template-columns: repeat(4, 1fr); }
+  .comp-row.col2 { grid-template-columns: 1fr 1fr; }
+  .comp-row.col1 { grid-template-columns: 1fr; }
+
+  .comp {
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 0.78rem;
+  }
+  .comp .comp-name {
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    font-family: 'Courier New', monospace;
+  }
+  .comp .comp-desc {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+  .comp .comp-apis {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .api-tag {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    border-radius: 100px;
+    font-family: monospace;
+    font-weight: 600;
+  }
+
+  /* colour themes */
+  .theme-entry    { background:#EFF6FF; border:1px solid #BFDBFE; color:#1D4ED8; }
+  .theme-frontend { background:#F0FDF4; border:1px solid #A7F3D0; color:#065F46; }
+  .theme-backend  { background:#FFF7ED; border:1px solid #FED7AA; color:#92400E; }
+  .theme-db       { background:#FDF4FF; border:1px solid #E9D5FF; color:#6B21A8; }
+  .theme-infra    { background:#F8FAFC; border:1px solid #CBD5E1; color:#334155; }
+  .theme-api      { background:#ECFEFF; border:1px solid #A5F3FC; color:#155E75; }
+
+  .api-tag.get    { background:#D1FAE5; color:#065F46; }
+  .api-tag.post   { background:#DBEAFE; color:#1E40AF; }
+  .api-tag.static { background:#F3F4F6; color:#374151; }
+
+  /* ── Arrow rows ── */
+  .arrow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 0.72rem;
+    color: #6b7a90;
+  }
+  .arrow-row .line {
+    flex: 1;
+    height: 1px;
+    border-top: 2px dashed #cbd5e1;
+  }
+  .arrow-row .label {
+    background: #fff;
+    padding: 2px 10px;
+    border: 1px solid #dde1e7;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: #6b7a90;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Advantech Switch Selection Tool</h1>
+<p class="subtitle">系統架構圖 — 使用者操作視角 × 程式模組連接</p>
+
+<!-- ══════════════════════════════════
+     1. 使用者操作流程
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">① 使用者操作流程</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr) 20px repeat(4,1fr);align-items:start;gap:8px;">
+
+    <div class="journey-step">
+      <div class="num">1</div>
+      <div class="action">開啟工具</div>
+      <div class="trigger">GitHub Pages<br>/ Cloudflare URL<br>/ localhost</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="num">2</div>
+      <div class="action">設定篩選條件</div>
+      <div class="trigger">管理類型<br>Port 數<br>Advanced Filter</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="num">3</div>
+      <div class="action">搜尋 / 送出</div>
+      <div class="trigger">Find Matching<br>Products</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="num">4</div>
+      <div class="action">查看結果</div>
+      <div class="trigger">清單 / 表格<br>切換 · 排序</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="num">5</div>
+      <div class="action">深入分析</div>
+      <div class="trigger">比較面板<br>SFP 推薦<br>AI 助手</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="num">6</div>
+      <div class="action">匯出報告</div>
+      <div class="trigger">PDF Export<br>/ Compare PDF</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     2. 前端模組
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">② 前端模組（Frontend — GitHub Pages / 瀏覽器執行）</div>
+
+  <!-- 入口點 -->
+  <div class="comp-row col3">
+    <div class="comp theme-entry">
+      <div class="comp-name">🌐 GitHub Pages</div>
+      <div class="comp-desc">https://jim6501.github.io/…<br>靜態托管 frontend/ 資料夾<br>由 GitHub Actions 自動部署</div>
+    </div>
+    <div class="comp theme-entry">
+      <div class="comp-name">🔗 Cloudflare URL</div>
+      <div class="comp-desc">https://api.namecheapest.cc<br>直接存取後端（含前後端）<br>適合公司內部人員使用</div>
+    </div>
+    <div class="comp theme-entry">
+      <div class="comp-name">💻 localhost:8000</div>
+      <div class="comp-desc">本機開發環境<br>FastAPI 直接 serve<br>select_ui_with_options_claude.html</div>
+    </div>
+  </div>
+
+  <div class="arrow-row"><div class="line"></div><div class="label">載入 HTML + CSS + JS</div><div class="line"></div></div>
+
+  <!-- HTML / CSS -->
+  <div class="comp-row col2">
+    <div class="comp theme-frontend">
+      <div class="comp-name">📄 index.html</div>
+      <div class="comp-desc">GitHub Pages 入口，使用<b>相對路徑</b> css/ js/<br>包含所有 UI 結構：篩選區、結果區、Chatbot、Advanced Filter Modal、Compare Bar</div>
+    </div>
+    <div class="comp theme-frontend">
+      <div class="comp-name">🎨 CSS 樣式</div>
+      <div class="comp-desc">
+        <b>style.css</b> — 主樣式、卡片、版面<br>
+        <b>feature-selector.css</b> — Advanced Filter 彈窗<br>
+        <b>compare.css</b> — 比較面板<br>
+        <b>table-view.css</b> — 表格視圖、sticky 欄
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row"><div class="line"></div><div class="label">JS 模組載入順序</div><div class="line"></div></div>
+
+  <!-- JS modules -->
+  <div class="comp-row col4">
+    <div class="comp theme-frontend">
+      <div class="comp-name">⚙ config.js</div>
+      <div class="comp-desc">定義 CLOUDFLARE_API_URL<br>全域唯一 Cloudflare 設定點</div>
+    </div>
+    <div class="comp theme-frontend">
+      <div class="comp-name">⊞ feature-selector.js</div>
+      <div class="comp-desc">Advanced Filter 彈窗邏輯<br>FS_GROUPS 定義 12 個分類<br>動態從 /api/searchProdType 載入子項目</div>
+    </div>
+    <div class="comp theme-frontend">
+      <div class="comp-name">⚡ scenes.js</div>
+      <div class="comp-desc">Quick Start 場景模板<br>SCENE_TEMPLATES 陣列<br>自動填入篩選條件</div>
+    </div>
+    <div class="comp theme-frontend">
+      <div class="comp-name">🔌 sfp-selector.js</div>
+      <div class="comp-desc">SFP 光纖模組推薦<br>讀取 sfp_modules.json<br>依 fiber port 類型渲染推薦卡片</div>
+    </div>
+  </div>
+  <div class="comp-row col2" style="margin-top:10px;">
+    <div class="comp theme-frontend">
+      <div class="comp-name">⚖ compare.js</div>
+      <div class="comp-desc">產品比較面板<br>最多 5 台同時比較<br>compareToggle / compareIsSelected / compareReset</div>
+    </div>
+    <div class="comp theme-frontend" style="border-color:#003366;border-width:2px;">
+      <div class="comp-name">🧠 app.js &nbsp;<span style="font-size:0.65rem;font-weight:400;color:#6b7a90;">（主控制器）</span></div>
+      <div class="comp-desc">
+        <b>detectApiBase()</b> — 自動判斷 API 位址<br>
+        <b>submitItems()</b> — 送出篩選條件<br>
+        <b>renderProductCards() / renderProductTable()</b> — 結果渲染<br>
+        <b>applySort() / switchView()</b> — 排序 / 視圖切換<br>
+        <b>sendMessage()</b> — AI Chatbot 對話
+      </div>
+      <div class="comp-apis">
+        <span class="api-tag post">POST /api/submitProdType</span>
+        <span class="api-tag get">GET /api/searchProdType</span>
+        <span class="api-tag post">POST /api/chat</span>
+        <span class="api-tag post">POST /api/exportReport</span>
+        <span class="api-tag static">GET sfp_modules.json</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     3. 網路傳輸層
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">③ 網路傳輸層</div>
+  <div class="comp-row col3">
+    <div class="comp theme-infra">
+      <div class="comp-name">🔀 detectApiBase()</div>
+      <div class="comp-desc">
+        <b>localhost / 127.0.0.1</b> → http://127.0.0.1:8000<br>
+        <b>GitHub Pages 等外部網域</b> → CLOUDFLARE_API_URL<br>
+        (https://api.namecheapest.cc)<br>
+        <b>Cloudflare URL 直接開啟</b> → window.location.origin
+      </div>
+    </div>
+    <div class="comp theme-infra" style="text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:6px;">☁</div>
+      <div class="comp-name">Cloudflare Tunnel</div>
+      <div class="comp-desc">
+        cloudflared 在內部電腦執行<br>
+        <b>outbound only</b>，不需開防火牆<br>
+        外網 → Cloudflare Edge → 內部 localhost:8000
+      </div>
+    </div>
+    <div class="comp theme-infra">
+      <div class="comp-name">🚀 GitHub Actions</div>
+      <div class="comp-desc">
+        push to master → 自動觸發<br>
+        deploy-pages.yml<br>
+        將 frontend/ 部署至 GitHub Pages
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     4. 後端模組
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">④ 後端模組（Backend — FastAPI，內部電腦執行）</div>
+
+  <div class="comp-row col1">
+    <div class="comp theme-backend">
+      <div class="comp-name">🖥 app/main.py &nbsp;<span style="font-size:0.65rem;font-weight:400;">FastAPI 應用程式入口</span></div>
+      <div class="comp-desc">
+        Static mount: <code>/frontend</code> → frontend/ 資料夾 &nbsp;|&nbsp;
+        Router 掛載: <code>/api</code> → selection.py、chat.py
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-row col3" style="margin-top:10px;">
+    <div class="comp theme-api">
+      <div class="comp-name">📦 /api/submitProdType</div>
+      <div class="comp-desc">
+        <b>POST</b>　篩選產品主要 API<br>
+        接收：type, portnum, items[], application<br>
+        查詢：MongoDB hardware + software collections<br>
+        回傳：ProductItemResponse[] (Pydantic)
+      </div>
+    </div>
+    <div class="comp theme-api">
+      <div class="comp-name">🔍 /api/searchProdType</div>
+      <div class="comp-desc">
+        <b>GET</b> ?q=keyword<br>
+        即時搜尋功能列表<br>
+        掃描 software.feat_key / hardware.Application<br>
+        回傳：SearchFeatureItem[]
+      </div>
+    </div>
+    <div class="comp theme-api">
+      <div class="comp-name">🤖 /api/chat</div>
+      <div class="comp-desc">
+        <b>POST</b>　AI 問答<br>
+        接收：message, context (selected_models), history<br>
+        呼叫：LLM API（Claude）<br>
+        回傳：answer, referenced_models, sources
+      </div>
+    </div>
+  </div>
+  <div class="comp-row col2" style="margin-top:10px;">
+    <div class="comp theme-api">
+      <div class="comp-name">📄 /api/exportReport</div>
+      <div class="comp-desc">
+        <b>POST</b>　PDF 報表匯出<br>
+        接收：選型條件 + 產品清單<br>
+        產生 PDF 並回傳 base64
+      </div>
+    </div>
+    <div class="comp theme-backend">
+      <div class="comp-name">🗂 app/api/selection.py</div>
+      <div class="comp-desc">
+        核心選型邏輯<br>
+        base_hardware_mappings：PORT_FEATURE / PORT_SPEED / POWER key labels<br>
+        safe_int() 欄位轉換<br>
+        ProductItemResponse 欄位從 MongoDB 逐一 mapping
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     5. 資料層
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">⑤ 資料層</div>
+  <div class="comp-row col3">
+    <div class="comp theme-db">
+      <div class="comp-name">🗄 MongoDB — hardware collection</div>
+      <div class="comp-desc">
+        每筆為一台產品<br>
+        欄位：Model Name, PN, RJ45 GbE, Fiber 10G, Application,<br>
+        Fiber Type, Fiber Connector, Power Input, Temp, URL…
+      </div>
+    </div>
+    <div class="comp theme-db">
+      <div class="comp-name">🗄 MongoDB — software collection</div>
+      <div class="comp-desc">
+        每筆為一個軟體功能項目<br>
+        欄位：feat_key, label, category, support (boolean)<br>
+        category 對應 feature-selector.js 的 FS_GROUPS
+      </div>
+    </div>
+    <div class="comp theme-infra">
+      <div class="comp-name">📁 sfp_modules.json</div>
+      <div class="comp-desc">
+        靜態 JSON，存放 SFP 模組型錄<br>
+        欄位：part, speed, cat, mode, bidi, conn, dist, wave, note<br>
+        由 sfp-selector.js 在 SFP Guide tab 開啟時載入
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     6. 完整資料流
+     ══════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">⑥ 完整資料流（以「搜尋產品」為例）</div>
+  <div style="font-size:0.78rem;line-height:2.2;font-family:'Courier New',monospace;background:#f8faff;border:1px solid #b3cfea;border-radius:8px;padding:16px 20px;color:#1a2233;">
+    使用者點「Find Matching Products」<br>
+    &nbsp;&nbsp;↓ submitItems() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6b7a90;">// app.js</span><br>
+    &nbsp;&nbsp;↓ detectApiBase() → API_BASE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6b7a90;">// 決定打哪個網址</span><br>
+    &nbsp;&nbsp;↓ fetch POST {API_BASE}/api/submitProdType<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ [Cloudflare Tunnel 或 直連 localhost:8000]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ FastAPI router → selection.py<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ MongoDB query (hardware + software)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ 建立 ProductItemResponse[] (Pydantic)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ JSON response → 瀏覽器<br>
+    &nbsp;&nbsp;↓ data.products → currentDataList<br>
+    &nbsp;&nbsp;↓ applySort() → 排序<br>
+    &nbsp;&nbsp;↓ _renderCurrentView(sortedList)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ renderProductCards() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6b7a90;">// List 模式</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ renderProductTable() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6b7a90;">// Table 模式</span><br>
+    使用者看到結果
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="section" style="padding:16px 20px;">
+  <div class="section-title" style="margin-bottom:12px;">圖例</div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#EFF6FF;border:1px solid #BFDBFE;"></div>使用者入口點</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#F0FDF4;border:1px solid #A7F3D0;"></div>前端模組（瀏覽器）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FFF7ED;border:1px solid #FED7AA;"></div>後端模組（FastAPI）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ECFEFF;border:1px solid #A5F3FC;"></div>API Endpoint</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FDF4FF;border:1px solid #E9D5FF;"></div>資料庫（MongoDB）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#F8FAFC;border:1px solid #CBD5E1;"></div>基礎設施</div>
+  </div>
+</div>
+
+</body>
+</html>

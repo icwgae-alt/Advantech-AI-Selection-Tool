@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advantech Industrial Switch AI Selection Tool — 工業交換機智能選型工具">
+    <title>Advantech Switch Selection Tool</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/frontend/css/style.css?v=2">
+    <link rel="stylesheet" href="/frontend/css/feature-selector.css">
+    <link rel="stylesheet" href="/frontend/css/compare.css">
+    <link rel="stylesheet" href="/frontend/css/table-view.css">
+
+    <!-- marked.js：Markdown 渲染（Chatbot 回覆美化） -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- html2pdf.js：PDF 匯出 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+    <div class="page-header">
+        <div class="logo-mark">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect x="2"  y="2"  width="8" height="8" fill="white" opacity="0.9" />
+                <rect x="12" y="2"  width="8" height="8" fill="white" opacity="0.5" />
+                <rect x="2"  y="12" width="8" height="8" fill="white" opacity="0.5" />
+                <rect x="12" y="12" width="8" height="8" fill="white" opacity="0.9" />
+            </svg>
+        </div>
+        <div>
+            <h1>Advantech Industrial Switch</h1>
+            <p>Selection Tool · v1.0</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <div class="main-container">
+
+        <div class="upper-part">
+
+            <!-- 左側：篩選條件 -->
+            <div class="left-part card">
+                <h3>Device Configuration</h3>
+
+                <!-- Quick Start 場景模板 -->
+                <div class="section scene-section">
+                    <label>⚡ Quick Start — Applications</label>
+                    <div class="scene-grid" id="sceneGrid">
+                        <!-- 由 initSceneGrid() 動態產生 -->
+                    </div>
+                    <button class="scene-clear-link" id="sceneClearBtn" onclick="clearScene()" style="display:none">✕ Clear Scene</button>
+                    <button class="scene-restore-btn" id="sceneRestoreBtn" onclick="restoreSceneDefaults()" style="display:none">↺ Restore Defaults</button>
+                </div>
+
+                <div class="section">
+                    <label><span class="step-badge">1</span> Management Type</label>
+                    <select id="mgmtType">
+                        <option value="" disabled selected hidden>Please select Management Type ...</option>
+                        <option value="managed">Managed (All)</option>
+                        <option value="l2_managed">L2 Managed</option>
+                        <option value="l3_managed">L3 Managed</option>
+                        <option value="unmanaged">Unmanaged</option>
+                    </select>
+                </div>
+
+                <div class="section">
+                    <label><span class="step-badge">2</span> Port Number</label>
+                    <select id="numInput">
+                        <option value="" disabled selected hidden>Please select port number ...</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="26">26</option>
+                        <option value="28">28</option>
+                    </select>
+                </div>
+
+                <div class="section">
+                    <label><span class="step-badge">3</span> Search Inventory</label>
+                    <input type="text" id="searchInput" placeholder="Search product items…">
+                    <div id="searchResults"></div>
+                    <button id="advancedFilterBtn" type="button">⊞ Advanced Filter</button>
+                </div>
+            </div>
+
+            <!-- 右側：選型摘要 -->
+            <div class="right-part card">
+                <h3>Selection Summary</h3>
+
+                <div class="forth-part">
+                    <label>Filter Conditions</label>
+                    <div id="filterTags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;min-height:28px;"></div>
+                    <label>Chosen Items</label>
+                    <div class="chosen-items-area">
+                        <div id="selectedItems"></div>
+                    </div>
+                </div>
+
+                <div class="btn-group" style="margin-top:16px;">
+                    <button onclick="submitItems()" type="button" class="submit-btn">🔍 Find Matching Products</button>
+                    <button onclick="resetAll()" type="button" class="submit-btn secondary">↺ Reset All</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 下方：結果卡片列表 -->
+        <div class="lower-part card">
+            <div class="results-header">
+                <h3>Acquired Product Information</h3>
+                <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px;">
+                    <!-- View Toggle -->
+                    <div class="view-toggle">
+                        <button class="view-tab-btn active" id="view-btn-list" onclick="switchView('list')" title="Card List">
+                            <i class="ti ti-layout-list" aria-hidden="true"></i> List
+                        </button>
+                        <button class="view-tab-btn" id="view-btn-table" onclick="switchView('table')" title="Table View">
+                            <i class="ti ti-table" aria-hidden="true"></i> Table
+                        </button>
+                    </div>
+                    <!-- Col Picker (table mode only) -->
+                    <button class="col-picker-btn" id="tv-col-picker-btn" onclick="tvToggleColPanel()" style="display:none;">
+                        <i class="ti ti-columns" aria-hidden="true"></i> Columns
+                    </button>
+                    <select id="sortSelect" onchange="applySort()" class="sort-select">
+                        <option value="default">Default Sorting</option>
+                        <option value="port_asc">Total Ports: Low to High</option>
+                        <option value="port_desc">Total Ports: High to Low</option>
+                        <option value="model_asc">Model Name: A to Z</option>
+                        <option value="model_desc">Model Name: Z to A</option>
+                        <option value="mgmt_asc">Management: Basic to Advanced</option>
+                        <option value="mgmt_desc">Management: Advanced to Basic</option>
+                    </select>
+                    <div class="count-badge">
+                        <span class="count-dot"></span>
+                        Total: <span id="itemCount">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-list" id="prodList"></div>
+        </div>
+
+    </div><!-- /.main-container -->
+
+
+    <!-- ═══════════════ CHATBOT PANEL ═══════════════ -->
+
+    <button id="chatFab" onclick="toggleChat()" title="AI Assistant" style="display:none">💬</button>
+
+    <div id="chatPanel">
+        <div id="chatHeader">
+            <div class="chat-header-title">
+                <span class="ai-dot"></span>
+                <span>🤖 AI Assistant</span>
+            </div>
+            <div class="chat-header-actions">
+                <button id="chatClearBtn" onclick="clearChat()" title="Clear Chat History">🗑️</button>
+                <button id="chatCloseBtn" onclick="toggleChat()">✕</button>
+            </div>
+        </div>
+
+        <div id="contextBar">No models selected</div>
+
+        <div id="chatMessages">
+            <div class="msg-bubble assistant">
+                Hello! I am the Advantech Industrial Switch AI Assistant.<br>
+                Please select models on the left before asking, or describe your application needs directly.
+            </div>
+        </div>
+
+        <div id="quickPrompts">
+            <button class="quick-btn" onclick="sendQuick('Application: Power System')">⚡ Power System</button>
+            <button class="quick-btn" onclick="sendQuick('Application: Railway System')">🚆 Railway System</button>
+            <button class="quick-btn" onclick="sendQuick('What is the operating temperature range?')">🌡️ Temp Spec</button>
+            <button class="quick-btn" onclick="sendQuick('Which model supports PoE? What is the power budget?')">⚡ PoE Feature</button>
+            <button class="quick-btn" onclick="sendQuick('Compare the port count and types of these models')">🔌 Port Compare</button>
+        </div>
+
+        <div id="chatInputBar">
+            <textarea id="chatInput" rows="1" placeholder="Type your question... (Enter to send)"></textarea>
+            <button id="chatSendBtn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════ FEATURE SELECTOR MODAL ═══════════════ -->
+    <div id="fs-modal-overlay">
+        <div id="fs-modal-container">
+            <div id="fs-modal-header">
+                <span>⊞ Advanced Features Filter</span>
+                <button id="fs-modal-close">✕</button>
+            </div>
+            <div id="fs-modal-body">
+                <!-- 已選功能 Chip 列 -->
+                <div id="fs-chip-bar">
+                    <span id="fs-chip-hint">No features selected</span>
+                </div>
+                <!-- 搜尋框 -->
+                <div class="fs-search-wrap">
+                    <input type="text" id="fs-search" placeholder="Search features... (e.g. VLAN, PoE, STP, TSN)">
+                    <span id="fs-s-clear">×</span>
+                </div>
+                <!-- 大分類卡片格（由 feature-selector.js 動態產生） -->
+                <div id="fs-cat-grid"></div>
+                <!-- 子功能展開區域（由 feature-selector.js 動態產生） -->
+                <div id="fs-sub-area"></div>
+            </div>
+            <div id="fs-modal-footer">
+                <button id="fs-cancel-btn">Cancel</button>
+                <button id="fs-apply-btn">Apply Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ COMPARE BAR（底部浮動列） ═══════════════ -->
+    <div id="cmp-bar"></div>
+
+    <!-- ═══════════════ COMPARE PANEL（右側拉出面板） ═══════════════ -->
+    <div id="cmp-panel"></div>
+
+    <!-- Main Application Script（放在 body 底部確保 DOM 已載入） -->
+    <script src="/frontend/js/config.js"></script>
+    <script src="/frontend/js/feature-selector.js?v=3"></script>
+    <script src="/frontend/js/scenes.js?v=3"></script>
+    <script src="/frontend/js/sfp-selector.js?v=4"></script>
+    <script src="/frontend/js/compare.js"></script>
+    <script src="/frontend/js/app.js?v=3"></script>
+
+</body>
+
+</html>

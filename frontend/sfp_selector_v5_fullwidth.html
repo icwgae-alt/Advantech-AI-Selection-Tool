@@ -1,0 +1,252 @@
+
+<h2 class="sr-only">SFP 選型工具 v5：單欄橫向折疊，分類佔滿全寬</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1.5rem 0}
+.row{display:flex;gap:8px;margin-bottom:1rem}
+.row input{flex:1}
+.lbl{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:8px;margin-bottom:1.5rem}
+.dcard{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.75rem 1rem;cursor:pointer;transition:border-color .15s}
+.dcard:hover{border-color:var(--color-border-secondary)}
+.dcard.sel{border:2px solid #378ADD}
+.dname{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;font-family:var(--font-mono)}
+.ddesc{font-size:12px;color:var(--color-text-secondary);margin-bottom:8px;line-height:1.4}
+.dtags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:var(--border-radius-md);font-weight:500}
+.t-mm{background:#E1F5EE;color:#085041}.t-sm{background:#E6F1FB;color:#0C447C}
+.t-sfp{background:#EEEDFE;color:#3C3489}.t-fix{background:#F1EFE8;color:#444441}
+.t-cu{background:#FAEEDA;color:#633806}.t-neu{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.t-bidi{background:#FBEAF0;color:#72243E}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:1.5rem 0}
+.rlabel{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:.5rem}
+.slot-meta{display:flex;align-items:center;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
+.notice{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.notice strong{color:var(--color-text-primary);font-weight:500}
+
+.acc{width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:8px}
+.acc-hdr{display:flex;align-items:center;justify-content:space-between;width:100%;padding:.75rem 1rem;cursor:pointer;background:var(--color-background-secondary);border:none;text-align:left;transition:background .15s}
+.acc-hdr:hover{background:var(--color-background-primary)}
+.acc-hdr.open{background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary)}
+.acc-left{display:flex;align-items:center;gap:10px}
+.acc-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.acc-sub{font-size:12px;color:var(--color-text-secondary)}
+.acc-count{font-size:11px;color:var(--color-text-tertiary);background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);padding:1px 8px;border-radius:10px}
+.acc-arrow{font-size:13px;color:var(--color-text-tertiary);transition:transform .2s;flex-shrink:0}
+.acc-hdr.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:1rem}
+.acc-body.open{display:block}
+
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.scard{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.7rem .875rem}
+.spart{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px;font-family:var(--font-mono)}
+.smeta{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}
+.sdet{font-size:11px;color:var(--color-text-secondary);line-height:1.6}
+.spair{font-size:11px;color:var(--color-text-tertiary);margin-top:3px;padding-top:3px;border-top:.5px solid var(--color-border-tertiary)}
+.combo-pill{background:#FAEEDA;color:#633806;font-size:11px;padding:3px 10px;border-radius:10px;font-weight:500}
+</style>
+
+<div class="wrap">
+<div class="row">
+  <input type="text" id="q" placeholder="搜尋設備型號... 例如 EKI-5626CI" oninput="render()">
+  <button onclick="clearAll()">清除</button>
+</div>
+<div class="lbl">選擇設備</div>
+<div class="dgrid" id="dg"></div>
+<div id="rs" style="display:none">
+  <hr class="divider">
+  <div class="rlabel" id="rl"></div>
+  <div id="rb"></div>
+</div>
+</div>
+
+<script>
+const devices=[
+  {id:"EKI-5524MMI",desc:"2x 100M Fiber",ft:"fixed",mode:"multi-mode",conn:"SC",speed:"100M"},
+  {id:"EKI-5524SSI",desc:"2x 100M Fiber",ft:"fixed",mode:"single-mode",conn:"SC",speed:"100M"},
+  {id:"EKI-5525MI",desc:"1x 100M Fiber",ft:"fixed",mode:"multi-mode",conn:"SC",speed:"100M"},
+  {id:"EKI-5525MI-ST",desc:"1x 100M Fiber",ft:"fixed",mode:"multi-mode",conn:"ST",speed:"100M"},
+  {id:"EKI-5525SI",desc:"1x 100M Fiber",ft:"fixed",mode:"single-mode",conn:"SC",speed:"100M"},
+  {id:"EKI-5525SI-ST",desc:"1x 100M Fiber",ft:"fixed",mode:"single-mode",conn:"ST",speed:"100M"},
+  {id:"EKI-5626CI",desc:"2x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-5629CI",desc:"2x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-5629CI-EI",desc:"2x 1G SFP Wide Temp",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-5726FI-MB",desc:"2x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-5708E-2FI",desc:"2x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-2428G-4CA",desc:"24G + 4x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-2725F",desc:"4G + 1x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-2728M",desc:"6G + 2x 1G SFP Multi-mode",ft:"sfp",slots:[{speed:"1G",mode:"multi-mode"}]},
+  {id:"EKI-2720G-4F",desc:"16G + 4x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-7412G-4XP",desc:"4x 10G SFP+",ft:"sfp",slots:[{speed:"10G",mode:"any"}]},
+  {id:"EKI-7428G-4CA",desc:"4x 1G SFP",ft:"sfp",slots:[{speed:"1G",mode:"any"}]},
+  {id:"EKI-7454G-6X",desc:"6x 10G SFP+",ft:"sfp",slots:[{speed:"10G",mode:"any"}]},
+  {id:"EKI-5629CI-MB",desc:"2x 1G SFP + 1x Combo",ft:"sfp",slots:[{speed:"1G",mode:"any"},{speed:"1G",mode:"any",combo:true}]},
+];
+
+const sfp=[
+  {part:"SFP-FMM850-2K",speed:"100M",mode:"multi-mode",conn:"LC",dist:"2 km",wave:"850 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-FMM-2K",speed:"100M",mode:"multi-mode",conn:"LC",dist:"2 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-FSM-20K",speed:"100M",mode:"single-mode",conn:"LC",dist:"20 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-FSM-40K",speed:"100M",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-FSS-20KTX",speed:"100M",mode:"single-mode",conn:"SC",dist:"20 km",wave:"1310/1550 nm",duplex:"Simplex",bidi:true,pair:"SFP-FSS-20KRX",cat:"fiber"},
+  {part:"SFP-FSS-20KRX",speed:"100M",mode:"single-mode",conn:"SC",dist:"20 km",wave:"1550/1310 nm",duplex:"Simplex",bidi:true,pair:"SFP-FSS-20KTX",cat:"fiber"},
+  {part:"SFP-FSS-40KTX",speed:"100M",mode:"single-mode",conn:"SC",dist:"40 km",wave:"1310/1550 nm",duplex:"Simplex",bidi:true,pair:"SFP-FSS-40KRX",cat:"fiber"},
+  {part:"SFP-FSS-40KRX",speed:"100M",mode:"single-mode",conn:"SC",dist:"40 km",wave:"1550/1310 nm",duplex:"Simplex",bidi:true,pair:"SFP-FSS-40KTX",cat:"fiber"},
+  {part:"SFP-GMM-550",speed:"1G",mode:"multi-mode",conn:"LC",dist:"550 m",wave:"850 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GMM-2K",speed:"1G",mode:"multi-mode",conn:"LC",dist:"2 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GSM-20K",speed:"1G",mode:"single-mode",conn:"LC",dist:"20 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GSM3-40K",speed:"1G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GSM-40K",speed:"1G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1550 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GZX-LCI-80E",speed:"1G",mode:"single-mode",conn:"LC",dist:"80 km",wave:"1550 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-GSS-40KTX-LC",speed:"1G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1310/1550 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-40KRX-LC",cat:"fiber"},
+  {part:"SFP-GSS-40KRX-LC",speed:"1G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1550/1310 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-40KTX-LC",cat:"fiber"},
+  {part:"SFP-GSS-20KTX",speed:"1G",mode:"single-mode",conn:"SC",dist:"20 km",wave:"1310/1550 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-20KRX",cat:"fiber"},
+  {part:"SFP-GSS-20KRX",speed:"1G",mode:"single-mode",conn:"SC",dist:"20 km",wave:"1550/1310 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-20KTX",cat:"fiber"},
+  {part:"SFP-GSS-40KTX",speed:"1G",mode:"single-mode",conn:"SC",dist:"40 km",wave:"1310/1550 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-40KRX",cat:"fiber"},
+  {part:"SFP-GSS-40KRX",speed:"1G",mode:"single-mode",conn:"SC",dist:"40 km",wave:"1550/1310 nm",duplex:"Simplex",bidi:true,pair:"SFP-GSS-40KTX",cat:"fiber"},
+  {part:"SFP-XMM-LCI-400",speed:"10G",mode:"multi-mode",conn:"LC",dist:"400 m",wave:"850 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-XSM-LCI-10K",speed:"10G",mode:"single-mode",conn:"LC",dist:"10 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-XSM-LCI-20K",speed:"10G",mode:"single-mode",conn:"LC",dist:"20 km",wave:"1310 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-XSM5-LCI-40K",speed:"10G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1550 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-XSM-LCI-80K",speed:"10G",mode:"single-mode",conn:"LC",dist:"80 km",wave:"1550 nm",duplex:"Duplex",cat:"fiber"},
+  {part:"SFP-XSS-10KTX-LC",speed:"10G",mode:"single-mode",conn:"LC",dist:"10 km",wave:"1270/1330 nm",duplex:"Simplex",bidi:true,pair:"SFP-XSS-10KRX-LC",cat:"fiber",note:"0~70°C"},
+  {part:"SFP-XSS-10KRX-LC",speed:"10G",mode:"single-mode",conn:"LC",dist:"10 km",wave:"1330/1270 nm",duplex:"Simplex",bidi:true,pair:"SFP-XSS-10KTX-LC",cat:"fiber",note:"0~70°C"},
+  {part:"SFP-XSS-40KTX-LC",speed:"10G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1270/1330 nm",duplex:"Simplex",bidi:true,pair:"SFP-XSS-40KRX-LC",cat:"fiber",note:"0~70°C"},
+  {part:"SFP-XSS-40KRX-LC",speed:"10G",mode:"single-mode",conn:"LC",dist:"40 km",wave:"1330/1270 nm",duplex:"Simplex",bidi:true,pair:"SFP-XSS-40KTX-LC",cat:"fiber",note:"0~70°C"},
+  {part:"SFP-FTX-RJ45I-AE",speed:"100M",mode:"copper",conn:"RJ45",dist:"100 m",cat:"copper",note:"-40~85°C"},
+  {part:"SFP-GTXB",speed:"1G",mode:"copper",conn:"RJ45",dist:"100 m",cat:"copper",note:"0~70°C"},
+  {part:"SFP-GTX",speed:"1G",mode:"copper",conn:"RJ45",dist:"100 m",cat:"copper",note:"-40~85°C，需 SGMII 介面"},
+  {part:"SFP-10GTX",speed:"10G",mode:"copper",conn:"RJ45",dist:"30 m(10G) / 100 m(1G)",cat:"copper",note:"0~70°C"},
+  {part:"SFP-10GTXI",speed:"10G",mode:"copper",conn:"RJ45",dist:"100 m",cat:"copper",note:"-40~85°C"},
+];
+
+let sel=null;
+const open={};
+
+function compat(slot){
+  return sfp.filter(s=>{
+    if(s.speed!==slot.speed) return false;
+    if(s.cat==="copper") return true;
+    if(slot.mode==="any") return true;
+    if(slot.mode==="multi-mode") return s.mode==="multi-mode";
+    if(slot.mode==="single-mode") return s.mode==="single-mode";
+    return true;
+  });
+}
+
+function scard(s){
+  const mTag=s.cat==="copper"
+    ?`<span class="tag t-cu">Copper</span>`
+    :s.mode==="multi-mode"?`<span class="tag t-mm">Multi-mode</span>`:`<span class="tag t-sm">Single-mode</span>`;
+  const bTag=s.bidi?`<span class="tag t-bidi">BiDi</span>`:"";
+  const connTag=`<span class="tag t-neu">${s.conn}</span>`;
+  const duplexTag=s.duplex?`<span class="tag t-neu">${s.duplex}</span>`:"";
+  return`<div class="scard">
+    <div class="spart">${s.part}</div>
+    <div class="smeta">${mTag}${bTag}${connTag}${duplexTag}</div>
+    <div class="sdet">${s.dist}${s.wave?" &nbsp;·&nbsp; &lambda; "+s.wave:""}</div>
+    ${s.note?`<div class="sdet">${s.note}</div>`:""}
+    ${s.bidi?`<div class="spair">配對：${s.pair}</div>`:""}
+  </div>`;
+}
+
+function accordion(key,tagHtml,title,sub,mods){
+  if(!mods.length) return"";
+  const isOpen=open[key];
+  return`<div class="acc">
+    <button class="acc-hdr${isOpen?" open":""}" onclick="tog('${key}')">
+      <div class="acc-left">
+        ${tagHtml}
+        <span class="acc-title">${title}</span>
+        <span class="acc-sub">${sub}</span>
+        <span class="acc-count">${mods.length} 款</span>
+      </div>
+      <span class="acc-arrow">&#8964;</span>
+    </button>
+    <div class="acc-body${isOpen?" open":""}" id="ab-${key}">
+      <div class="sgrid">${mods.map(scard).join("")}</div>
+    </div>
+  </div>`;
+}
+
+function tog(key){
+  open[key]=!open[key];
+  const hdr=document.querySelector(`button.acc-hdr[onclick="tog('${key}')"]`);
+  const body=document.getElementById("ab-"+key);
+  if(hdr) hdr.classList.toggle("open",open[key]);
+  if(body) body.classList.toggle("open",open[key]);
+}
+
+function showResult(dev){
+  document.getElementById("rs").style.display="block";
+  document.getElementById("rl").textContent=dev.id+" — "+dev.desc;
+
+  if(dev.ft==="fixed"){
+    document.getElementById("rb").innerHTML=`<div class="notice">此設備為<strong>固定式光纖接頭（${dev.mode==="multi-mode"?"Multi-mode":"Single-mode"} / ${dev.conn}）</strong>，不需要也無法插入 SFP 模組。<br><br>請直接使用 <strong>${dev.mode==="multi-mode"?"多模光纖（OM1/OM2）":"單模光纖（G.652）"}</strong> · 接頭 <strong>${dev.conn}</strong> 的跳線連接。</div>`;
+    return;
+  }
+
+  let html="";
+  dev.slots.forEach((slot,i)=>{
+    const pre=`s${i}`;
+    const mods=compat(slot);
+    const slotLabel=slot.combo?"Combo Port":"SFP 槽"+(dev.slots.length>1?" "+(i+1):"");
+
+    html+=`<div class="slot-meta">
+      <span class="tag t-sfp">${slotLabel} · ${slot.speed}</span>
+      ${slot.combo?`<span class="combo-pill">插入 SFP 後同埠 RJ45 停用</span>`:""}
+    </div>`;
+
+    const mm=mods.filter(s=>s.cat==="fiber"&&s.mode==="multi-mode"&&!s.bidi);
+    const sm=mods.filter(s=>s.cat==="fiber"&&s.mode==="single-mode"&&!s.bidi);
+    const bidi=mods.filter(s=>s.cat==="fiber"&&s.bidi);
+    const cu=mods.filter(s=>s.cat==="copper");
+
+    html+=accordion(`${pre}-mm`,`<span class="tag t-mm">Multi-mode</span>`,"多模光纖","OM1 / OM2",mm);
+    html+=accordion(`${pre}-sm`,`<span class="tag t-sm">Single-mode</span>`,"單模光纖","G.652",sm);
+    html+=accordion(`${pre}-bidi`,`<span class="tag t-bidi">BiDi</span>`,"單芯雙向","需成對選購",bidi);
+    html+=accordion(`${pre}-cu`,`<span class="tag t-cu">Copper</span>`,"SFP 轉 RJ45","銅線接頭",cu);
+
+    if(i<dev.slots.length-1) html+=`<hr class="divider">`;
+  });
+
+  document.getElementById("rb").innerHTML=html;
+}
+
+function render(){
+  const q=document.getElementById("q").value.toLowerCase();
+  const list=devices.filter(d=>d.id.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q));
+  document.getElementById("dg").innerHTML=list.map(d=>{
+    const slots=d.slots||[];
+    const mainTag=d.ft==="fixed"?`<span class="tag t-fix">固定接頭</span>`:
+      slots[0]?.mode==="multi-mode"?`<span class="tag t-mm">Multi-mode SFP</span>`:
+      slots[0]?.mode==="single-mode"?`<span class="tag t-sm">Single-mode SFP</span>`:
+      `<span class="tag t-sfp">通用 SFP</span>`;
+    const spd=d.ft==="fixed"
+      ?`<span class="tag t-neu">${d.speed}</span><span class="tag t-neu">${d.conn}</span>`
+      :slots.map(s=>`<span class="tag t-neu">${s.speed}</span>${s.combo?`<span class="tag t-neu">Combo</span>`:""}`).join("");
+    return`<div class="dcard${sel===d.id?" sel":""}" onclick="pick('${d.id}')">
+      <div class="dname">${d.id}</div>
+      <div class="ddesc">${d.desc}</div>
+      <div class="dtags">${mainTag}${spd}</div>
+    </div>`;
+  }).join("");
+  if(sel){const d=devices.find(x=>x.id===sel);if(d)showResult(d);}
+}
+
+function pick(id){
+  sel=id;
+  Object.keys(open).forEach(k=>delete open[k]);
+  showResult(devices.find(x=>x.id===id));
+  render();
+}
+
+function clearAll(){
+  sel=null;
+  document.getElementById("q").value="";
+  document.getElementById("rs").style.display="none";
+  render();
+}
+
+render();
+</script>
