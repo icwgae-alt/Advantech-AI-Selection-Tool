@@ -34,6 +34,7 @@ const I18N_DICT = {
         columns: 'Columns',
         exportCsv: 'Export CSV',
         exportCsvTooltip: 'Download full table as CSV',
+        selectColumnsToDisplay: 'Select columns to display',
 
         advancedFilter: 'Advanced Filter',
         advancedFeaturesFilter: 'Advanced Features Filter',
@@ -79,6 +80,7 @@ const I18N_DICT = {
         columns: '列設定',
         exportCsv: 'CSV エクスポート',
         exportCsvTooltip: 'テーブル全体を CSV でダウンロード',
+        selectColumnsToDisplay: '表示する列を選択',
 
         advancedFilter: '詳細フィルター',
         advancedFeaturesFilter: '詳細機能フィルター',
