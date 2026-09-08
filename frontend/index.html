@@ -331,10 +331,15 @@
     <!-- Main Application Script -->
     <script src="js/config.js"></script>
     <script>
-        // ENABLE_CHATBOT 為 false 時，移除聊天機器人相關 DOM（外部發布版本使用）
+        // ENABLE_CHATBOT 為 false 時，隱藏聊天機器人相關 DOM（外部發布版本使用）
+        // 注意：只能用 CSS 隱藏，不能整個 remove() —— app.js 頂層有直接對
+        // #chatInput 等元素呼叫 addEventListener 的程式碼，若元素不存在會
+        // 拋出例外，導致 app.js 後續程式碼（含 tvActiveCols 宣告）都不會執行。
         if (typeof ENABLE_CHATBOT !== 'undefined' && !ENABLE_CHATBOT) {
-            document.getElementById('chatFab')?.remove();
-            document.getElementById('chatPanel')?.remove();
+            const chatFab = document.getElementById('chatFab');
+            const chatPanel = document.getElementById('chatPanel');
+            if (chatFab) chatFab.style.setProperty('display', 'none', 'important');
+            if (chatPanel) chatPanel.style.setProperty('display', 'none', 'important');
         }
     </script>
     <script src="js/i18n.js?v=1"></script>
